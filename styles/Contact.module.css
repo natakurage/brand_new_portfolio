@@ -133,24 +133,9 @@
   }
 }
 
-@keyframes rotate {
-  from {
-    transform: rotate(360deg);
-  }
-  to {
-    transform: rotate(0deg);
-  }
-}
-
-.creatorName {
-  text-align: center;
-  margin-top: 2rem;
-  margin-bottom: 1.4rem;
-}
 
 ul.links {
-  list-style: none;
-  display: flex;
+  list-style: none;  
   font-size: 1.75rem;
   margin-bottom: 3rem;
 }
@@ -158,4 +143,14 @@ ul.links {
 ul.links li {
   margin-left: 0.5em;
   margin-right: 0.5em;
+}
+
+ul.links li a {
+  vertical-align: middle;
+}
+
+.linkName {
+  vertical-align: middle;
+  font-size: 1rem;
+  margin-left: 0.3rem;
 }
