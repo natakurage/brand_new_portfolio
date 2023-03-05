@@ -1,12 +1,14 @@
 import Head from 'next/head'
 import { Inter } from 'next/font/google'
-import styles from '@/styles/Home.module.css'
+import styles from '@/styles/Std.module.css'
 import Link from 'next/link'
 import YouTubeEmbed from '@/src/YoutubeEmbed'
+import Return from '@/src/Return'
+import Card from '@/src/Card'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Home() {
+export default function Works() {
   return (
     <>
       <Head>
@@ -17,95 +19,77 @@ export default function Home() {
         <article>
           <h1>作品</h1>
           <h2>音楽（クリックで再生）</h2>
-          <div
-            className={styles.card}
-          >
-            <YouTubeEmbed vid="eZ7RIt0eu24" width={500}></YouTubeEmbed>
-            <h3 className={inter.className}>
-            いいから黙って仕事しろ
-            </h3>
-            <p className={styles.description}>
-              お前は、自分の仕事だけやってればいいんだよ。
-            </p>
-          </div>
-          <div
-            className={styles.card}
-          >
-            <YouTubeEmbed vid="RHSTOALaNJw" width={500}></YouTubeEmbed>
-            <h3 className={inter.className}>
-              沈んでゆく
-            </h3>
-            <p className={styles.description}>
-              底のない闇へ、沈んでゆく――。
-            </p>
-          </div>
-          <div
-            className={styles.card}
-          >
-            <YouTubeEmbed vid="GbWEbPU8-Xk" width={500}></YouTubeEmbed>
-            <h3 className={inter.className}>
-              血の涙
-            </h3>
-            <p className={styles.description}>
-              目を逸らしたくなるけど、突き放したくなるけど、これは紛れもない現実。
-            </p>
+          <div className={styles.grid}>
+          <div>
+              <YouTubeEmbed vid="eZ7RIt0eu24"/>
+              <Card
+                title="いいから黙って仕事しろ"
+                content="お前は、自分の仕事だけやってればいいんだよ。"
+              />
+            </div>
+            <div>
+              <YouTubeEmbed vid="RHSTOALaNJw"/>
+              <Card
+                title="沈んでゆく"
+                content="底のない闇へ、沈んでゆく――。"
+              />
+            </div>
+            <div>
+              <YouTubeEmbed vid="GbWEbPU8-Xk"/>
+              <Card
+                title="血の涙"
+                content="目を逸らしたくなるけど、突き放したくなるけど、これは紛れもない現実。"
+              />
+            </div>
+            <div>
+              <YouTubeEmbed vid="QEHP5YndYHk"/>
+              <Card
+                title="Be A Student"
+                content={"課題はすべて終わらせないといけない。"
+                + "授業以外の時間は全て勉強に費やさないといけない。"
+                + "なぜなら学生の本分は勉強だから。"
+                + "なぜなら、より深い学びを得るために。"
+                + "私は、善い学生にならないといけないんだ。"}
+              />
+            </div>
           </div>
           <h2>小説</h2>
-          <div className={styles.card}>
-            <a href="https://kakuyomu.jp/works/16816700429270231685/episodes/16816700429270726709">
-              <h3 className={inter.className}>
-                インフォメーション・ガール
-              </h3>
-              <p className={styles.description}>
-              <strong>私は壊れたおもちゃ。私がされてきたように、遊んだ人を傷つける。</strong><br />
-              全世界のコンピューターに出現し始めた謎の少女……。
-              フレンドリーだが、人間の体を乗っ取って自らのファンアートを書かせる、SNSの裏垢で過激な投稿をするなどの一面も。
-              彼女の動向と、闇に包まれた過去とは。
-              断片的な資料を読み進めると、やがてあなたは真相にたどり着くだろう。
-              その時あなたは何を思う？
-
-              </p>
-            </a>
+          <div className={styles.grid}>
+            <Card
+              href="https://kakuyomu.jp/works/16816700429270231685/episodes/16816700429270726709"
+              title = "インフォメーション・ガール"
+              subtitle = "私は壊れたおもちゃ。私がされてきたように、遊んだ人を傷つける。"
+              content = {"全世界のコンピューターに出現し始めた謎の少女……。"
+                + "フレンドリーだが、人間の体を乗っ取って自らのファンアートを書かせる、SNSの裏垢で過激な投稿をするなどの一面も。"
+                + "彼女の動向と、闇に包まれた過去とは。"
+                + "断片的な資料を読み進めると、やがてあなたは真相にたどり着くだろう。"
+                + "その時あなたは何を思う？"}
+            />
+            <Card
+              href="https://kakuyomu.jp/works/16817330648050844449/episodes/16817330648051716088"
+              title = "劣情"
+              subtitle = "あるいは運命だったのかもしれない。"
+              content = "冴えない男がある日駅で目にした事故をきっかけに歪んでいく姿を記した日記。"
+            />
+            <Card
+              href="https://kakuyomu.jp/works/16817330653872702112/episodes/16817330653872875405"
+              title = "炎と365日の彼女"
+              subtitle = "※注意　生者には使用しないでください。"
+              content = "青年が酔った勢いで買ってしまったのは、写真を燃やすことで死者を1時間だけ復活させられるライター。逃げがちな青年は、彼女を死後に復活させるため、毎日彼女の写真を撮るようになるが……？"
+            />
+            <Card
+              href="https://kakuyomu.jp/works/16816452221198156595"
+              title = "ム　～いのちの見た夢～"
+              subtitle = "生まれ変わって、やり直して、繰り返した先に、何が残るのか？"
+              content = "心に闇を抱えた、6人の少女たちの世界。生まれて、死んで、審判を繰り返し、最後に行きつく先とは。"
+            />
           </div>
-          <div className={styles.card}>
-            <a href="https://kakuyomu.jp/works/16817330648050844449/episodes/16817330648051716088">
-              <h3 className={inter.className}>
-                劣情
-              </h3>
-              <p className={styles.description}>
-              <strong>あるいは運命だったのかもしれない。</strong><br />
-              冴えない男がある日駅で目にした事故をきっかけに歪んでいく姿を記した日記。
-              </p>
-            </a>
-          </div>
-          <div className={styles.card}>
-            <a href="https://kakuyomu.jp/works/16817330653872702112/episodes/16817330653872875405">
-              <h3 className={inter.className}>
-                炎と365日の彼女
-              </h3>
-              <p className={styles.description}>
-                <strong>※注意　生者には使用しないでください。</strong><br />
-                青年が酔った勢いで買ってしまったのは、写真を燃やすことで死者を1時間だけ復活させられるライター。逃げがちな青年は、彼女を死後に復活させるため、毎日彼女の写真を撮るようになるが……？
-              </p>
-            </a>
-          </div>
-          <div>
-            <Link
-              href="/secret"
-              className={styles.card}
-            >
-              &nbsp;
-            </Link>
-          </div>
+          <Link
+            href="/secret"
+            className={styles.secretLink}
+          >&nbsp;</Link>
         </article>
-        <Link
-            href="/"
-            className={styles.card}
-        >
-          <h2 className={inter.className}>
-          トップに戻る
-          </h2>
-        </Link>
+        <Return />
       </main>
     </>
   )

@@ -1,0 +1,57 @@
+.card {
+    border: solid 0.05rem rgba(100, 100, 105, 0);
+    border-radius: 1rem;
+    padding: 1rem;
+}
+
+.card:hover {
+    border: solid 0.05rem rgba(100, 100, 105, 0.3);
+    background: rgba(100, 100, 105, 0.1);
+}
+
+.cardTitle {
+    font-size: 1.5rem;
+    margin-bottom: 0.7rem;
+}
+
+.cardContent {
+    margin: 0;
+    opacity: 0.6;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    min-height: 3em;
+}
+
+a.card {
+    color: inherit;
+}
+
+/* Enable hover only on non-touch devices */
+@media (hover: hover) and (pointer: fine) {
+.card:hover {
+    background: rgba(var(--card-rgb), 0.1);
+    border: 1px solid rgba(var(--card-border-rgb), 0.15);
+}
+
+.card:hover span {
+    transform: translateX(4px);
+}
+}
+
+@media (prefers-reduced-motion) {
+.card:hover span {
+    transform: none;
+}
+}
+
+
+/* Mobile */
+@media (max-width: 700px) {
+.content {
+    padding: 4rem;
+}
+
+.card {
+    padding: 1rem 2.5rem;
+}
+}

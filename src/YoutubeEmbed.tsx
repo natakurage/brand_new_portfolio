@@ -5,7 +5,7 @@ import styles from '@/styles/YouTubeEmbed.module.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
-const YouTubeEmbed = (props: {vid: string, width: number}) => {
+const YouTubeEmbed = (props: {vid: string}) => {
   const [clicked, setClicked] = useState(false);
   return (
     <>
@@ -14,18 +14,18 @@ const YouTubeEmbed = (props: {vid: string, width: number}) => {
           <iframe 
             src={`https://www.youtube.com/embed/${props.vid}`}
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-            width={props.width}
-            height={props.width*9/16}
+            width={1280}
+            height={720}
             allowFullScreen
           />
         </div>
         :
         <div className={styles.youtubeThumbnail}>
           <Image
-            src={`http://img.youtube.com/vi/${props.vid}/mqdefault.jpg`}
+            src={`http://img.youtube.com/vi/${props.vid}/maxresdefault.jpg`}
             alt="youtube video thumbnail"
-            width={props.width}
-            height={Math.floor(props.width*9/16)}
+            width={1280}
+            height={720}
             onClick = {() => setClicked(!clicked)}
           />
         </div>

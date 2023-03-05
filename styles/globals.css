@@ -62,6 +62,15 @@ a {
   text-decoration: none;
 }
 
+article a {
+  color: #e60055;
+}
+
 html {
   color-scheme: dark;
+}
+
+article {
+  width: 100%;
+  max-width: 1100px;
 }

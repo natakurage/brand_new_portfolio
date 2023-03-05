@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import { Inter } from 'next/font/google'
-import styles from '@/styles/Home.module.css'
-import Link from 'next/link'
+import styles from '@/styles/Std.module.css'
+import Return from '@/src/Return'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -42,14 +42,7 @@ export default function About() {
             <li>SNS</li>
           </ul>
         </article>
-        <Link
-            href="/"
-            className={styles.card}
-        >
-          <h2 className={inter.className}>
-          トップに戻る
-          </h2>
-        </Link>
+        <Return />
       </main>
     </>
   )

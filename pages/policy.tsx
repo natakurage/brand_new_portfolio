@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import { Inter } from 'next/font/google'
-import styles from '@/styles/Home.module.css'
-import Link from 'next/link'
+import styles from '@/styles/Std.module.css'
+import Return from '@/src/Return'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -18,7 +18,7 @@ export default function Policy() {
           <h2>ナタクラゲの作品について</h2>
             <p>ナタクラゲが作成したコンテンツ（映像、画像、音楽、文章など）については、個別の記載がない場合に限り、</p>
             <ul>
-              <li>作者名（「ナタクラゲ」）をわかりやすい箇所に明記し、なりすましをしない</li>
+              <li>作者名（「ナタクラゲ」）または作品のURLをわかりやすい箇所に明記し、なりすましをしない</li>
               <li>営利目的で利用する場合、利用者が法人ではない</li>
             </ul>
             <p>これらの条件を守れば、無断で一部や全部を利用すること（改変も含む）を可とします。ただし、以下に留意してください。</p>
@@ -30,14 +30,7 @@ export default function Policy() {
               なお、この声明はあくまでナタクラゲの意向を示すものであり、コンテンツを利用した者が法的な責任を問われないことを保証するものではありません。</p>
             <p>以上は予告なく変更される場合がありますが、変更以前の記述に従って利用したものに関しては遡及的に適用されることはないものとします。(2023/3/1)</p>
         </article>
-        <Link
-            href="/"
-            className={styles.card}
-        >
-          <h2 className={inter.className}>
-          トップに戻る
-          </h2>
-        </Link>
+        <Return />
       </main>
     </>
   )

@@ -1,7 +1,6 @@
 import Head from 'next/head'
 import { Inter } from 'next/font/google'
-import styles from '@/styles/Contact.module.css'
-import Link from 'next/link'
+import styles from '@/styles/Std.module.css'
 import { 
   FaYoutube,
   FaGithub,
@@ -11,6 +10,7 @@ import {
 } from "react-icons/fa"
 import { SiNiconico, SiPixiv } from "react-icons/si"
 import { TbLetterP } from "react-icons/tb"
+import Return from '@/src/Return'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -80,7 +80,7 @@ export default function Contact() {
           </div>
           <h2>Googleフォーム</h2>
           <p>お問い合わせは以下のフォームからお願いします。</p>
-          <div>
+          <div className={styles.googleForm}>
             <iframe 
               data-v-b2207632=""
               src="https://docs.google.com/forms/d/e/1FAIpQLSe2kcQ3DWJSoYURIS9ARTUhymadXiJoNimGJQ7jGyCyGu76gQ/viewform?embedded=true"
@@ -92,14 +92,7 @@ export default function Contact() {
             />
           </div>
         </article>
-        <Link
-            href="/"
-            className={styles.card}
-        >
-          <h2 className={inter.className}>
-          トップに戻る
-          </h2>
-        </Link>
+        <Return />
       </main>
     </>
   )

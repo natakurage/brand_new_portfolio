@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import Link from 'next/link'
+import Card from '@/src/Card'
 import { FaYoutube, FaGithub, FaBookOpen, FaListUl } from "react-icons/fa"
 
 const inter = Inter({ subsets: ['latin'] })
@@ -59,53 +60,26 @@ export default function Home() {
         </ul>
 
         <div className={styles.grid}>
-          <Link
-            href="/about"
-            className={styles.card}
-          >
-            <h2 className={inter.className}>
-              About <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              ナタクラゲとは何者なのかについて、解説します。
-            </p>
-          </Link>
-
-          <Link
-            href="/works"
-            className={styles.card}
-          >
-            <h2 className={inter.className}>
-              Works <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              ナタクラゲがこれまでにつくった作品を紹介します。
-            </p>
-          </Link>
-
-          <Link
-            href="/policy"
-            className={styles.card}
-          >
-            <h2 className={inter.className}>
-              Policy <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-            ナタクラゲの作品の利用や注意事項などです。
-            </p>
-          </Link>
-
-          <Link
-            href="/contact"
-            className={styles.card}
-          >
-            <h2 className={inter.className}>
-              Contact <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-            ナタクラゲと連絡をとるための方法です。
-            </p>
-          </Link>
+          <Card
+            title="About"
+            content="ナタクラゲとは何者なのかについて、解説します。"
+            href='/about'
+          ></Card>
+          <Card
+            title="Works"
+            content="ナタクラゲがこれまでにつくった作品を紹介します。"
+            href='/works'
+          ></Card>
+          <Card
+            title="Policy"
+            content="ナタクラゲの作品の利用や注意事項などです。"
+            href='/policy'
+          ></Card>
+          <Card
+            title="Contact"
+            content="ナタクラゲと連絡をとるための方法です。"
+            href='/contact'
+          ></Card>
         </div>
       </main>
     </>
