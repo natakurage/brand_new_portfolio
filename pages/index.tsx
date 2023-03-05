@@ -9,6 +9,7 @@ import { FaYoutube, FaGithub, FaBookOpen, FaListUl } from "react-icons/fa"
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+  
   return (
     <>
       <Head>

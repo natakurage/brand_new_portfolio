@@ -10,9 +10,6 @@ class Boid {
   p5: p5Types;
   pos: p5Types.Vector;
   vel: p5Types.Vector;
-  sep: number;
-  ali: number;
-  coh: number;
   power: number;
   range: number;
   maxWallAccel: number;
@@ -21,18 +18,12 @@ class Boid {
     p5: p5Types,
     pos: p5Types.Vector,
     vel: p5Types.Vector,
-    sep: number,
-    ali: number,
-    coh: number,
     power: number,
     range: number
   ) {
     this.p5 = p5;
     this.pos = pos;
     this.vel = vel;
-    this.sep = sep;
-    this.ali = ali;
-    this.coh = coh;
     this.power = power;
     this.range = range;
     this.maxWallAccel = 10;
@@ -42,9 +33,9 @@ class Boid {
     return this.vel.copy().normalize()
   }
 
-  change_accel (boids: Array<Boid>) {
+  change_accel (boids: Array<Boid>, sep: number, ali: number, coh: number) {
     this.vel.add(
-      this.calc_accel(boids).mult(this.power)
+      this.calc_accel(boids, sep, ali, coh).mult(this.power)
       .add(this.calc_wall().mult(0.01))
     )
   }
@@ -75,7 +66,7 @@ class Boid {
     this.p5.pop();
   }
 
-  calc_accel (boids: Array<Boid>) {
+  calc_accel (boids: Array<Boid>, sep: number, ali: number, coh: number) {
     boids = boids.filter(boid => boid !== this);
     const distance = (boid: Boid) => boid.pos.copy().sub(this.pos).mag();
     const nears = boids.filter(boid => distance(boid) < this.range);
@@ -92,9 +83,9 @@ class Boid {
       return prev.copy().add(curr);
     }, this.p5.createVector(0, 0)).div(boids.length);
     const cohesion_dir = (average_pos.sub(this.pos)).normalize();
-    return separation_dir.mult(this.sep).add(
-      alignment_dir.mult(this.ali).add(
-        cohesion_dir.mult(this.coh)
+    return separation_dir.mult(sep).add(
+      alignment_dir.mult(ali).add(
+        cohesion_dir.mult(coh)
       )
     ).normalize();
   }
@@ -121,15 +112,12 @@ class Boid {
   }
 }
 
-const sep = 6;
-const ali = 1;
-const coh = 2;
 const power = 0.01;
 const range = 200;
 const numBoids = 12;
 let boids: Array<Boid> = [];
 
-export const SketchComponent = () => {
+export const SketchComponent = (props: {sep: number, ali: number, coh: number}) => {
 
   const setup = (p5: p5Types, canvasParentRef: Element) => {
     p5.createCanvas(p5.windowWidth, p5.windowHeight).parent(canvasParentRef);
@@ -142,14 +130,14 @@ export const SketchComponent = () => {
         2 * (Math.random() - 0.5),
         2 * (Math.random() - 0.5)
       );
-      boids.push(new Boid(p5, pos, vel, sep, ali, coh, power, range));
+      boids.push(new Boid(p5, pos, vel, power, range));
     }
   };
 
   const draw = (p5: p5Types) => {
     p5.background(0, 9, 23);
     boids.forEach(boid => {
-      boid.change_accel(boids)
+      boid.change_accel(boids, props.sep, props.ali, props.coh)
       boid.move();
       boid.draw();
     })
