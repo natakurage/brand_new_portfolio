@@ -19,22 +19,38 @@ const Card = (props: {title: string, content: string, subtitle?: string, href?: 
   </>
   const isLink = props.href !== undefined
   const href = props.href ?? ""
+  const isAbs = href.slice(0, 7) === "http://" ||href.slice(0, 8) === "https://"
+  const linkComp = <>
+    {
+      isAbs ?
+      <a
+        href={href}
+        className={styles.card}
+        target="_blank"
+        rel="noopener noreferrer nofollow"
+      >
+        {inner}
+      </a>
+      :
+      <Link
+        href={href}
+        className={styles.card}
+      >
+        {inner}
+      </Link>
+    }
+  </>
   return (
     <>
       {
         isLink ?
-          <Link
-            href={href}
-            className={styles.card}
-          >
-            {inner}
-          </Link>
+          linkComp
         :
-          <div
-            className={styles.card}
-          >
-            {inner}
-          </div>
+        <div
+          className={styles.card}
+        >
+          {inner}
+        </div>
       }
 
     </>
