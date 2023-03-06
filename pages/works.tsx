@@ -20,7 +20,7 @@ export default function Works() {
           <h1>作品</h1>
           <h2>音楽（クリックで再生）</h2>
           <div className={styles.grid}>
-          <div>
+            <div>
               <YouTubeEmbed vid="eZ7RIt0eu24"/>
               <Card
                 title="いいから黙って仕事しろ"
