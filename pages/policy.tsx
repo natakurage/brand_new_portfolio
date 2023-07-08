@@ -16,6 +16,7 @@ export default function Policy() {
         <article>
           <h1>ポリシーと規約</h1>
           <h2>ナタクラゲの作品について</h2>
+            <em><big>All Rights Revealed.</big></em>
             <p>ナタクラゲが作成したコンテンツ（映像、画像、音楽、文章など）については、個別の記載がない場合に限り、</p>
             <ul>
               <li>作者名（「ナタクラゲ」）または作品のURLをわかりやすい箇所に明記し、なりすましをしない</li>

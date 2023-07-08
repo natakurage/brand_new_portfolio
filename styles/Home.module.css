@@ -21,26 +21,34 @@
 
 .center {
   display: flex;
+  flex-wrap: wrap;
+  gap: 0 10vw;
   justify-content: center;
   align-items: center;
   position: relative;
+  width:100%;
   padding: 4rem 0;
 }
 
-.center::after {
+/* .center::after {
   content: '';
   position: absolute;
   filter: blur(45px);
   background: var(--primary-glow);
-  width: 200%;
-  height: 100%;
-  top: -15%;
-  left: -10%;
+  border-radius: 50%;
+  width: 10vw;
+  height: 9vw;
+  top: 0%;
+  left: 50%;
   z-index: -1;
-}
+} */
 
 /* Mobile */
 @media (max-width: 700px) {
+  .main {
+    padding: 0;
+  }
+
   .content {
     padding: 4rem;
   }
@@ -48,12 +56,13 @@
   .grid {
     grid-template-columns: repeat(1, minmax(100%, auto));
     margin-bottom: 120px;
-    max-width: 320px;
+    width: 100%;
+    max-width: 500px;
     /*text-align: center;*/
   }
 
   .center {
-    padding: 8rem 0 6rem;
+    padding: 7rem 1rem;
   }
 
   .center::before {
@@ -62,10 +71,38 @@
   }
 }
 
+.logo img {
+  max-width: 100%;
+}
+
 /* Tablet and Smaller Desktop */
 @media (min-width: 701px) and (max-width: 1120px) {
   .grid {
     grid-template-columns: repeat(2, 50%);
+  }
+}
+
+.poster {
+  max-width: min(800px, 100%);
+  animation-name: fadein;
+  animation-duration: 2.5s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadein {
+  0% {
+      opacity: 0;
+      transform: scale(0);
+      height: 100vw
+  }
+  1% {
+    height: auto
+  }
+  100% {
+      opacity: 1;
+      transform: scale(1);
+      height: auto
   }
 }
 
@@ -78,6 +115,7 @@
 ul.links {
   list-style: none;
   display: flex;
+  justify-content: center;
   font-size: 1.75rem;
   margin-bottom: 3rem;
 }

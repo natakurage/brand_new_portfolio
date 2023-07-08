@@ -33,11 +33,15 @@ class Boid {
     return this.vel.copy().normalize()
   }
 
-  change_accel (boids: Array<Boid>, sep: number, ali: number, coh: number) {
+  change_accel (boids: Array<Boid>, sep: number, ali: number, coh: number, maxVel: number) {
     this.vel.add(
       this.calc_accel(boids, sep, ali, coh).mult(this.power)
       .add(this.calc_wall().mult(0.01))
     )
+    if (this.vel.mag() > maxVel) {
+      this.vel.normalize()
+      this.vel.mult(maxVel)
+    }
   }
 
   move () {
@@ -114,13 +118,15 @@ class Boid {
 
 const power = 0.01;
 const range = 200;
+const maxVel = 10;
 const numBoids = 12;
+const barSize = 0.1;
 let boids: Array<Boid> = [];
 
-export const SketchComponent = (props: {sep: number, ali: number, coh: number}) => {
+export const SketchComponent = (props: {sep: number, ali: number, coh: number, freeze: boolean}) => {
 
   const setup = (p5: p5Types, canvasParentRef: Element) => {
-    p5.createCanvas(p5.windowWidth, p5.windowHeight).parent(canvasParentRef);
+    p5.createCanvas(p5.windowWidth, p5.windowHeight * (1 + barSize)).parent(canvasParentRef);
     for (let i = 0; i < numBoids; i++) {
       const pos = p5.createVector(
         Math.random() * p5.width,
@@ -133,18 +139,24 @@ export const SketchComponent = (props: {sep: number, ali: number, coh: number}) 
       boids.push(new Boid(p5, pos, vel, power, range));
     }
   };
-
-  const draw = (p5: p5Types) => {
+  
+  const draw = !props.freeze ? (p5: p5Types) => {
     p5.background(0, 9, 23);
     boids.forEach(boid => {
-      boid.change_accel(boids, props.sep, props.ali, props.coh)
+      boid.change_accel(boids, props.sep, props.ali, props.coh, maxVel)
       boid.move();
       boid.draw();
     })
-  };
+  } : (p5: p5Types) => {
+    p5.background(0, 9, 23);
+    boids.forEach(boid => {
+      boid.draw();
+      p5.noLoop();
+    })
+  }
 
   const windowResized = (p5: p5Types) => {
-    p5.resizeCanvas(p5.windowWidth, p5.windowHeight);
+    p5.resizeCanvas(p5.windowWidth, p5.windowHeight * (1 + barSize));
   };
 
   return (

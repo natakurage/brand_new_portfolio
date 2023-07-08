@@ -8,7 +8,15 @@ export default function App({ Component, pageProps, router }: AppProps) {
   const [sep, setSep] = useState(6);
   const [ali, setAli] = useState(1);
   const [coh, setCoh] = useState(2);
-
+  let freeze = false;
+  if (typeof window !== "undefined") {
+    const tic = performance.now();
+    for (let i = 0; i < 100000; i++) {1+1;};
+    const elapsed = performance.now() - tic
+    if (elapsed > 1) {
+      freeze = true;
+    }
+  }
   useEffect(() => {
     if (router.pathname == "/about") {
       setSep(0);
@@ -52,8 +60,13 @@ export default function App({ Component, pageProps, router }: AppProps) {
         sep = {sep}
         ali = {ali}
         coh = {coh}
+        freeze = {freeze}
       />
       <Component {...pageProps} />
+      <footer style={{textAlign: 'center'}}>
+        <span style={{transform: 'rotate(90deg)', display: "inline-block"}}>Ⓒ</span>
+        Natakurage All rights revealed.
+      </footer>
     </>
   )
 }

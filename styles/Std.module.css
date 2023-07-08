@@ -15,15 +15,14 @@
   padding-bottom: 1rem;
 }
 
-.main p {
-  padding-bottom: 1rem;
-}
-
 .center {
   display: flex;
+  flex-wrap: wrap;
+  gap: 0 10vw;
   justify-content: center;
   align-items: center;
   position: relative;
+  width:100%;
   padding: 4rem 0;
 }
 
@@ -56,6 +55,10 @@
     /*max-width: 320px;*/
     /*text-align: center;*/
   }
+}
+
+.logo img {
+  max-width: 100%;
 }
 
 /* Tablet and Smaller Desktop */

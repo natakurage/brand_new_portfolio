@@ -20,20 +20,38 @@ export default function Home() {
       <main className={styles.main}>
         <div className={styles.center}>
           <Image
-            src="/鉈海月.png"
-            alt="Natakurage Logo"
-            width={250}
-            height={250}
+            src="/poster.png"
+            alt="Natakurage Key Visual"
+            width={0}
+            height={0}
+            sizes="50vh"
+            className={styles.poster}
+            style={{width: 'auto',height: '100%'}}
             priority
+            loading = "eager"
           />
         </div>
+        <div className={styles.center}>
+          <div className={styles.logo}>
+            <Image
+              src="/鉈海月.png"
+              alt="Natakurage Logo"
+              width={0}
+              height={0}
+              sizes="250px"
+              style={{width: '100%',height: 'auto'}}
+              priority
+              loading = "eager"
+            />
+          </div>
 
-        <h1 className={styles.creatorName}>
-          <span style={{display: "inline-block"}}>鉈海月 /</span>&nbsp;
-          <span style={{display: "inline-block"}}>ナタクラゲ</span>
-        </h1>
+        <div>
+          <h1 className={styles.creatorName}>
+            <span style={{display: "inline-block"}}>鉈海月 /</span>&nbsp;
+            <span style={{display: "inline-block"}}>ナタクラゲ</span>
+          </h1>
 
-        <ul className={styles.links}>
+          <ul className={styles.links}>
             <li><a 
               href="https://www.youtube.com/channel/UCsE5FbMXnmBYe-THSt3kwJQ"
               target="_blank"
@@ -58,7 +76,9 @@ export default function Home() {
             <li><Link href="/contact">
               <FaListUl />
             </Link></li>
-        </ul>
+          </ul>
+        </div>
+        </div>
 
         <div className={styles.grid}>
           <Card
