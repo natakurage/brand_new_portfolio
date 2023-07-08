@@ -10,12 +10,15 @@ export default function App({ Component, pageProps, router }: AppProps) {
   const [coh, setCoh] = useState(2);
   let freeze = false;
   if (typeof window !== "undefined") {
-    const tic = performance.now();
-    for (let i = 0; i < 100000; i++) {1+1;};
-    const elapsed = performance.now() - tic
-    if (elapsed > 1) {
-      freeze = true;
-    }
+  // const tic = performance.now();
+  // for (let i = 0; i < 100000; i++) {1+1;};
+  // const elapsed = performance.now() - tic
+  // if (elapsed > 1) {
+  //   freeze = true;
+  // }
+      if (navigator.userAgent.match(/iPhone|Android.+Mobile/)) {
+        freeze = true;
+      }
   }
   useEffect(() => {
     if (router.pathname == "/about") {
