@@ -19,17 +19,18 @@ export default function Home() {
       </Head>
       <main className={styles.main}>
         <div className={styles.center}>
-          <Image
-            src="/poster.png"
-            alt="Natakurage Key Visual"
-            width={3179}
-            height={4494}
-            sizes="70vh"
-            className={styles.poster}
-            style={{width: 'auto'}}
-            priority
-            loading = "eager"
-          />
+          <div
+            className={styles.posterWrapper}
+          >
+            <Image
+              src="/poster.png"
+              alt="Natakurage Key Visual"
+              fill
+              className={styles.poster}
+              priority
+              loading = "eager"
+            />
+          </div>
         </div>
         <div className={styles.center}>
           <div className={styles.logo}>
