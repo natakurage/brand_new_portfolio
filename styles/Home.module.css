@@ -85,13 +85,13 @@
 .poster {
   /* max-width: min(800px, 100%); */
   max-height: 70vh;
-  animation-name: fadein;
+  /* animation-name: fadein;
   animation-duration: 2.5s;
   animation-timing-function: ease-out;
-  animation-fill-mode: forwards;
+  animation-fill-mode: forwards; */
 }
 
-@keyframes fadein {
+/* @keyframes fadein {
   0% {
       opacity: 0;
       transform: scale(0);
@@ -105,7 +105,7 @@
       transform: scale(1);
       height: auto
   }
-}
+} */
 
 .creatorName {
   text-align: center;
