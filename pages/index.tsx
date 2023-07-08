@@ -22,8 +22,8 @@ export default function Home() {
           <Image
             src="/poster.png"
             alt="Natakurage Key Visual"
-            width={0}
-            height={0}
+            width={3179/10}
+            height={4494/10}
             sizes="50vh"
             className={styles.poster}
             style={{width: 'auto',height: '100%'}}
