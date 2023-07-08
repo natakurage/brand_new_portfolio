@@ -22,11 +22,11 @@ export default function Home() {
           <Image
             src="/poster.png"
             alt="Natakurage Key Visual"
-            width={3179/10}
-            height={4494/10}
-            sizes="50vh"
+            width={3179}
+            height={4494}
+            sizes="70vh"
             className={styles.poster}
-            style={{width: 'auto',height: '100%'}}
+            style={{width: 'auto'}}
             priority
             loading = "eager"
           />

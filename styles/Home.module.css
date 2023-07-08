@@ -83,7 +83,8 @@
 }
 
 .poster {
-  max-width: min(800px, 100%);
+  /* max-width: min(800px, 100%); */
+  max-height: 70vh;
   animation-name: fadein;
   animation-duration: 2.5s;
   animation-timing-function: ease-out;
