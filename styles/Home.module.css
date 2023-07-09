@@ -27,7 +27,7 @@
   align-items: center;
   position: relative;
   width:100%;
-  padding: 4rem 0;
+  padding: 4.5rem 0;
 }
 
 /* .center::after {
@@ -84,8 +84,9 @@
 
 .posterWrapper {
   aspect-ratio: calc(3179/4494);
-  height: 70vh;
   position: relative;
+  width: calc(70vh*3179/4494);
+  max-width: 95vw;
 }
 
 .poster {

@@ -17,14 +17,18 @@ export default function About() {
         <article>
           <h1>ナタクラゲについて</h1>
           <div className={styles.center}>
-            <div className={styles.logo}>
+            <div 
+              style={{
+                aspectRatio: "calc(766/796)",
+                position: "relative",
+                width: "500px",
+                maxWidth: "95vw"
+              }}
+            >
               <Image
                 src="/portrait.png"
                 alt="Natakurage Portrait"
-                width={0}
-                height={0}
-                sizes="500px"
-                style={{width: '100%',height: 'auto'}}
+                fill
                 priority
               />
             </div>
