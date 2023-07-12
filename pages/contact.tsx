@@ -32,7 +32,10 @@ export default function Contact() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <FaYoutube /><span className={styles.linkName}>YouTube</span>
+                <FaYoutube
+                  color='red'
+                />
+                <span className={styles.linkName}>YouTube</span>
               </a></li>
               <li><a 
                 href="http://nicovideo.jp/user/46928394"
@@ -46,28 +49,40 @@ export default function Contact() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <TbLetterP /><span className={styles.linkName}>Piapro</span>
+                <TbLetterP 
+                  color='magenta'
+                />
+                <span className={styles.linkName}>Piapro</span>
               </a></li>
               <li><a 
                 href="https://soundcloud.com/pbj5g2xegmae"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <FaSoundcloud /><span className={styles.linkName}>SoundCloud</span>
+                <FaSoundcloud
+                  color = 'orange'
+                />
+                <span className={styles.linkName}>SoundCloud</span>
               </a></li>
               <li><a 
                 href="https://kakuyomu.jp/users/icchy1128Novelman"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <FaBookOpen /><span className={styles.linkName}>カクヨム</span>
+                <FaBookOpen
+                  color='skyblue'
+                />
+                <span className={styles.linkName}>カクヨム</span>
               </a></li>
               <li><a 
                 href="https://www.pixiv.net/users/26489552"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <SiPixiv /><span className={styles.linkName}>Pixiv</span>
+                <SiPixiv
+                  color='blue'
+                />
+                <span className={styles.linkName}>Pixiv</span>
               </a></li>
               <li><a 
                 href="https://github.com/UzoGaMuzol"

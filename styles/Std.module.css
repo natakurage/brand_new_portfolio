@@ -84,13 +84,17 @@
 }
 
 ul.links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:center;
   list-style: none;  
   font-size: 3rem;
   padding-left: 0;
-  margin-bottom: 3rem;
+  margin: auto;
 }
 
 ul.links li {
+  white-space: nowrap;
   margin-left: 0.5em;
   margin-right: 0.5em;
 }
