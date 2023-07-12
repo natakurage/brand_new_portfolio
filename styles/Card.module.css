@@ -4,11 +4,6 @@
     padding: 1rem;
 }
 
-.card:hover {
-    border: solid 0.05rem rgba(100, 100, 105, 0.3);
-    background: rgba(100, 100, 105, 0.1);
-}
-
 .cardTitle {
     font-size: 1.5rem;
     margin-bottom: 0.7rem;
@@ -35,6 +30,13 @@ a.card {
 
 .card:hover span {
     transform: translateX(4px);
+}
+}
+
+@media not ((hover: hover) and (pointer: fine)) {
+.card {
+    background: rgba(var(--card-rgb), 0.1);
+    border: 1px solid rgba(var(--card-border-rgb), 0.15);
 }
 }
 
