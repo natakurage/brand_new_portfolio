@@ -81,7 +81,7 @@ export default function App({ Component, pageProps, router }: AppProps) {
       setAli(1);
       setCoh(2);
     }
-  }, [router.pathname])
+  }, [router.pathname, consoled])
 
   return (
     <>
