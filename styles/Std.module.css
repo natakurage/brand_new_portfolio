@@ -88,7 +88,7 @@ ul.links {
   flex-wrap: wrap;
   justify-content:center;
   list-style: none;  
-  font-size: 3rem;
+  font-size: 2rem;
   padding-left: 0;
   margin: auto;
 }
@@ -106,7 +106,6 @@ ul.links li a {
 
 .linkName {
   vertical-align: middle;
-  font-size: 2rem;
   margin-left: 0.3rem;
 }
 
