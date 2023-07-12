@@ -22,7 +22,7 @@ export default function App({ Component, pageProps, router }: AppProps) {
       }
   }
   useEffect(() => {
-    const special = Math.random() < 1/64 || true
+    const special = Math.random() < 1/64
     if (special && router.pathname !== "/happiness") {
       const texts = [
         "ねえ、",
