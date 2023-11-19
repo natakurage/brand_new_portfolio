@@ -54,7 +54,7 @@ export default function Home() {
 
           <ul className={styles.links}>
             <li><a 
-              href="https://www.youtube.com/channel/UCsE5FbMXnmBYe-THSt3kwJQ"
+              href="https://www.youtube.com/@natakurage/featured"
               target="_blank"
               rel="noopener noreferrer"
             >

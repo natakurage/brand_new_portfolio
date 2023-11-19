@@ -28,7 +28,7 @@ export default function Contact() {
           <div className={styles.center}>
             <ul className={styles.links}>
               <li><a 
-                href="https://www.youtube.com/channel/UCsE5FbMXnmBYe-THSt3kwJQ"
+                href="https://www.youtube.com/@natakurage"
                 target="_blank"
                 rel="noopener noreferrer"
               >
