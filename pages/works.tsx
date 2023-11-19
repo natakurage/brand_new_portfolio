@@ -21,10 +21,21 @@ export default function Works() {
           <h2>音楽（クリックで再生）</h2>
           <div className={styles.grid}>
             <div>
-              <YouTubeEmbed vid="eZ7RIt0eu24"/>
+              <YouTubeEmbed vid="69s14zGHevU"/>
               <Card
-                title="いいから黙って仕事しろ"
-                content="お前は、自分の仕事だけやってればいいんだよ。"
+                title="ナタクラゲ"
+                content={"森の中に、不思議な格好をしたかわいらしい少女がいた。"
+                + "近寄ってみると、突然鉈を持って襲いかかってきた。"
+                + "彼女は街や海に繰り出し、人々を次々に殺して回る。"
+                + "まるで、何かの鬱憤を晴らすかのように。"
+                }
+              />
+            </div>
+            <div>
+              <YouTubeEmbed vid="ZvNJcR_AuX8"/>
+              <Card
+                title="シロップ"
+                content="乾いた心は、粘り気を帯びて、そのまま干からびていく。"
               />
             </div>
             <div>
@@ -32,13 +43,6 @@ export default function Works() {
               <Card
                 title="沈んでゆく"
                 content="底のない闇へ、沈んでゆく――。"
-              />
-            </div>
-            <div>
-              <YouTubeEmbed vid="GbWEbPU8-Xk"/>
-              <Card
-                title="血の涙"
-                content="目を逸らしたくなるけど、突き放したくなるけど、これは紛れもない現実。"
               />
             </div>
             <div>
