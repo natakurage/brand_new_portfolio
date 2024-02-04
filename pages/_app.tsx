@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
-import Boid from '@/src/Boid'
+import Boid from '@/src/Boid3D'
 
 export default function App({ Component, pageProps, router }: AppProps) {
   const [sep, setSep] = useState(6);
