@@ -109,7 +109,7 @@ const GltfSingleCanvas = ({camPos, hasOrbit = false} : {camPos: Vector3, hasOrbi
               backgroundColor: "#50FFDF11"
             }}
           >
-            <p>クリックしてVRMを表示</p>
+            <p>クリックして3Dモデルを表示</p>
           </div>
         )
       }
