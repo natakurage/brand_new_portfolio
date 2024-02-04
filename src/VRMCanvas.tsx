@@ -80,7 +80,6 @@ const GltfSingleCanvas = ({camPos, hasOrbit = false} : {camPos: Vector3, hasOrbi
           >
             <directionalLight position={[0, -1, 0]} intensity={2} color={"#FFFFFF"} />
             <Model />
-            <boxGeometry />
             {
               hasOrbit ? (
                 <>
