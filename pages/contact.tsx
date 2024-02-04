@@ -11,10 +11,55 @@ import {
 import { SiNiconico, SiPixiv } from "react-icons/si"
 import { TbLetterP } from "react-icons/tb"
 import Return from '@/src/Return'
+import Modal from '@/src/Modal'
+import { BaseSyntheticEvent, useState } from 'react'
+import Link from 'next/link'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Contact() {
+  const [name, setName] = useState<string>("")
+  const [email, setEmail] = useState<string>("")
+  const [title, setTitle] = useState<string>("")
+  const [content, setContent] = useState<string>("")
+
+  const [modalText, setModalText] = useState<string>("default")
+  const [modalShowing, setModalShowing] = useState<boolean>(false)
+
+  const showModal = (text: string, duration: number) => {
+    setModalText(text)
+    setModalShowing(true)
+    setTimeout(() => {
+      setModalShowing(false)
+    }, duration)
+  }
+
+  const resetForm = () => {
+    setName("")
+    setEmail("")
+    setTitle("")
+    setContent("")
+  }
+
+  const onSubmit = async (event: BaseSyntheticEvent) => {
+    event.preventDefault()
+    const response = await fetch("https://docs.google.com/forms/d/e/1FAIpQLSe2kcQ3DWJSoYURIS9ARTUhymadXiJoNimGJQ7jGyCyGu76gQ/formResponse", {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      body: new URLSearchParams({
+        "entry.98194133": name,
+        "entry.244262886": email,
+        "entry.823789016": title,
+        "entry.1870725190": content
+      })
+    })
+    showModal("送信しました。", 5000)
+    resetForm()
+  }
+
   return (
     <>
       <Head>
@@ -93,19 +138,71 @@ export default function Contact() {
               </a></li>
             </ul>
           </div>
-          <h2>Googleフォーム</h2>
+          <h2>お問い合わせフォーム</h2>
           <p>お問い合わせは以下のフォームからお願いします。</p>
-          <div className={styles.googleForm}>
-            <iframe 
-              data-v-b2207632=""
-              src="https://docs.google.com/forms/d/e/1FAIpQLSe2kcQ3DWJSoYURIS9ARTUhymadXiJoNimGJQ7jGyCyGu76gQ/viewform?embedded=true"
-              title="form"
-              width="600"
-              height="1000"
-              style={{border:0}}
-              allowFullScreen
-            />
+          <p>※内部でGoogleフォームを使っており、仕様変更で壊れる可能性や送信できているように見えてできていない可能性がありますので、確実に届けたい方は
+            <a 
+              href="https://docs.google.com/forms/d/e/1FAIpQLSe2kcQ3DWJSoYURIS9ARTUhymadXiJoNimGJQ7jGyCyGu76gQ/viewform?usp=sf_link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >こちらのリンク先</a>
+            のフォームをご利用いただくか、上記のアカウントへ直接連絡してください。</p>
+          <div className={styles.center}>
+            <form
+              target="hidden-iframe"
+              className={styles.customForm}
+              onSubmit={onSubmit}
+            >
+              <div>
+                <label htmlFor="form-name">お名前</label>
+                <input
+                  id="form-name"
+                  type="text"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  required
+                />
+              </div>
+              <div>
+              <label htmlFor="form-email">メールアドレス</label>
+                <input
+                  id="form-email"
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
+              </div>
+              <div>
+              <label htmlFor="form-title">件名</label>
+                <input
+                  id="form-title"
+                  type="text"
+                  value={title}
+                  onChange={(e) => setTitle(e.target.value)}
+                  required
+                />
+              </div>
+              <div>
+              <label htmlFor="form-content">内容</label>
+                <textarea
+                  id="form-content"
+                  value={content}
+                  onChange={(e) => setContent(e.target.value)}
+                  rows={11}
+                  required
+                />
+              </div>
+              <div>
+                <input type="submit" />
+              </div>
+            </form>
+            <iframe name="hidden-iframe" style={{display: "none"}}></iframe>
           </div>
+          <Modal
+            text={modalText}
+            showing={modalShowing}
+          />
         </article>
         <Return />
       </main>

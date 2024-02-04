@@ -116,3 +116,54 @@ ul.links li a {
 .googleForm iframe {
   width: 100%;
 }
+
+.customForm {
+  width: 100%;
+}
+
+.customForm div{
+  margin-bottom: 0.7rem;
+  text-align: left;
+}
+
+.customForm label{
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.customForm input, .customForm textarea {
+  font-size: 1rem;
+  padding: 0.7rem;
+  border: solid 1px #50FFDF;
+  border-radius: 5px;
+  background-color: #01322b;
+}
+
+.customForm textarea{
+  width: 100%;
+}
+
+.modal {
+  position: fixed;
+  left: 50%;
+  bottom: 10%;
+  transform: translate(-50%, -50%);
+  padding: 0.7rem;
+  border: solid 1px #FF50DF;
+  border-radius: 5px;
+  background-color: #320129;
+  animation-name: fadein;
+  animation-duration: 5s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+
+@keyframes fadein {
+  0%, 100% {
+      opacity: 0;
+  }
+  10%, 75% {
+      opacity: 1;
+  }
+}
