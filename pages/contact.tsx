@@ -51,7 +51,7 @@ export default function Contact() {
       },
       body: new URLSearchParams({
         "entry.98194133": name,
-        "entry.244262886": email,
+        "emailAddress": email,
         "entry.823789016": title,
         "entry.1870725190": content
       })
@@ -146,7 +146,7 @@ export default function Contact() {
               target="_blank"
               rel="noopener noreferrer"
             >こちらのリンク先</a>
-            のフォームをご利用いただくか、上記のアカウントへ直接連絡してください。</p>
+            のフォームをご利用いただくか、上記のアカウントへ直接連絡してください。送信できた場合、入力されたメールアドレスに確認メールが届きます。</p>
           <div className={styles.center}>
             <form
               target="hidden-iframe"
