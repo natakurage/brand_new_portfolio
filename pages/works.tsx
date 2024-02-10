@@ -9,6 +9,39 @@ import Card from '@/src/Card'
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Works() {
+  const musicWorks = [
+      {
+        vid: "69s14zGHevU",
+        title: "ナタクラゲ",
+        content: "森の中に、不思議な格好をしたかわいらしい少女がいた。"
+          + "近寄ってみると、突然鉈を持って襲いかかってきた。"
+          + "彼女は街や海に繰り出し、人々を次々に殺して回る。"
+          + "まるで、何かの鬱憤を晴らすかのように。"
+      },
+      {
+        vid: "ZvNJcR_AuX8",
+        title: "シロップ",
+        content: "乾いた心は、粘り気を帯びて、そのまま干からびていく。"
+      },
+      {
+        vid: "zF7bAz8IelU",
+        title: "懲役80年",
+        content: "少女は、物心ついた頃から実験施設に監禁されていた。"
+          + "実験や雑居房での苦しみの日々――。"
+      },
+      {
+        vid: "RHSTOALaNJw",
+        title: "沈んでゆく",
+        content: "底のない闇へ、沈んでゆく――。"
+      }
+  ]
+  const movieWorks = [
+    {
+      vid: "ThX-p6wxrC4",
+      title: "まもなく、4番線に、\"死\"がまいります。",
+      content: ""
+    }
+  ]
   return (
     <>
       <Head>
@@ -20,73 +53,31 @@ export default function Works() {
           <h1>作品</h1>
           <h2>音楽（クリックで再生）</h2>
           <div className={styles.grid}>
-            <div>
-              <YouTubeEmbed vid="69s14zGHevU"/>
-              <Card
-                title="ナタクラゲ"
-                content={"森の中に、不思議な格好をしたかわいらしい少女がいた。"
-                + "近寄ってみると、突然鉈を持って襲いかかってきた。"
-                + "彼女は街や海に繰り出し、人々を次々に殺して回る。"
-                + "まるで、何かの鬱憤を晴らすかのように。"
-                }
-              />
-            </div>
-            <div>
-              <YouTubeEmbed vid="ZvNJcR_AuX8"/>
-              <Card
-                title="シロップ"
-                content="乾いた心は、粘り気を帯びて、そのまま干からびていく。"
-              />
-            </div>
-            <div>
-              <YouTubeEmbed vid="RHSTOALaNJw"/>
-              <Card
-                title="沈んでゆく"
-                content="底のない闇へ、沈んでゆく――。"
-              />
-            </div>
-            <div>
-              <YouTubeEmbed vid="QEHP5YndYHk"/>
-              <Card
-                title="Be A Student"
-                content={"課題はすべて終わらせないといけない。"
-                + "授業以外の時間は全て勉強に費やさないといけない。"
-                + "なぜなら学生の本分は勉強だから。"
-                + "なぜなら、より深い学びを得るために。"
-                + "私は、善い学生にならないといけないんだ。"}
-              />
-            </div>
+            {
+              musicWorks.map((work) => (
+                <div key={work.vid} >
+                  <YouTubeEmbed vid={work.vid} />
+                  <Card
+                    title={work.title}
+                    content={work.content}
+                  />
+                </div>
+              ))
+            }
           </div>
-          <h2>小説</h2>
+          <h2>映像作品（クリックで再生）</h2>
           <div className={styles.grid}>
-            <Card
-              href="https://kakuyomu.jp/works/16816700429270231685/episodes/16816700429270726709"
-              title = "インフォメーション・ガール"
-              subtitle = "私は壊れたおもちゃ。私がされてきたように、遊んだ人を傷つける。"
-              content = {"全世界のコンピューターに出現し始めた謎の少女……。"
-                + "フレンドリーだが、人間の体を乗っ取って自らのファンアートを書かせる、SNSの裏垢で過激な投稿をするなどの一面も。"
-                + "彼女の動向と、闇に包まれた過去とは。"
-                + "断片的な資料を読み進めると、やがてあなたは真相にたどり着くだろう。"
-                + "その時あなたは何を思う？"}
-            />
-            <Card
-              href="https://kakuyomu.jp/works/16817330648050844449/episodes/16817330648051716088"
-              title = "劣情"
-              subtitle = "あるいは運命だったのかもしれない。"
-              content = "冴えない男がある日駅で目にした事故をきっかけに歪んでいく姿を記した日記。"
-            />
-            <Card
-              href="https://kakuyomu.jp/works/16817330653872702112/episodes/16817330653872875405"
-              title = "炎と365日の彼女"
-              subtitle = "※注意　生者には使用しないでください。"
-              content = "青年が酔った勢いで買ってしまったのは、写真を燃やすことで死者を1時間だけ復活させられるライター。逃げがちな青年は、彼女を死後に復活させるため、毎日彼女の写真を撮るようになるが……？"
-            />
-            <Card
-              href="https://kakuyomu.jp/works/16816452221198156595"
-              title = "ム　～いのちの見た夢～"
-              subtitle = "生まれ変わって、やり直して、繰り返した先に、何が残るのか？"
-              content = "心に闇を抱えた、6人の少女たちの世界。生まれて、死んで、審判を繰り返し、最後に行きつく先とは。"
-            />
+          {
+              movieWorks.map((work) => (
+                <div key={work.vid} >
+                  <YouTubeEmbed vid={work.vid} />
+                  <Card
+                    title={work.title}
+                    content={work.content}
+                  />
+                </div>
+              ))
+            }
           </div>
           <Link
             href="/secret"
