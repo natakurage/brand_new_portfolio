@@ -3,6 +3,7 @@ import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import Boid from '@/src/Boid3D'
+import Link from 'next/link'
 
 export default function App({ Component, pageProps, router }: AppProps) {
   const [sep, setSep] = useState(6);
@@ -98,7 +99,7 @@ export default function App({ Component, pageProps, router }: AppProps) {
       <Component {...pageProps} />
       <footer style={{textAlign: 'center'}}>
         <span style={{transform: 'rotate(90deg)', display: "inline-block"}}>Ⓒ</span>
-        Natakurage All rights revealed.
+        <Link href="/policy">Natakurage All rights revealed.</Link>
       </footer>
     </>
   )
