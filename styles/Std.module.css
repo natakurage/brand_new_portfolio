@@ -7,7 +7,7 @@
   min-height: 100vh;
 }
 
-.main ul {
+.main ul, .main ol {
   padding-inline-start: 40px;
 }
 
