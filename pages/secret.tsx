@@ -1,10 +1,7 @@
 import Head from 'next/head'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Std.module.css'
-import YouTubeEmbed from '@/src/YoutubeEmbed'
 import Return from '@/src/Return'
-import Card from '@/src/Card'
-import Link from 'next/link'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -17,91 +14,8 @@ export default function About() {
       </Head>
       <main className={styles.main}>
         <article>
-          <h1>“脛孝行”として</h1>
-          <h2>脛孝行とは</h2>
-          <p>自分をクラゲだと思い込んでいる一般大学生。世間的に見れば将来有望だが、内面はコミュ障でぼっちで自意識過剰で意識不明で自我拡散というだいぶ終わってる人。</p>
-          <p>最近VOICEVOX動画をよく出している。さらに<a href="https://discord.gg/qJVcyYbYqa">教祖を始めたらしい。</a></p>
-          <h2>実績</h2>
-          <ul>
-            <li>YouTube登録者151人（2023/3/2時点）</li>
-            <li>ニコニコレベル8</li>
-            <li>1億回以上の呼吸</li>
-          </ul>
-          <h2>スキル</h2>
-          <ul>
-            <li>教祖</li>
-            <li>ふざけた動画作成</li>
-            <li>ふざけたWebアプリ作成</li>
-          </ul>
-          <h2>苦手なもの</h2>
-          <ul>
-            <li>喧嘩</li>
-          </ul>
-          <h2>動画</h2>
-          <div className={styles.grid}>
-            <div>
-              <YouTubeEmbed vid="dRT8ilMXkgg"/>
-              <Card
-                title="ゲーミングずんだもん"
-                content="YouTubeで一番再生されているので一応載せましたが、正直ただの運なので見る価値はないです。"
-              />
-            </div>
-            <div>
-              <YouTubeEmbed vid="q0vFZ0zrOzg"/>
-              <Card
-                title="ずんだもんと学ぶ小便器の正しいマナー"
-                content="Urinal Etiquetteという海外ミームを参考に作りました。サイレントですがかなり伸びました。下品なので恐縮です。"
-              />
-            </div>
-            <div>
-              <YouTubeEmbed vid="x_zsZFAmbDo"/>
-              <Card
-                title="群れになって泳ぐずんだもん"
-                content="Boidという群れを表現できるアルゴリズムがあって、それを実装して作りました。Webアプリとしても公開したので見てみてください。"
-              />
-            </div>
-            <div>
-              <YouTubeEmbed vid="B1T13pI3Hxo"/>
-              <Card
-                title="ずんだもんと見るバカ #Shorts"
-                content="結構初期に出して、まだコメントが付く息が長い動画です。序盤のギミックが印象的過ぎたせいか、真のオチであるラストの意図に気が付く人がほとんどいなかったのは反省点です。"
-              />
-            </div>
-            <div>
-              <YouTubeEmbed vid="6mlA3WQNhz8"/>
-              <Card
-                title="ずんだもんBB?+使用例"
-                content="再生数が際立って多いわけではありませんが、思い入れがあるので載せました。実は風刺的な意図があるのですが、ただの不気味な動画だと思っていただければそれで結構です。"
-              />
-            </div>
-            <div>
-              <YouTubeEmbed vid="AxwKWw5bDRs"/>
-              <Card
-                title="湯呑みペロペロずんだもん！！！！！！！！！！！！！！！！"
-                content="たまに時事ネタもやります。"
-              />
-            </div>
-          </div>
-          <h2>アプリ</h2>
-          <div className={styles.grid}>
-            <Card
-              title="群れになって泳ぐずんだもん"
-              subtitle="https://zunda-boid.web.app"
-              href="https://zunda-boid.web.app"
-              content="再生数が際立って多いわけではありませんが、思い入れがあるので載せました。実は風刺的な意図があるのですが、ただの不気味な動画だと思っていただければそれで結構です。"
-            />
-            <Card
-              title="ぽよぽよずんだもん"
-              subtitle="https://zunda-bound.web.app"
-              href="https://zunda-bound.web.app"
-              content={"モーションセンサーを使ってずんだもんが画面を滑り回るというものです。"
-              + "今のところAndroidでしか動きませんが。"
-              + "動きが早いと驚き、壁にぶつかると跳ねるようにしました。"}
-            />
-          </div>
-          <h2>作品利用に関して</h2>
-            <p>脛孝行の作品を利用する場合は<Link href="/policy">ナタクラゲのポリシー</Link>に準じます。</p>
-            <p>ただし、作者名は「脛孝行」でお願いします。</p>
+          <h1>秘密のページ</h1>
+          <p>よく見つけたね！</p>
         </article>
         <Return />
       </main>
