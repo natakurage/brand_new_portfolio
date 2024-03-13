@@ -68,7 +68,7 @@ export default function Home() {
               <FaBookOpen />
             </a></li>
             <li><a 
-              href="https://github.com/UzoGaMuzol"
+              href="https://github.com/natakurage"
               target="_blank"
               rel="noopener noreferrer"
             >
