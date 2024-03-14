@@ -28,11 +28,6 @@ export default function Works() {
         title: "懲役80年",
         content: "少女は、物心ついた頃から実験施設に監禁されていた。"
           + "実験や雑居房での苦しみの日々――。"
-      },
-      {
-        vid: "RHSTOALaNJw",
-        title: "沈んでゆく",
-        content: "底のない闇へ、沈んでゆく――。"
       }
   ]
   const movieWorks = [
