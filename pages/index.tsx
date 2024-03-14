@@ -4,7 +4,10 @@ import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import Link from 'next/link'
 import Card from '@/src/Card'
-import { FaYoutube, FaGithub, FaBookOpen, FaListUl } from "react-icons/fa"
+import { FaYoutube, FaGithub, FaListUl } from "react-icons/fa"
+import { FaXTwitter } from "react-icons/fa6"
+import { PiButterflyFill } from "react-icons/pi";
+import { TbLetterN } from "react-icons/tb"
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -61,11 +64,18 @@ export default function Home() {
               <FaYoutube />
             </a></li>
             <li><a 
-              href="https://kakuyomu.jp/users/icchy1128Novelman"
+              href="https://bsky.app/profile/natakurage.bsky.social"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FaBookOpen />
+              <PiButterflyFill />
+            </a></li>
+            <li><a 
+              href="https://note.com/minamo_ntk"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <TbLetterN />
             </a></li>
             <li><a 
               href="https://github.com/natakurage"
@@ -73,6 +83,13 @@ export default function Home() {
               rel="noopener noreferrer"
             >
               <FaGithub />
+            </a></li>
+            <li><a 
+              href="https://twitter.com/v_natakurage"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaXTwitter />
             </a></li>
             <li><Link href="/contact">
               <FaListUl />

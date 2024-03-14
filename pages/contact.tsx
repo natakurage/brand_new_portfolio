@@ -1,19 +1,14 @@
 import Head from 'next/head'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Std.module.css'
-import { 
-  FaYoutube,
-  FaGithub,
-  FaBookOpen,
-  FaSoundcloud,
-  
-} from "react-icons/fa"
-import { SiNiconico, SiPixiv } from "react-icons/si"
-import { TbLetterP } from "react-icons/tb"
+import { FaYoutube, FaGithub } from "react-icons/fa"
+import { FaXTwitter } from "react-icons/fa6"
+import { TbLetterN } from "react-icons/tb"
 import Return from '@/src/Return'
 import Modal from '@/src/Modal'
 import { BaseSyntheticEvent, useState } from 'react'
 import Link from 'next/link'
+import { PiButterflyFill } from 'react-icons/pi'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -83,54 +78,33 @@ export default function Contact() {
                 <span className={styles.linkName}>YouTube</span>
               </a></li>
               <li><a 
-                href="http://nicovideo.jp/user/46928394"
+                href="https://bsky.app/profile/natakurage.bsky.social"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <SiNiconico /><span className={styles.linkName}>ニコニコ</span>
-              </a></li>
-              <li><a 
-                href="https://piapro.jp/icchy1128music"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <TbLetterP 
-                  color='magenta'
+                <PiButterflyFill
+                  color="blue"
                 />
-                <span className={styles.linkName}>Piapro</span>
+                <span className={styles.linkName}>Bluesky (Main)</span>
               </a></li>
               <li><a 
-                href="https://soundcloud.com/pbj5g2xegmae"
+                href="https://note.com/minamo_ntk"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <FaSoundcloud
-                  color = 'orange'
-                />
-                <span className={styles.linkName}>SoundCloud</span>
+                <TbLetterN/>
+                <span className={styles.linkName}>Note</span>
               </a></li>
               <li><a 
-                href="https://kakuyomu.jp/users/icchy1128Novelman"
+                href="https://twitter.com/v_natakurage"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <FaBookOpen
-                  color='skyblue'
-                />
-                <span className={styles.linkName}>カクヨム</span>
+                <FaXTwitter/>
+                <span className={styles.linkName}>X</span>
               </a></li>
               <li><a 
-                href="https://www.pixiv.net/users/26489552"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <SiPixiv
-                  color='blue'
-                />
-                <span className={styles.linkName}>Pixiv</span>
-              </a></li>
-              <li><a 
-                href="https://github.com/UzoGaMuzol"
+                href="https://github.com/natakurage"
                 target="_blank"
                 rel="noopener noreferrer"
               >
