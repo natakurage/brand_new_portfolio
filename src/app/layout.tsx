@@ -21,11 +21,12 @@ export default async function RootLayout({
       <body className={inter.className}>
         <Boid3D />
         <div className="flex">
-          <div className="flex-1">
-            {children}
-          </div>
+          {children}
         </div>
-        <footer className="text-center">
+        <footer className="flex flex-row space-x-3 justify-center">
+          <Link href="/">
+            Home
+          </Link>
           <Link href="/policy">
             Natakurage all rights revealed.
           </Link>
