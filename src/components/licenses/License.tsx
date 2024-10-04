@@ -1,5 +1,5 @@
-import License_2024_3_14 from '@/src/licenses/archives/V2024.3.14'
-import License_2024_3_14_2 from "@/src/licenses/archives/V2024.3.14.2"
+import License_2024_3_14 from '@/components/licenses/archives/V2024.3.14'
+import License_2024_3_14_2 from "@/components/licenses/archives/V2024.3.14.2"
 
 export const licensesVersionMap = new Map<string, () => JSX.Element>([
   ["2024.3.14", License_2024_3_14],
