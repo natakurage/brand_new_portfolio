@@ -45,14 +45,15 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="container mx-auto my-10 space-y-10">
-        <div>
+        <div
+          className="h-screen relative"
+        >
           <Image
-            className="w-1/2 m-auto"
             src="/poster.png"
             alt="Natakurage Key Visual"
-            width={1000}
-            height={1000}
+            fill
             priority
+            className="w-1/2 m-auto object-contain"
           />
         </div>
         <div className="space-y-3">
