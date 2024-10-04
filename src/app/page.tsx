@@ -10,7 +10,7 @@ function LinkCard({ href, title, content } : { href: string, title: string, cont
   return (
     <Link href={href}>
       <div
-        className="card bg-neutral h-full hover:shadow-xl transition-[box-shadow] duration-500"
+        className="card bg-neutral/90 text-neutral-200 h-full hover:shadow-xl transition-[box-shadow] duration-500"
       >
         <div className="card-body">
           <h2 className="card-title">{title}</h2>
@@ -57,8 +57,8 @@ export default function Home() {
         </div>
         <div className="space-y-3">
           <h1 className="text-3xl text-center">
-            <span style={{display: "inline-block"}}>鉈海月 /</span>&nbsp;
-            <span style={{display: "inline-block"}}>ナタクラゲ</span>
+            <span style={{display: "inline-block"}}>ナタクラゲ /</span>&nbsp;
+            <span style={{display: "inline-block"}}>千本槍みなも</span>
           </h1>
 
           <div className="flex flex-row justify-center space-x-3">
