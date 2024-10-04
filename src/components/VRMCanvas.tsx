@@ -1,12 +1,18 @@
-import { FC, useState, useEffect, useRef } from "react"
+"use client"
+
+import { useState, useEffect, useRef } from "react"
 import { Canvas, useFrame, Vector3 } from "@react-three/fiber"
 import { Html, OrbitControls } from "@react-three/drei"
 import { GLTFLoader, GLTF } from "three/examples/jsm/loaders/GLTFLoader"
 import { VRMLoaderPlugin } from "@pixiv/three-vrm"
 
 import useWindowSize from "hooks/useWindowSize"
+import Image from "next/image"
 
-const Model = ({rotates = false}: {rotates?: boolean}) => {
+const Model = (
+  { filename, rotates = false }
+  : { filename: string, rotates?: boolean }
+) => {
   const [gltf, setGltf] = useState<GLTF>()
   const [progress, setProgress] = useState<number>(0)
 
@@ -20,7 +26,7 @@ const Model = ({rotates = false}: {rotates?: boolean}) => {
       })
 
       loader.load(
-        "/ナタクラゲ2.1_edit.vrm",
+        filename,
         (tmpGltf) => {
           setGltf(tmpGltf)
           console.log("loaded")
@@ -37,7 +43,7 @@ const Model = ({rotates = false}: {rotates?: boolean}) => {
         }
       )
     }
-  }, [gltf])
+  }, [gltf, filename])
 
   return (
     <>
@@ -50,7 +56,10 @@ const Model = ({rotates = false}: {rotates?: boolean}) => {
   )
 }
 
-const GltfSingleCanvas = ({camPos, hasOrbit = false} : {camPos: Vector3, hasOrbit?: boolean}) => {
+const GltfSingleCanvas = (
+  { vrmFilename, imgFilename, camPos, hasOrbit = false }
+  : { vrmFilename: string, imgFilename: string, camPos: Vector3, hasOrbit?: boolean }
+) => {
   const gltfCanvasParentRef = useRef<HTMLDivElement>(null)
   const [canvasHeight, setCanvasHeight] = useState<number>(0)
   const [clicked, setClicked] = useState<boolean>(false)
@@ -79,7 +88,7 @@ const GltfSingleCanvas = ({camPos, hasOrbit = false} : {camPos: Vector3, hasOrbi
             flat
           >
             <directionalLight position={[0, -1, 0]} intensity={2} color={"#FFFFFF"} />
-            <Model />
+            <Model filename={vrmFilename} />
             {
               hasOrbit ? (
                 <>
@@ -99,16 +108,16 @@ const GltfSingleCanvas = ({camPos, hasOrbit = false} : {camPos: Vector3, hasOrbi
         ) : (
           <div
             onClick={() => setClicked(true)}
-            style={{
-              width: "100%",
-              height: "100%",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              backgroundColor: "#50FFDF11"
-            }}
+            className="relative w-full h-full flex justify-center items-center bg-[#50FFDF11]"
           >
-            <p>クリックして3Dモデルを表示</p>
+            <Image
+              src={imgFilename}
+              alt="Natakurage Portrait"
+              fill
+              priority
+              className="not-prose object-contain"
+            />
+            <p className="text-neutral-50 bg-neutral-900 z-10 p-2 rounded">クリックして3Dモデルを表示</p>
           </div>
         )
       }
@@ -116,19 +125,15 @@ const GltfSingleCanvas = ({camPos, hasOrbit = false} : {camPos: Vector3, hasOrbi
   )
 }
 
-// const DoubleCanvas: FC = () => {
-//   return (
-//     <div style={{display: "flex", justifyContent: "space-around"}}>
-//       <GltfSingleCanvas camPos={[-0.2, 1.7, -5]} />
-//       <GltfSingleCanvas camPos={[0.2, 1.7, -5]} />
-//     </div>
-//   )
-// }
-
-const VRMCanvas: FC = () => {
+export default function VRMCanvas(
+  { vrmFilename, imgFilename } : { vrmFilename: string, imgFilename: string }
+) {
   return (
-    <GltfSingleCanvas camPos={[-0.2, 1, -6]} hasOrbit={true} />
+    <GltfSingleCanvas
+      vrmFilename={vrmFilename}
+      imgFilename={imgFilename}
+      camPos={[-0.2, 1, -6]}
+      hasOrbit={true}
+    />
   )
 }
-
-export default VRMCanvas
