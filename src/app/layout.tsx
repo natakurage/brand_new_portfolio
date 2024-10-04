@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Boid3D from "@/components/Boid3D"
+import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,6 +25,11 @@ export default async function RootLayout({
             {children}
           </div>
         </div>
+        <footer className="text-center">
+          <Link href="/policy">
+            Natakurage all rights revealed.
+          </Link>
+        </footer>
       </body>
     </html>
   );

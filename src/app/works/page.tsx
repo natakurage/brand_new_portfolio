@@ -84,7 +84,7 @@ export default function WorksPage() {
           </div>
           <Link
             href="/secret"
-            className={""}
+            className="no-underline"
           >&nbsp;</Link>
         </article>
       </main>
