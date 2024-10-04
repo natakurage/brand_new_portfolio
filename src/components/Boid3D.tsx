@@ -1,10 +1,12 @@
-import styles from "@/styles/Boid.module.css";
+"use client"
+
 import { useState, useEffect, useRef } from "react"
 import { Canvas, useFrame } from "@react-three/fiber"
 import { Sphere } from "@react-three/drei"
 import { Vector3 } from "three";
 
 import useWindowSize from "hooks/useWindowSize"
+import { usePathname } from "next/navigation";
 
 class Boid {
   pos: Vector3;
@@ -153,6 +155,7 @@ const SingleBoid = ({boid, width, depth, height}: BoidProps) => {
       />
       <Sphere
         scale={[0.3,0.3,0.3]}
+        position={boid.vel.clone().multiplyScalar(0.3 / maxVel)}
       >
         <meshStandardMaterial color="#FF50DF" emissive="#FF50DF" emissiveIntensity={5} />
       </Sphere>
@@ -212,26 +215,59 @@ const Boids = ({sep, ali, coh, freeze = false, width, depth, height}: BoidsProps
   )
 }
 
-export const SketchComponent = (props: {sep: number, ali: number, coh: number, freeze: boolean}) => {
+export const SketchComponent = () => {
   const gltfCanvasParentRef = useRef<HTMLDivElement>(null)
-  const [canvasWidth, setCanvasWidth] = useState<number>(0)
-  const [canvasHeight, setCanvasHeight] = useState<number>(0)
-  const windowSize = useWindowSize()
+  const [separation, setSeparation] = useState(1)
+  const [alignment, setAlignment] = useState(1)
+  const [cohesion, setCohesion] = useState(1)
+  const [freeze, setFreeze] = useState(false)
+  const pathname = usePathname()
 
   useEffect(() => {
-    if (gltfCanvasParentRef.current?.offsetWidth) {
-      setCanvasHeight(gltfCanvasParentRef.current.offsetHeight)
+    if (pathname == "/about") {
+      setSeparation(0);
+      setAlignment(0);
+      setCohesion(0);
     }
-  }, [windowSize])
+    else if (pathname == "/works") {
+      setSeparation(3);
+      setAlignment(10);
+      setCohesion(2);
+    }
+    else if (pathname == "/policy") {
+      setSeparation(1);
+      setAlignment(0);
+      setCohesion(50);
+    }
+    else if (pathname == "/contact") {
+      setSeparation(1);
+      setAlignment(0);
+      setCohesion(0);
+    }
+    else if (pathname == "/secret") {
+      setSeparation(1);
+      setAlignment(5);
+      setCohesion(0);
+    }
+    else {
+      setSeparation(6);
+      setAlignment(1);
+      setCohesion(2);
+    }
+  }, [pathname])
+
+  useEffect(() => {
+    if (navigator.userAgent.match(/iPhone|Android.+Mobile/)) {
+      setFreeze(true)
+    }
+  }, [setFreeze])
 
   return (
     <div
       ref={gltfCanvasParentRef}
-      // style={{ height: `${canvasHeight}px` }}
-      style={{width:"100vw", height:"100vh", position: "fixed", zIndex: -1000}}
+      className="w-screen h-screen fixed z-[-1000]"
     >
       <Canvas
-        className={styles.boidCanvas}
         frameloop="always"
         camera={{ 
           fov: 20, near: 0.1, far: 300,
@@ -242,17 +278,20 @@ export const SketchComponent = (props: {sep: number, ali: number, coh: number, f
         <directionalLight position={[0, 1, 0]} intensity={10} color={"#FFFFFF"} />
         <color attach="background" args={["#000917"]} />
         <Boids
-          sep={props.sep}
-          ali={props.ali}
-          coh={props.coh}
-          freeze={props.freeze}
+          sep={separation}
+          ali={alignment}
+          coh={cohesion}
+          freeze={freeze}
           width={7}
           depth={50}
           height={7}
         />
-        {/* <gridHelper /> */}
       </Canvas>
-      <div className={styles.over} style={{opacity: 0.5}}></div>
+      <div
+        className="fixed w-screen h-screen
+          top-0 bottom-0 left-0 right-0
+          bg-black z-[0] opacity-60 mix-blend-multiply"
+      />
     </div>
   );
 };
