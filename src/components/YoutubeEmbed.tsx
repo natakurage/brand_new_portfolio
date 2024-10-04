@@ -1,37 +1,10 @@
-import { useState } from 'react'
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import styles from '@/styles/YouTubeEmbed.module.css'
+import YouTubeEmbedToggler from '@/components/YoutubeEmbedClient';
+import { YouTubePlayer, YouTubeThumbnail } from '@/components/YoutubeEmbedServer';
 
-const inter = Inter({ subsets: ['latin'] })
-
-const YouTubeEmbed = (props: {vid: string}) => {
-  const [clicked, setClicked] = useState(false);
+export default function YouTubeEmbed({ vid } : { vid: string }) {
+  const player = <YouTubePlayer vid={vid} />
+  const thumbnail = <YouTubeThumbnail vid={vid} />
   return (
-    <>
-      {clicked ?
-        <div className={styles.youtubeEmbeddedVideo}>
-          <iframe 
-            src={`https://www.youtube.com/embed/${props.vid}`}
-            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-            width={1280}
-            height={720}
-            allowFullScreen
-          />
-        </div>
-        :
-        <div className={styles.youtubeThumbnail}>
-          <Image
-            src={`http://img.youtube.com/vi/${props.vid}/maxresdefault.jpg`}
-            alt="youtube video thumbnail"
-            width={1280}
-            height={720}
-            onClick = {() => setClicked(!clicked)}
-          />
-        </div>
-      }
-    </>
+    <YouTubeEmbedToggler player={player} thumbnail={thumbnail} />
   )
 }
-
-export default YouTubeEmbed
