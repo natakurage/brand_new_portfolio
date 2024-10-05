@@ -2,25 +2,8 @@ import { FaYoutube, FaGithub } from "react-icons/fa"
 import { FaXTwitter, FaBluesky } from "react-icons/fa6"
 import { TbLetterN } from "react-icons/tb"
 import MessageForm from "@/components/MessageForm"
-import { ReactNode } from 'react'
 import { Metadata } from 'next'
-
-function SocialIcon(
-  { href, title, children }
-  : { href: string, title: string, children: ReactNode }
-) {
-  return (
-    <div><a 
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="flex flex-col items-center"
-    >
-      {children}
-      <div>{title}</div>
-    </a></div>
-  )
-}
+import Link from "next/link"
 
 export const metadata: Metadata = {
   title: "お問い合わせ | ナタクラゲ / 千本槍みなも",
@@ -28,55 +11,54 @@ export const metadata: Metadata = {
 }
 
 export default function ContactPage() {
+  const socials = [
+    {
+      text: "YouTube",
+      icon: <FaYoutube color="red" size="48" />,
+      href: "https://www.youtube.com/@natakurage"
+    },
+    {
+      text: "Bluesky (Main)",
+      icon: <FaBluesky color="blue" size="48" />,
+      href: "https://bsky.app/profile/natakurage.bsky.social"
+    },
+    {
+      text: "Note",
+      icon: <TbLetterN size="48" />,
+      href: "https://note.com/minamo_ntk"
+    },
+    {
+      text: "X (Formerly known as Twitter)",
+      icon: <FaXTwitter size="48" />,
+      href: "https://twitter.com/v_natakurage"
+    },
+    {
+      text: "GitHub",
+      icon: <FaGithub size="48" />,
+      href: "https://github.com/natakurage"
+    },
+  ]
   return (
     <>
       <main className="container mx-auto my-10 space-y-10 px-3">
         <article className="prose mx-auto">
           <h1>お問い合わせ</h1>
           <h2>各種アカウント</h2>
-          <div className="flex flex-row justify-center space-x-3 text-center">
-          <SocialIcon
-              href="https://www.youtube.com/@natakurage"
-              title="YouTube"
-            >
-              <FaYoutube
-                color="red"
-                size="48"
-              />
-            </SocialIcon>
-            <SocialIcon
-              href="https://bsky.app/profile/natakurage.bsky.social"
-              title="Bluesky (Main)"
-            >
-              <FaBluesky
-                color="blue"
-                size="48"
-              />
-            </SocialIcon>
-            <SocialIcon
-              href="https://note.com/minamo_ntk"
-              title="Note"
-            >
-              <TbLetterN
-                size="48"
-              />
-            </SocialIcon>
-            <SocialIcon
-              href="https://twitter.com/v_natakurage"
-              title="X (Formerly known as Twitter)"
-            >
-              <FaXTwitter
-                size="48"
-              />
-            </SocialIcon>
-            <SocialIcon
-              href="https://github.com/natakurage"
-              title="GitHub"
-            >
-              <FaGithub
-                size="48"
-              />
-            </SocialIcon>
+          <div
+            className="not-prose flex flex-row flex-wrap gap-3 justify-center"
+          >
+          {
+            socials.map(e => 
+              <Link
+                key={e.text}
+                href={e.href}
+                className={`tooltip p-3 rounded-md hover:translate-y-[-0.1rem] transition-[transform]`}
+                data-tip={e.text}
+              >
+                {e.icon}
+              </Link>
+            )
+          }
           </div>
           <div>
             <h2>お問い合わせフォーム</h2>
