@@ -6,6 +6,7 @@ import { FaJs, FaRegHandRock, FaPython } from 'react-icons/fa'
 import { GiGuitar, GiMusicalScore } from "react-icons/gi"
 import { TbBrandCpp, TbWorld } from "react-icons/tb"
 import { SiBlender, SiTypescript } from "react-icons/si"
+import Image from 'next/image'
 
 export const metadata: Metadata = {
   title: "ナタクラゲ / 千本槍みなもについて | ナタクラゲ / 千本槍みなも",
@@ -160,6 +161,15 @@ export default function AboutPage() {
           
           <h2>ナタクラゲ</h2>
           <div className="text-sm">ボカロP / 小説家 / プログラマー / 3DCGアーティスト / 「千本槍みなも」運営 / Computational Freedom主宰</div>
+          <div className="h-64 relative">
+            <Image
+              src="/鉈海月.png"
+              alt="Natakurage Icon"
+              fill
+              priority
+              className="w-1/2 m-auto object-contain"
+            />
+          </div>
           <p>
             2011年頃、ニンテンドー3DSを手にし、初めて自由にインターネットを使えるようになる。
             2018年に今につながるインターネット活動を開始。
