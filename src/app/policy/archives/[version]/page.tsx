@@ -1,7 +1,6 @@
 import License, { licensesVersionMap } from '@/components/licenses/License'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { Metadata } from 'next'
 
 export function generateMetadata({ params } : { params: { version: string }}) {
   return {
@@ -13,7 +12,6 @@ export function generateMetadata({ params } : { params: { version: string }}) {
 export default function LicenseOfVersion({ params } : { params: { version: string }}) {
   const version = params.version
   const exists = licensesVersionMap.has(version)
-  console.log(licensesVersionMap, version)
   if (!exists) {
     notFound()
   }
