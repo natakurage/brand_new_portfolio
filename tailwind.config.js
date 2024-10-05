@@ -16,8 +16,8 @@ module.exports = {
   daisyui: {
     themes: [
       {
-        light: {
-          ...require("daisyui/src/theming/themes")["light"],
+        dark: {
+          ...require("daisyui/src/theming/themes")["dark"],
           "base-content": "rgb(229 229 229)"
         }
       }
