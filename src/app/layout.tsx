@@ -1,15 +1,14 @@
-import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
+import "@/app/globals.css";
 import Boid3D from "@/components/Boid3D"
 import Link from "next/link";
+import { Metadata } from "next";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "ナタクラゲ ホームページ",
-  description: "ナタクラゲおよびVTuber千本槍みなものホームページです。",
-};
+  icons: "/favicon.ico"
+}
 
 export default async function RootLayout({
   children,

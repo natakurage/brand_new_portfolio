@@ -1,4 +1,4 @@
-import Head from 'next/head'
+import { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ReactNode } from 'react'
@@ -35,15 +35,15 @@ function SocialIcon({ href, children } : { href: string, children: ReactNode }) 
   )
 }
 
+export const metadata: Metadata = {
+  title: "ナタクラゲ / 千本槍みなも",
+  description: "ナタクラゲ / 千本槍みなもの公式ホームページ。"
+}
+
 export default function Home() {
   
   return (
     <>
-      <Head>
-        <title>ナタクラゲ / ポートフォリオ</title>
-        <meta name="description" content="Natakurage's Portfolio" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
       <main className="container mx-auto my-10 space-y-10">
         <div
           className="h-screen relative"
