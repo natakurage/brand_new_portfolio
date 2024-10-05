@@ -24,13 +24,13 @@ function LinkCard({ href, title, content } : { href: string, title: string, cont
 function SocialIcon({ href, children } : { href: string, children: ReactNode }) {
   return (
     <div>
-      <a 
+      <Link
         href={href}
         target="_blank"
         rel="noopener noreferrer"
       >
         { children }
-      </a>
+      </Link>
     </div>
   )
 }
@@ -57,29 +57,26 @@ export default function Home() {
           />
         </div>
         <div className="space-y-3">
-          <h1 className="text-3xl text-center">
+          <h1 className="text-5xl font-bold text-center">
             <span style={{display: "inline-block"}}>ナタクラゲ /</span>&nbsp;
             <span style={{display: "inline-block"}}>千本槍みなも</span>
           </h1>
 
           <div className="flex flex-row justify-center space-x-3">
             <SocialIcon href="https://www.youtube.com/@natakurage/featured">
-              <FaYoutube size="48" />
+              <FaYoutube size="32" />
             </SocialIcon>
             <SocialIcon href="https://bsky.app/profile/natakurage.bsky.social">
-              <FaBluesky size="48" />
+              <FaBluesky size="32" />
             </SocialIcon>
             <SocialIcon href="https://note.com/minamo_ntk">
-              <TbLetterN size="48" />
+              <TbLetterN size="32" />
             </SocialIcon>
             <SocialIcon href="https://github.com/natakurage">
-              <FaGithub size="48" />
+              <FaGithub size="32" />
             </SocialIcon>
             <SocialIcon href="https://twitter.com/v_natakurage">
-              <FaXTwitter size="48" />
-            </SocialIcon>
-            <SocialIcon href="/contact">
-              <FaListUl size="48" />
+              <FaXTwitter size="32" />
             </SocialIcon>
           </div>
         </div>
