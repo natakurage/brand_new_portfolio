@@ -60,18 +60,28 @@ export default function ContactPage() {
             )
           }
           </div>
-          <div>
-            <h2>お問い合わせフォーム</h2>
-            <p>お問い合わせは以下のフォームからお願いします。</p>
-            <p>※内部でGoogleフォームを使っており、仕様変更で壊れる可能性や送信できているように見えてできていない可能性がありますので、確実に届けたい方は
-              <a 
-                href="https://docs.google.com/forms/d/e/1FAIpQLSe2kcQ3DWJSoYURIS9ARTUhymadXiJoNimGJQ7jGyCyGu76gQ/viewform?usp=sf_link"
-                target="_blank"
-                rel="noopener noreferrer"
-              >こちらのリンク先</a>
-              のフォームをご利用いただくか、上記のアカウントへ直接連絡してください。送信できた場合、入力されたメールアドレスに確認メールが届きます。</p>
-            <MessageForm />
-          </div>
+          <h2>Discord</h2>
+          <p>誰でも気軽に参加できるVTuberコミュニティ「OpenTLive」を運営しております。
+            ぜひご参加ください！
+            VTuberコミュニティとは言いますが、一般人でも猫でも惑星でも歓迎しています。
+          </p>
+          <iframe
+            src="https://discord.com/widget?id=1217076838485201007&theme=dark"
+            width="350"
+            height="500"
+            sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
+            className="rounded-[5px] w-full"
+          />
+          <h2>お問い合わせフォーム</h2>
+          <p>お問い合わせは以下のフォームからお願いします。</p>
+          <p>※内部でGoogleフォームを使っており、仕様変更で壊れる可能性や送信できているように見えてできていない可能性がありますので、確実に届けたい方は
+            <Link 
+              href="https://docs.google.com/forms/d/e/1FAIpQLSe2kcQ3DWJSoYURIS9ARTUhymadXiJoNimGJQ7jGyCyGu76gQ/viewform?usp=sf_link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >こちらのリンク先</Link>
+            のフォームをご利用いただくか、上記のアカウントへ直接連絡してください。送信できた場合、入力されたメールアドレスに確認メールが届きます。</p>
+          <MessageForm />
         </article>
       </main>
     </>
