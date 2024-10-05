@@ -12,7 +12,7 @@ function LinkCard({ href, title, content } : { href: string, title: string, cont
       <div
         className="card bg-neutral/90 h-full hover:shadow-xl transition-[box-shadow] duration-500"
       >
-        <div className="card-body">
+        <div className="card-body p-5 md:p-8">
           <h2 className="card-title">{title}</h2>
           <p>{content}</p>
         </div>
@@ -44,7 +44,7 @@ export default function Home() {
   
   return (
     <>
-      <main className="container mx-auto my-10 space-y-10">
+      <main className="container mx-auto my-10 space-y-10 px-3">
         <div
           className="h-screen relative"
         >
@@ -84,7 +84,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-5">
+        <div className="grid grid-cols-2 gap-3 md:gap-5">
           <LinkCard 
             href="/about"
             title="About"

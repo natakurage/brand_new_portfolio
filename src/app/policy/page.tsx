@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default function PolicyPage() {
   return (
     <>
-      <main className="container mx-auto my-10 space-y-10">
+      <main className="container mx-auto my-10 space-y-10 px-3">
         <article className="prose mx-auto">
           <h1>ポリシーと規約</h1>
           <h2>ナタクラゲの作品について</h2>

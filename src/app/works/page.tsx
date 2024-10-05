@@ -49,45 +49,42 @@ export default function WorksPage() {
   ]
   return (
     <>
-      <main className="container mx-auto my-10 space-y-10">
-        <article className="prose mx-auto">
-          <h1>作品</h1>
-          <h2>音楽（クリックで再生）</h2>
-          <div className="not-prose grid grid-cols-2 gap-5">
-            {
-              musicWorks.map((work) => (
-                <div
-                  key={work.vid}
-                  className="flex flex-col"
-                >
-                  <YouTubeEmbed vid={work.vid} />
-                  <WorkCard
-                    title={work.title}
-                    content={work.content}
-                  />
-                </div>
-              ))
-            }
-          </div>
-          <h2>映像作品（クリックで再生）</h2>
-          <div className="not-prose grid grid-cols-2 gap-5">
+      <main className="container mx-auto my-10 space-y-10 px-3">
+        <h2 className="text-center">音楽（クリックで再生）</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
           {
-              movieWorks.map((work) => (
-                <div key={work.vid} >
-                  <YouTubeEmbed vid={work.vid} />
-                  <WorkCard
-                    title={work.title}
-                    content={work.content}
-                  />
-                </div>
-              ))
-            }
-          </div>
-          <Link
-            href="/secret"
-            className="no-underline"
-          >&nbsp;</Link>
-        </article>
+            musicWorks.map((work) => (
+              <div
+                key={work.vid}
+                className="flex flex-col space-y-5"
+              >
+                <YouTubeEmbed vid={work.vid} />
+                <WorkCard
+                  title={work.title}
+                  content={work.content}
+                />
+              </div>
+            ))
+          }
+        </div>
+        <h2 className="text-center">映像作品（クリックで再生）</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
+        {
+            movieWorks.map((work) => (
+              <div key={work.vid} >
+                <YouTubeEmbed vid={work.vid} />
+                <WorkCard
+                  title={work.title}
+                  content={work.content}
+                />
+              </div>
+            ))
+          }
+        </div>
+        <Link
+          href="/secret"
+          className="no-underline"
+        >&nbsp;</Link>
       </main>
     </>
   )
