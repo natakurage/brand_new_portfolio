@@ -16,7 +16,7 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="ja">
       <body className={inter.className}>
         <Boid3D />
         <div className="flex">
