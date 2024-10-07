@@ -1,6 +1,8 @@
-import { licensesVersionMap } from '@/components/licenses/License'
+import fs from 'fs'
 import { Metadata } from 'next'
 import Link from 'next/link'
+import { notFound } from 'next/navigation'
+import path from 'path'
 
 export const metadata: Metadata = {
   title: "過去のライセンス一覧 | ナタクラゲ / 千本槍みなも",
@@ -8,6 +10,16 @@ export const metadata: Metadata = {
 }
 
 export default function LicenseArchivePage() {
+  const dirPath = path.join(process.cwd(), "markdowns", "licenses")
+  const mdFiles = [] as string[]
+  try {
+    const files = fs.readdirSync(dirPath)
+    mdFiles.push(...files.map(e => path.basename(e, path.extname(e))))
+  } catch (error) {
+    console.log(error)
+    notFound()
+  }
+  console.log(mdFiles)
   return (
     <>
       <main className="container mx-auto my-10 space-y-10 px-3">
@@ -15,7 +27,7 @@ export default function LicenseArchivePage() {
           <h1>過去のライセンス一覧</h1>
           <ul>
             {
-              Array.from(licensesVersionMap.keys()).map((version: string) => {
+              mdFiles.map((version: string) => {
                 return (
                   <li key={version}>
                     <Link

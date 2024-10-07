@@ -1,4 +1,4 @@
-import License from '@/components/licenses/License'
+import License from '@/components/License'
 import Link from 'next/link'
 import { Metadata } from 'next'
 

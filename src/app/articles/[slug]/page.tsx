@@ -16,7 +16,7 @@ interface Metadata {
 
 export async function generateMetadata({ params } : { params: { slug: string }}) {
   const { slug } = params
-  const filePath = path.join(process.cwd(), "markdowns", `${slug}.md`)
+  const filePath = path.join(process.cwd(), "markdowns", "articles", `${slug}.md`)
   let metadata: Metadata
   try {
     const { data: { title, date, author } } = matter(fs.readFileSync(filePath, "utf-8"))
@@ -31,7 +31,7 @@ export async function generateMetadata({ params } : { params: { slug: string }})
 
 export default function ArticlePage({ params } : { params: { slug: string }}) {
   const { slug } = params
-  const filePath = path.join(process.cwd(), "markdowns", `${slug}.md`)
+  const filePath = path.join(process.cwd(), "markdowns", "articles", `${slug}.md`)
   let metadata: Metadata
   let markdown = ""
   try {
