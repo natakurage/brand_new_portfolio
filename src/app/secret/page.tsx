@@ -1,17 +1,22 @@
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: "秘密のページ | ナタクラゲ / 千本槍みなも",
-  description: "秘密のページ"
+  title: "Secret Zone | ナタクラゲ / 千本槍みなも",
+  description: "Secret Zone"
 }
 
 export default function SecretPage() {
   return (
     <>
       <main className="container mx-auto my-10 space-y-10 px-3">
+        <div className="
+          fixed top-0 left-0 w-screen h-screen z-[-1]
+          bg-[url('/ntk.png')] bg-[length:5px_5px]">
+
+        </div>
         <article className="prose mx-auto">
-          <h1>秘密のページ</h1>
-          <p>よく見つけたね！ご褒美にこれを見せてあげるよ！</p>
+          <h1>Secret Zone</h1>
+          <p>↓</p>
           <a href="https://drive.google.com/drive/folders/1YpBdkZkq45lZd2tgWBOWiBE6J7YAdtgV?usp=drive_link">
           link</a>
         </article>

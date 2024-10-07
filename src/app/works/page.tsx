@@ -98,6 +98,7 @@ export default function WorksPage() {
           href="/secret"
           className="no-underline"
         >&nbsp;</Link>
+        <span className="text-transparent">←ここに何かある</span>
       </main>
     </>
   )
