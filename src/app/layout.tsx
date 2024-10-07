@@ -3,6 +3,7 @@ import "@/app/globals.css";
 import Boid3D from "@/components/Boid3D"
 import Link from "next/link";
 import { Metadata } from "next";
+import SecretMessage from "@/components/SecretMessage";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,6 +20,7 @@ export default async function RootLayout({
     <html lang="ja">
       <body className={inter.className}>
         <Boid3D />
+        <SecretMessage />
         <div className="flex">
           {children}
         </div>
