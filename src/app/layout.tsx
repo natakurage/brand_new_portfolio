@@ -29,7 +29,7 @@ export default async function RootLayout({
             Home
           </Link>
           <Link href="/policy">
-            Natakurage all rights revealed.
+          Copyright © 2024 Natakurage Some rights reserved.
           </Link>
         </footer>
       </body>

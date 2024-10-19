@@ -81,6 +81,17 @@ export default function Home() {
           </div>
         </div>
 
+        <div className="text-center">
+          <Link
+            href="https://natakurage-blog.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="link link-hover"
+          >
+            ブログを見る
+          </Link>
+        </div>
+
         <div className="grid grid-cols-2 gap-3 md:gap-5">
           <LinkCard 
             href="/about"

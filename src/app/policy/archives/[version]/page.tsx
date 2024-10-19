@@ -14,6 +14,9 @@ export default function LicenseOfVersion({ params } : { params: { version: strin
     <>
       <main className="container mx-auto my-10 space-y-10 px-3">
         <article className="prose mx-auto">
+          <p>注意: 以下のライセンスは現在有効ではありません！詳しくは
+            <Link href="/policy">ポリシーと規約</Link>を参照してください！
+          </p>
           <License version={version} />
           <Link href="/policy/archives">別の時点でのライセンスを見る</Link>
         </article>
