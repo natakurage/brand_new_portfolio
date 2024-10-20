@@ -160,7 +160,7 @@ export default function AboutPage() {
           <h1>ナタクラゲ / 千本槍みなもについて</h1>
           
           <h2>ナタクラゲ</h2>
-          <div className="text-sm">ボカロP / 小説家 / プログラマー / 3DCGアーティスト / 「千本槍みなも」運営 / Computational Freedom主宰</div>
+          <div className="text-sm">ボカロP / 小説家 / プログラマー / 3DCGアーティスト / 「千本槍みなも」運営 / Reproducible Freedom主宰</div>
           <div className="h-64 relative">
             <Image
               src="/鉈海月.png"
