@@ -1,8 +1,8 @@
 "use client"
 
-import { useState, useEffect, useRef } from "react"
+import { useState, useEffect, useRef, memo, useCallback } from "react"
 import { Canvas, useFrame, Vector3 } from "@react-three/fiber"
-import { Html, OrbitControls } from "@react-three/drei"
+import { OrbitControls } from "@react-three/drei"
 import { GLTFLoader, GLTF } from "three/examples/jsm/loaders/GLTFLoader"
 import { VRMLoaderPlugin } from "@pixiv/three-vrm"
 
@@ -10,11 +10,10 @@ import useWindowSize from "hooks/useWindowSize"
 import Image from "next/image"
 
 const Model = (
-  { filename, rotates = false }
-  : { filename: string, rotates?: boolean }
+  { filename, rotates = false, onLoad, setProgress }
+  : { filename: string, rotates?: boolean, onLoad?: () => void, setProgress?: (progress: number) => void }
 ) => {
   const [gltf, setGltf] = useState<GLTF>()
-  const [progress, setProgress] = useState<number>(0)
 
   useFrame(() => {if (rotates) {gltf?.scene.rotateY(0.05)}})
 
@@ -30,10 +29,11 @@ const Model = (
         (tmpGltf) => {
           setGltf(tmpGltf)
           console.log("loaded")
+          onLoad?.()
         },
         // called as loading progresses
         (xhr) => {
-          setProgress((xhr.loaded / xhr.total) * 100)
+          setProgress?.((xhr.loaded / xhr.total) * 100)
           console.log((xhr.loaded / xhr.total) * 100 + "% loaded")
         },
         // called when loading has errors
@@ -43,17 +43,9 @@ const Model = (
         }
       )
     }
-  }, [gltf, filename])
+  }, [filename, gltf, onLoad, setProgress])
 
-  return (
-    <>
-      {gltf ? (
-        <primitive object={gltf.scene} />
-      ) : (
-        <Html center>{progress.toFixed(2)}% loaded</Html>
-      )}
-    </>
-  )
+  return gltf ? <primitive object={gltf.scene} /> : null
 }
 
 const GltfSingleCanvas = (
@@ -63,6 +55,8 @@ const GltfSingleCanvas = (
   const gltfCanvasParentRef = useRef<HTMLDivElement>(null)
   const [canvasHeight, setCanvasHeight] = useState<number>(0)
   const [clicked, setClicked] = useState<boolean>(false)
+  const [progress, setProgress] = useState<number>(0)
+  const [loaded, setLoaded] = useState<boolean>(false)
   const windowSize = useWindowSize()
 
   useEffect(() => {
@@ -71,13 +65,16 @@ const GltfSingleCanvas = (
     }
   }, [windowSize])
 
+  const makeLoadedTrue = useCallback(() => setLoaded(true), [setLoaded])
+  const updateProgress = useCallback((n: number) => setProgress(n), [setProgress])
+
   return (
     <div
       ref={gltfCanvasParentRef}
       style={{ height: `${canvasHeight}px` }}
     >
       {
-        clicked ? (
+        clicked && (
           <Canvas
             frameloop="always"
             camera={{ 
@@ -88,7 +85,11 @@ const GltfSingleCanvas = (
             flat
           >
             <directionalLight position={[0, -1, 0]} intensity={2} color={"#FFFFFF"} />
-            <Model filename={vrmFilename} />
+            <Model
+              filename={vrmFilename}
+              onLoad={makeLoadedTrue}
+              setProgress={updateProgress}
+            />
             {
               hasOrbit ? (
                 <>
@@ -105,10 +106,12 @@ const GltfSingleCanvas = (
               )
             }
           </Canvas>
-        ) : (
+        )
+      }
+      { !loaded && (
           <div
             onClick={() => setClicked(true)}
-            className="relative w-full h-full flex justify-center items-center bg-[#50FFDF11]"
+            className="absolute top-0 left-0 z-10 w-full h-full flex justify-center items-center bg-[#50FFDF11]"
           >
             <Image
               src={imgFilename}
@@ -117,7 +120,9 @@ const GltfSingleCanvas = (
               priority
               className="not-prose object-contain"
             />
-            <p className="text-neutral-50 bg-neutral-900 z-10 p-2 rounded">クリックして3Dモデルを表示</p>
+            <p className="text-neutral-50 bg-neutral-900 z-20 p-2 rounded">
+              { clicked ? (progress.toFixed(2) + "% loaded") : "クリックして3Dモデルを表示" }
+            </p>
           </div>
         )
       }
