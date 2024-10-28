@@ -50,7 +50,7 @@ const Model = (
       {gltf ? (
         <primitive object={gltf.scene} />
       ) : (
-        <Html center>{progress} % loaded</Html>
+        <Html center>{progress.toFixed(2)}% loaded</Html>
       )}
     </>
   )
