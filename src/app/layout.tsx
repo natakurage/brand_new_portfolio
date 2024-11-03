@@ -7,8 +7,13 @@ import SecretMessage from "@/components/SecretMessage";
 
 const inter = Inter({ subsets: ["latin"] });
 
+const googleVerification = process.env.GOOGLE_VERIFICATION_CODE
+
 export const metadata: Metadata = {
-  icons: "/favicon.ico"
+  icons: "/favicon.ico",
+  verification: {
+    google: googleVerification
+  }
 }
 
 export default async function RootLayout({
