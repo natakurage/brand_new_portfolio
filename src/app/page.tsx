@@ -83,7 +83,7 @@ export default function Home() {
 
         <div className="text-center">
           <Link
-            href="https://natakurage-blog.vercel.app/"
+            href="https://blog.natakurage.cc/"
             target="_blank"
             rel="noopener noreferrer"
             className="link link-hover"
