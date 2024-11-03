@@ -20,7 +20,7 @@ export default function ContactPage() {
     {
       text: "Bluesky (Main)",
       icon: <FaBluesky color="blue" size="48" />,
-      href: "https://bsky.app/profile/natakurage.bsky.social"
+      href: "https://bsky.app/profile/natakurage.cc"
     },
     {
       text: "Note",

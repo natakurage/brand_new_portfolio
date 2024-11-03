@@ -66,7 +66,7 @@ export default function Home() {
             <SocialIcon href="https://www.youtube.com/@natakurage/featured">
               <FaYoutube size="32" />
             </SocialIcon>
-            <SocialIcon href="https://bsky.app/profile/natakurage.bsky.social">
+            <SocialIcon href="https://bsky.app/profile/natakurage.cc">
               <FaBluesky size="32" />
             </SocialIcon>
             <SocialIcon href="https://note.com/minamo_ntk">
