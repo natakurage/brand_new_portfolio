@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import YouTubeEmbed from '@/components/YoutubeEmbed'
 import { Metadata } from 'next'
+import Image from 'next/image'
 
 function WorkCard({ title, content } : { title: string, content: string}) {
   return (
@@ -60,6 +61,30 @@ export default function WorksPage() {
       content: ""
     }
   ]
+  const webWorks = [
+    {
+      title: "p5.js Ray Tracer",
+      img: "/images/works/p5-example.png",
+      href: "https://p5-raytracer.natakurage.cc",
+      content: "p5.js + TypeScriptで作ったパストレーサーです。"
+    },
+    {
+      title: "ナタクラゲのドブ川水族館",
+      img: "/images/works/blog.png",
+      href: "https://blog.natakurage.cc",
+      content: "Next.js + TailwindCSS + Vercel + Contentfulで作ったブログです。"
+    },
+    {
+      title: "完全にオリジナルな曲",
+      href: "/works/contents/completely-original-song",
+      content: "完全にオリジナルな曲を作れるサイト。"
+    },
+    {
+      title: "Twitter Search",
+      href: "/works/contents/twitter-search",
+      content: "Twitterの検索画面に飛ぶだけのサイト（トレンドを見なくて済むように）"
+    }
+  ]
   return (
     <>
       <main className="container mx-auto my-10 space-y-10 px-3">
@@ -89,6 +114,39 @@ export default function WorksPage() {
                 <WorkCard
                   title={work.title}
                   content={work.content}
+                />
+              </div>
+            ))
+          }
+        </div>
+        <h2 className="text-center">Web</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
+        {
+            webWorks.map((work) => (
+              <div key={work.title} className={"relative" + ( !work.img ? " self-end" : "")} >
+                {
+                  work.img &&
+                  <div
+                    className="w-full aspect-video relative"
+                  >
+                    <Image
+                      src={work.img}
+                      alt={work.title}
+                      fill
+                      priority
+                      className="m-auto object-contain"
+                    />
+                  </div>
+                }
+                <WorkCard
+                  title={work.title}
+                  content={work.content}
+                />
+                <Link
+                  href={work.href}
+                  target={work.href.startsWith("/") ? undefined : "_blank"}
+                  rel={work.href.startsWith("/") ? undefined : "noopener noreferrer"}
+                  className="absolute top-0 left-0 block w-full h-full"
                 />
               </div>
             ))
