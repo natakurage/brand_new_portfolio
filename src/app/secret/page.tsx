@@ -11,7 +11,7 @@ export default function SecretPage() {
       <main className="container mx-auto my-10 space-y-10 px-3">
         <div className="
           fixed top-0 left-0 w-screen h-screen z-[-1]
-          bg-[url('/ntk.png')] bg-[length:5px_5px]">
+          bg-[url('/NTK.png')] bg-[length:20px_20px]">
 
         </div>
         <article className="prose mx-auto">
