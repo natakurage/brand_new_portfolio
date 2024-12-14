@@ -41,7 +41,7 @@ export default function ContactPage() {
   return (
     <>
       <main className="container mx-auto my-10 space-y-10 px-3">
-        <article className="prose mx-auto">
+        <article className="prose dark:!prose-invert mx-auto">
           <h1>お問い合わせ</h1>
           <h2>各種アカウント</h2>
           <div

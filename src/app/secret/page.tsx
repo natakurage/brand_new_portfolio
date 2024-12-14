@@ -14,7 +14,7 @@ export default function SecretPage() {
           bg-[url('/NTK.png')] bg-[length:20px_20px]">
 
         </div>
-        <article className="prose mx-auto">
+        <article className="prose dark:!prose-invert mx-auto">
           <h1>Secret Zone</h1>
           <p>↓</p>
           <a href="https://drive.google.com/drive/folders/1YpBdkZkq45lZd2tgWBOWiBE6J7YAdtgV?usp=drive_link">

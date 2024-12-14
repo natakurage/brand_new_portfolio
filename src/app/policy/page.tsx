@@ -11,7 +11,7 @@ export default function PolicyPage() {
   return (
     <>
       <main className="container mx-auto my-10 space-y-10 px-3">
-        <article className="prose mx-auto">
+        <article className="prose dark:!prose-invert mx-auto">
           <h1>ポリシーと規約</h1>
           <h2>ナタクラゲの作品について</h2>
           <p>
@@ -36,7 +36,9 @@ export default function PolicyPage() {
               CC BY-SA 4.0
             </Link>で利用できます。ソースコードは別途ライセンスで公開されます。
           </p>
-          <Link href="/policy/archives">過去のライセンスを見る（アーカイブ）</Link>
+          <div className="flex flex-row space-x-3">
+            <Link href="/policy/archives">過去のライセンスを見る（アーカイブ）</Link>
+          </div>
         </article>
       </main>
     </>

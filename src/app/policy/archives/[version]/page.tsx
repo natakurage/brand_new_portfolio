@@ -13,7 +13,7 @@ export default function LicenseOfVersion({ params } : { params: { version: strin
   return (
     <>
       <main className="container mx-auto my-10 space-y-10 px-3">
-        <article className="prose mx-auto">
+        <article className="prose dark:!prose-invert mx-auto">
           <p>注意: 以下のライセンスは現在有効ではありません！詳しくは
             <Link href="/policy">ポリシーと規約</Link>を参照してください！
           </p>
