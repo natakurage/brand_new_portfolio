@@ -94,6 +94,14 @@ export default function WorksPage() {
       content: "Twitterの検索画面に飛ぶだけのサイト（トレンドを見なくて済むように）"
     }
   ]
+  const otherWorks = [
+    {
+      title: "永遠のゆく先へ",
+      img: null,
+      href: "https://note.com/minamo_ntk/m/mb1de2ad66365",
+      content: "連載小説「永遠のゆく先へ」 悩める少女たちのSF冒険物語！"
+    }
+  ]
   return (
     <>
       <main className="container mx-auto my-10 space-y-10 px-3">
@@ -161,6 +169,43 @@ export default function WorksPage() {
             ))
           }
         </div>
+        <h2 className="text-center">Others</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
+        {
+          otherWorks.map((work) => (
+            <div key={work.title} className={"relative" + ( !work.img ? " self-end" : "")} >
+              {
+                work.img &&
+                <div
+                  className="w-full aspect-video relative"
+                >
+                  <Image
+                    src={work.img}
+                    alt={work.title}
+                    fill
+                    priority
+                    className="m-auto object-contain"
+                  />
+                </div>
+              }
+              <WorkCard
+                title={work.title}
+                content={work.content}
+              />
+              <Link
+                href={work.href}
+                target={work.href.startsWith("/") ? undefined : "_blank"}
+                rel={work.href.startsWith("/") ? undefined : "noopener noreferrer"}
+                className="absolute top-0 left-0 block w-full h-full"
+              />
+            </div>
+          ))
+        }
+        </div>
+        <p className="text-center">
+          作品利用については
+          <Link href="/policy" className="underline">こちら</Link>
+        </p>
         <Link
           href="/secret"
           className="no-underline"
