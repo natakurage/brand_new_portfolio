@@ -27,18 +27,21 @@ export default function WorksPage() {
         content: "森の中に、不思議な格好をしたかわいらしい少女がいた。"
           + "近寄ってみると、突然鉈を持って襲いかかってきた。"
           + "彼女は街や海に繰り出し、人々を次々に殺して回る。"
-          + "まるで、何かの鬱憤を晴らすかのように。"
+          + "まるで、何かの鬱憤を晴らすかのように。",
+        blogUrl: "https://blog.natakurage.cc/songs/natakurage"
       },
       {
         vid: "ZvNJcR_AuX8",
         title: "シロップ",
-        content: "乾いた心は、粘り気を帯びて、そのまま干からびていく。"
+        content: "乾いた心は、粘り気を帯びて、そのまま干からびていく。",
+        blogUrl: "https://blog.natakurage.cc/songs/syrup"
       },
       {
         vid: "zF7bAz8IelU",
         title: "懲役80年",
         content: "少女は、物心ついた頃から実験施設に監禁されていた。"
-          + "実験や雑居房での苦しみの日々――。"
+          + "実験や雑居房での苦しみの日々――。",
+        blogUrl: "https://blog.natakurage.cc/songs/80-years-in-prison"
       },
       {
         vid: "KyrHOWM8wEI",
@@ -46,7 +49,8 @@ export default function WorksPage() {
         content: "実験施設から偶然にも脱出した主人公は、心優しい農夫の家族に拾われる。"
         + "そこで出会った義兄弟たちと、夏休みのある日に海に行く。"
         + "クラゲに刺されたことすらも楽しかったような、かけがえのない、充実した一日。"
-        + "人生で一番幸せな日。一方で、その先には何もないのではないかという不安。その不安は、後に現実のものとなる。"
+        + "人生で一番幸せな日。一方で、その先には何もないのではないかという不安。その不安は、後に現実のものとなる。",
+        blogUrl: "https://blog.natakurage.cc/songs/climax-the-end"
       },
       {
         vid: "KQgwsJLhch8",
@@ -55,7 +59,8 @@ export default function WorksPage() {
         + "だが同時に、義兄弟たちが別の友達を作りはじめ、距離が広がっていくことになる。"
         + "外に友達を作れなかった彼女はある日、孤独に耐え切れなくなり、"
         + "一緒に遊べないことについて喧嘩し、孤児院にあった鉈で怪我をさせてしまう。"
-        + "これがもとで、彼女はさらに追い詰められていく。"
+        + "これがもとで、彼女はさらに追い詰められていく。",
+        blogUrl: "https://blog.natakurage.cc/songs/legal-dumping"
       }
   ]
   const movieWorks = [
@@ -105,7 +110,10 @@ export default function WorksPage() {
   return (
     <>
       <main className="container mx-auto my-10 space-y-10 px-3">
-        <h2 className="text-center">音楽（クリックで再生）</h2>
+        <div>
+          <h2 className="text-center text-3xl">Discography</h2>
+          <p className="text-center text-sm">Click to play</p>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
           {
             musicWorks.map((work) => (
@@ -114,15 +122,26 @@ export default function WorksPage() {
                 className="flex flex-col space-y-5"
               >
                 <YouTubeEmbed vid={work.vid} />
-                <WorkCard
-                  title={work.title}
-                  content={work.content}
-                />
+                <div className="relative">
+                  <WorkCard
+                    title={work.title}
+                    content={work.content}
+                  />
+                  <Link
+                    href={work.blogUrl}
+                    target={work.blogUrl.startsWith("/") ? undefined : "_blank"}
+                    rel={work.blogUrl.startsWith("/") ? undefined : "noopener noreferrer"}
+                    className="absolute top-0 left-0 block w-full h-full"
+                  />
+                </div>
               </div>
             ))
           }
         </div>
-        <h2 className="text-center">映像作品（クリックで再生）</h2>
+        <div>
+          <h2 className="text-center text-3xl">Videos</h2>
+          <p className="text-center text-sm">Click to play</p>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
         {
             movieWorks.map((work) => (
@@ -136,7 +155,7 @@ export default function WorksPage() {
             ))
           }
         </div>
-        <h2 className="text-center">Web</h2>
+        <h2 className="text-center text-3xl">Web</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
         {
             webWorks.map((work) => (
@@ -169,7 +188,7 @@ export default function WorksPage() {
             ))
           }
         </div>
-        <h2 className="text-center">Others</h2>
+        <h2 className="text-center text-3xl">Others</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
         {
           otherWorks.map((work) => (
