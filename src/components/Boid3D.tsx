@@ -290,7 +290,7 @@ export const SketchComponent = () => {
       <div
         className="fixed w-screen h-screen
           top-0 bottom-0 left-0 right-0
-          bg-black z-[0] opacity-60 mix-blend-multiply"
+          bg-gray-500/5 backdrop-blur-md"
       />
     </div>
   );
