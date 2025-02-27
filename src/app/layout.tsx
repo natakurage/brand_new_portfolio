@@ -1,11 +1,16 @@
-import { Inter } from "next/font/google";
+import { Noto_Serif_JP } from "next/font/google";
 import "@/app/globals.css";
 import Boid3D from "@/components/Boid3D"
 import Link from "next/link";
 import { Metadata } from "next";
 import SecretMessage from "@/components/SecretMessage";
+import NavBar from "@/components/NavBar";
 
-const inter = Inter({ subsets: ["latin"] });
+const notoSerif = Noto_Serif_JP({
+  weight: "400",
+  subsets: ["latin"],
+  preload: true
+})
 
 export const metadata: Metadata = {
   icons: "/favicon.ico"
@@ -18,18 +23,16 @@ export default async function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      <body className={inter.className}>
+      <body className={notoSerif.className}>
         <Boid3D />
         <SecretMessage />
-        <div className="flex">
+        <NavBar />
+        <div className="overflow-hidden">
           {children}
         </div>
-        <footer className="flex flex-row space-x-3 justify-center">
-          <Link href="/">
-            Home
-          </Link>
+        <footer className="flex flex-row space-x-3 justify-center text-center">
           <Link href="/policy">
-          Copyright © 2024 Natakurage Some rights reserved.
+            Copyright © 2024 Natakurage Some rights reserved.
           </Link>
         </footer>
       </body>

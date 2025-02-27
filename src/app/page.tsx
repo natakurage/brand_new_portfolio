@@ -6,21 +6,6 @@ import { FaYoutube, FaGithub, FaListUl, FaBluesky } from "react-icons/fa6"
 import { FaXTwitter } from "react-icons/fa6"
 import { TbLetterN } from "react-icons/tb"
 
-function LinkCard({ href, title, content } : { href: string, title: string, content: string }) {
-  return (
-    <Link href={href}>
-      <div
-        className="card bg-neutral/90 h-full hover:shadow-xl transition-[box-shadow] duration-500"
-      >
-        <div className="card-body p-5 md:p-8">
-          <h2 className="card-title">{title}</h2>
-          <p>{content}</p>
-        </div>
-      </div>
-    </Link>
-  )
-}
-
 function SocialIcon({ href, children } : { href: string, children: ReactNode }) {
   return (
     <div>
@@ -44,75 +29,66 @@ export default function Home() {
   
   return (
     <>
-      <main className="container mx-auto my-10 space-y-10 px-3">
-        <div
-          className="h-screen relative"
-        >
-          <Image
-            src="/poster.png"
-            alt="Natakurage Key Visual"
-            fill
-            priority
-            className="w-1/2 m-auto object-contain"
-          />
+      <div
+        className="hero min-h-screen relative"
+      >
+        <Image
+          src="/poster3.png"
+          alt="Natakurage Key Visual"
+          fill
+          priority
+          className="object-cover z-[-1] object-[25%] mask-gradient"
+        />
+        <div className="hero-content flex-col w-full sm:w-1/2 ms-auto h-full">
+          <div className="relative w-full h-1/2">
+            <Image
+              src="/ナタクラゲ_logo.png"
+              alt="Natakurage Logo"
+              fill
+              priority
+              className="w-1/2 object-contain drop-shadow-xl"
+            />
+          </div>
+          <div className="relative w-full h-1/2">
+            <Image
+              src="/みなもlogo.png"
+              alt="Sembonyari Minamo Logo"
+              fill
+              priority
+              className="w-1/2 object-contain drop-shadow-xl"
+            />
+          </div>
         </div>
-        <div className="space-y-3">
-          <h1 className="text-5xl font-bold text-center">
+      </div>
+      <main className="mx-auto container my-5 space-y-10 px-3">
+        <div className="mt-64 mb-32 text-2xl flex flex-col text-center">
+          <span><span className="font-bold text-8xl">極限</span>による</span>
+          <span><span className="font-bold text-8xl">解放</span>。</span>
+        </div>
+        <div className="space-y-1 text-center">
+          <h1 className="text-4xl">
             <span style={{display: "inline-block"}}>ナタクラゲ /</span>&nbsp;
             <span style={{display: "inline-block"}}>千本槍みなも</span>
           </h1>
-
-          <div className="flex flex-row justify-center space-x-3">
-            <SocialIcon href="https://www.youtube.com/@natakurage/featured">
-              <FaYoutube size="32" />
-            </SocialIcon>
-            <SocialIcon href="https://bsky.app/profile/natakurage.cc">
-              <FaBluesky size="32" />
-            </SocialIcon>
-            <SocialIcon href="https://note.com/minamo_ntk">
-              <TbLetterN size="32" />
-            </SocialIcon>
-            <SocialIcon href="https://github.com/natakurage">
-              <FaGithub size="32" />
-            </SocialIcon>
-            <SocialIcon href="https://twitter.com/v_natakurage">
-              <FaXTwitter size="32" />
-            </SocialIcon>
-          </div>
+          <p>VOCALOID Composer, Writer, Programmer, 3D Artist / Virtual YouTuber</p>
         </div>
 
-        <div className="text-center">
-          <Link
-            href="https://blog.natakurage.cc/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="link link-hover"
-          >
-            ブログを見る
-          </Link>
-        </div>
-
-        <div className="grid grid-cols-2 gap-3 md:gap-5">
-          <LinkCard 
-            href="/about"
-            title="About"
-            content="ナタクラゲとは何者なのかについて、解説します。"
-          />
-          <LinkCard 
-            href="/works"
-            title="Works"
-            content="ナタクラゲがこれまでにつくった作品を紹介します。"
-          />
-          <LinkCard 
-            href="/policy"
-            title="Policy"
-            content="ナタクラゲの作品の利用や注意事項などです。"
-          />
-          <LinkCard 
-            href="/contact"
-            title="Contact"
-            content="ナタクラゲと連絡をとるための方法です。"
-          />
+        <div className="flex flex-row justify-center space-x-3">
+          <SocialIcon href="https://www.youtube.com/@natakurage/featured">
+            <FaYoutube size="32" />
+          </SocialIcon>
+          <SocialIcon href="https://bsky.app/profile/natakurage.cc">
+            <FaBluesky size="32" />
+          </SocialIcon>
+          <SocialIcon href="https://note.com/minamo_ntk">
+            <TbLetterN size="32" />
+          </SocialIcon>
+          <SocialIcon href="https://github.com/natakurage">
+            <FaGithub size="32" />
+          </SocialIcon>
+          <SocialIcon href="https://twitter.com/v_natakurage">
+            <FaXTwitter size="32" />
+          </SocialIcon>
         </div>
       </main>
     </>

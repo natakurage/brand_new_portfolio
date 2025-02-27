@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  @apply font-serif;
+}
+
+::selection {
+  @apply bg-[#50ffdfc8] text-slate-900;
+}
+
+@layer components {
+    .mask-gradient {
+        mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 70%);
+    }
+}
