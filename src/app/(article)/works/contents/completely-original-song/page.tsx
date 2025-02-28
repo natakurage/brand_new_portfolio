@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function CompletelyOriginalSongPage() {
   return (
-    <main className="container mx-auto my-10 space-y-10 px-3">
+    <>
       <h1>完全にオリジナルな音楽がここにあります。</h1>
       <p>
         世間で知られている音楽はパクリだらけで酷いと思いませんか？ 
@@ -55,6 +55,6 @@ export default function CompletelyOriginalSongPage() {
           </Link>
         </li>
       </ul>
-    </main>
+    </>
   )
 }

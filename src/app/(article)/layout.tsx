@@ -10,13 +10,11 @@ export default async function ArticleLayout({
   return (
     <>
       <NavBar />
-      <div className="overflow-hidden">
         <main className="container mx-auto my-10 space-y-10 px-3">
-          <article className="prose mx-auto">
+          <article className="prose dark:!prose-invert mx-auto">
             {children}
           </article>
         </main>
-      </div>
       <footer className="flex flex-row space-x-3 justify-center text-center">
         <Link href="/policy">
           Copyright © 2024 Natakurage Some rights reserved.

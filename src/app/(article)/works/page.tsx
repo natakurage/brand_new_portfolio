@@ -109,89 +109,55 @@ export default function WorksPage() {
   ]
   return (
     <>
-      <main className="container mx-auto my-10 space-y-10 px-3">
-        <div>
-          <h2 className="text-center text-3xl">Discography</h2>
-          <p className="text-center text-sm">Click to play</p>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
-          {
-            musicWorks.map((work) => (
-              <div
-                key={work.vid}
-                className="flex flex-col space-y-5"
-              >
-                <YouTubeEmbed vid={work.vid} />
-                <div className="relative">
-                  <WorkCard
-                    title={work.title}
-                    content={work.content}
-                  />
-                  <Link
-                    href={work.blogUrl}
-                    target={work.blogUrl.startsWith("/") ? undefined : "_blank"}
-                    rel={work.blogUrl.startsWith("/") ? undefined : "noopener noreferrer"}
-                    className="absolute top-0 left-0 block w-full h-full"
-                  />
-                </div>
-              </div>
-            ))
-          }
-        </div>
-        <div>
-          <h2 className="text-center text-3xl">Videos</h2>
-          <p className="text-center text-sm">Click to play</p>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
+      <div>
+        <h2 className="text-center text-3xl">Discography</h2>
+        <p className="text-center text-sm">Click to play</p>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
         {
-            movieWorks.map((work) => (
-              <div key={work.vid} >
-                <YouTubeEmbed vid={work.vid} />
-                <WorkCard
-                  title={work.title}
-                  content={work.content}
-                />
-              </div>
-            ))
-          }
-        </div>
-        <h2 className="text-center text-3xl">Web</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
-        {
-            webWorks.map((work) => (
-              <div key={work.title} className={"relative" + ( !work.img ? " self-end" : "")} >
-                {
-                  work.img &&
-                  <div
-                    className="w-full aspect-video relative"
-                  >
-                    <Image
-                      src={work.img}
-                      alt={work.title}
-                      fill
-                      priority
-                      className="m-auto object-contain"
-                    />
-                  </div>
-                }
+          musicWorks.map((work) => (
+            <div
+              key={work.vid}
+              className="flex flex-col space-y-5"
+            >
+              <YouTubeEmbed vid={work.vid} />
+              <div className="relative">
                 <WorkCard
                   title={work.title}
                   content={work.content}
                 />
                 <Link
-                  href={work.href}
-                  target={work.href.startsWith("/") ? undefined : "_blank"}
-                  rel={work.href.startsWith("/") ? undefined : "noopener noreferrer"}
+                  href={work.blogUrl}
+                  target={work.blogUrl.startsWith("/") ? undefined : "_blank"}
+                  rel={work.blogUrl.startsWith("/") ? undefined : "noopener noreferrer"}
                   className="absolute top-0 left-0 block w-full h-full"
                 />
               </div>
-            ))
-          }
-        </div>
-        <h2 className="text-center text-3xl">Others</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
-        {
-          otherWorks.map((work) => (
+            </div>
+          ))
+        }
+      </div>
+      <div>
+        <h2 className="text-center text-3xl">Videos</h2>
+        <p className="text-center text-sm">Click to play</p>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
+      {
+          movieWorks.map((work) => (
+            <div key={work.vid} >
+              <YouTubeEmbed vid={work.vid} />
+              <WorkCard
+                title={work.title}
+                content={work.content}
+              />
+            </div>
+          ))
+        }
+      </div>
+      <h2 className="text-center text-3xl">Web</h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
+      {
+          webWorks.map((work) => (
             <div key={work.title} className={"relative" + ( !work.img ? " self-end" : "")} >
               {
                 work.img &&
@@ -220,17 +186,49 @@ export default function WorksPage() {
             </div>
           ))
         }
-        </div>
-        <p className="text-center">
-          作品利用については
-          <Link href="/policy" className="underline">こちら</Link>
-        </p>
-        <Link
-          href="/secret"
-          className="no-underline"
-        >&nbsp;</Link>
-        <span className="text-transparent">←ここに何かある</span>
-      </main>
+      </div>
+      <h2 className="text-center text-3xl">Others</h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
+      {
+        otherWorks.map((work) => (
+          <div key={work.title} className={"relative" + ( !work.img ? " self-end" : "")} >
+            {
+              work.img &&
+              <div
+                className="w-full aspect-video relative"
+              >
+                <Image
+                  src={work.img}
+                  alt={work.title}
+                  fill
+                  priority
+                  className="m-auto object-contain"
+                />
+              </div>
+            }
+            <WorkCard
+              title={work.title}
+              content={work.content}
+            />
+            <Link
+              href={work.href}
+              target={work.href.startsWith("/") ? undefined : "_blank"}
+              rel={work.href.startsWith("/") ? undefined : "noopener noreferrer"}
+              className="absolute top-0 left-0 block w-full h-full"
+            />
+          </div>
+        ))
+      }
+      </div>
+      <p className="text-center">
+        作品利用については
+        <Link href="/policy" className="underline">こちら</Link>
+      </p>
+      <Link
+        href="/secret"
+        className="no-underline"
+      >&nbsp;</Link>
+      <span className="text-transparent">←ここに何かある</span>
     </>
   )
 }

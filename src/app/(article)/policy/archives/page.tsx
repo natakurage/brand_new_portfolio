@@ -22,26 +22,22 @@ export default function LicenseArchivePage() {
   console.log(mdFiles)
   return (
     <>
-      <main className="container mx-auto my-10 space-y-10 px-3">
-        <article className="prose dark:!prose-invert mx-auto">
-          <h1>過去のライセンス一覧</h1>
-          <ul>
-            {
-              mdFiles.map((version: string) => {
-                return (
-                  <li key={version}>
-                    <Link
-                      href={`/policy/archives/${version}`}
-                    >
-                      v{version}
-                    </Link>
-                  </li>
-                )
-              })
-            }
-          </ul>
-        </article>
-      </main>
+      <h1>過去のライセンス一覧</h1>
+      <ul>
+        {
+          mdFiles.map((version: string) => {
+            return (
+              <li key={version}>
+                <Link
+                  href={`/policy/archives/${version}`}
+                >
+                  v{version}
+                </Link>
+              </li>
+            )
+          })
+        }
+      </ul>
     </>
   )
 }
