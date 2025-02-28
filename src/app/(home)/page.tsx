@@ -2,7 +2,7 @@ import { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ReactNode } from 'react'
-import { FaYoutube, FaGithub, FaListUl, FaBluesky } from "react-icons/fa6"
+import { FaYoutube, FaGithub, FaBluesky } from "react-icons/fa6"
 import { FaXTwitter } from "react-icons/fa6"
 import { TbLetterN } from "react-icons/tb"
 import NatakurageLogo from "public/natakurage_logo_vector.svg"
