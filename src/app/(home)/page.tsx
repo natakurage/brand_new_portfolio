@@ -7,6 +7,7 @@ import { FaXTwitter } from "react-icons/fa6"
 import { TbLetterN } from "react-icons/tb"
 import NatakurageLogo from "public/natakurage_logo_vector.svg"
 import MinamoLogo from "public/minamo_logo_vector.svg"
+import NavBar from '@/components/NavBar'
 
 function SocialIcon({ href, children } : { href: string, children: ReactNode }) {
   return (
@@ -67,6 +68,8 @@ export default function Home() {
           </h1>
           <p>VOCALOID Composer, Writer, Programmer, 3D Artist / Virtual YouTuber</p>
         </div>
+
+        <NavBar className="mx-auto" />
 
         <div className="flex flex-row justify-center space-x-3">
           <SocialIcon href="https://www.youtube.com/@natakurage/featured">

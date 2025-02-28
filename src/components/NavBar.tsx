@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 
-export default function NavBar() {
+export default function NavBar({ className } : { className?: string }) {
   const links = [
     {
       href: "/",
@@ -29,10 +29,13 @@ export default function NavBar() {
     }
   ]
   return (
-    <div className="fixed top-0 w-full max-w-xl h-12 px-3
-      flex flex-row flex-wrap space-x-5
-      justify-around z-10
-      text-lg text-white mix-blend-difference"
+    <div className={
+      " sticky top-0 w-full max-w-xl h-12 px-3"
+      + " flex flex-row flex-wrap space-x-5"
+      + " justify-around z-10"
+      + " text-lg text-white mix-blend-difference"
+      + " " + className
+    }
     >
       {
         links.map((link) => (

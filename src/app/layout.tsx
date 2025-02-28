@@ -26,15 +26,7 @@ export default async function RootLayout({
       <body className={notoSerif.className}>
         <Boid3D />
         <SecretMessage />
-        <NavBar />
-        <div className="overflow-hidden">
-          {children}
-        </div>
-        <footer className="flex flex-row space-x-3 justify-center text-center">
-          <Link href="/policy">
-            Copyright © 2024 Natakurage Some rights reserved.
-          </Link>
-        </footer>
+        {children}
       </body>
     </html>
   );
