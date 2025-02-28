@@ -5,7 +5,6 @@ import { Canvas, useFrame } from "@react-three/fiber"
 import { Sphere } from "@react-three/drei"
 import { Vector3 } from "three";
 
-import useWindowSize from "hooks/useWindowSize"
 import { usePathname } from "next/navigation";
 
 class Boid {
@@ -265,7 +264,7 @@ export const SketchComponent = () => {
   return (
     <div
       ref={gltfCanvasParentRef}
-      className="w-screen h-screen fixed z-[-1000]"
+      className="w-lvw h-lvh fixed z-[-1000]"
     >
       <Canvas
         frameloop="always"
@@ -288,7 +287,7 @@ export const SketchComponent = () => {
         />
       </Canvas>
       <div
-        className="fixed w-screen h-screen
+        className="fixed w-lvw h-lvh
           top-0 bottom-0 left-0 right-0
           bg-gray-500/5 backdrop-blur-md"
       />
