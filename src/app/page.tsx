@@ -5,6 +5,8 @@ import { ReactNode } from 'react'
 import { FaYoutube, FaGithub, FaListUl, FaBluesky } from "react-icons/fa6"
 import { FaXTwitter } from "react-icons/fa6"
 import { TbLetterN } from "react-icons/tb"
+import NatakurageLogo from "public/natakurage_logo_vector.svg"
+import MinamoLogo from "public/minamo_logo_vector.svg"
 
 function SocialIcon({ href, children } : { href: string, children: ReactNode }) {
   return (
@@ -30,33 +32,26 @@ export default function Home() {
   return (
     <>
       <div
-        className="hero min-h-screen relative"
+        className="h-screen relative"
       >
         <Image
           src="/poster3.png"
           alt="Natakurage Key Visual"
           fill
           priority
-          className="object-cover z-[-1] object-[25%] mask-gradient"
+          className="object-cover z-[-1] object-[25%_50%] mask-gradient"
         />
-        <div className="hero-content flex-col w-full sm:w-1/2 ms-auto h-full">
-          <div className="relative w-full h-1/2">
-            <Image
-              src="/ナタクラゲ_logo.png"
-              alt="Natakurage Logo"
-              fill
-              priority
-              className="w-1/2 object-contain drop-shadow-xl"
-            />
+        <div className="flex flex-col w-full sm:w-1/2 ms-auto h-full">
+          <div className="w-full h-1/2">
+            <NatakurageLogo
+              className="w-full h-full"
+              fill="pink"
+              stroke="pink"
+              filter="drop-shadow(0 0 12px black)"
+              />
           </div>
-          <div className="relative w-full h-1/2">
-            <Image
-              src="/みなもlogo.png"
-              alt="Sembonyari Minamo Logo"
-              fill
-              priority
-              className="w-1/2 object-contain drop-shadow-xl"
-            />
+          <div className="w-full h-1/2">
+            <MinamoLogo className="w-full h-full" />
           </div>
         </div>
       </div>
