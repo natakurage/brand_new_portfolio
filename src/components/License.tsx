@@ -20,20 +20,16 @@ export default function License({ version }: { version: string }) {
   }
   return (
     <>
-      <main className="container mx-auto my-10 space-y-10 px-3">
-        <article className="prose dark:!prose-invert mx-auto">
-          <h2>ナタクラゲライセンス v{version}</h2>
-          <div className="flex flex-row justify-end">
-            <div className="flex flex-row">
-              <MdWatchLater className="my-auto" />
-              <time>{_date}</time>
-            </div>
-          </div>
-          <Markdown remarkPlugins={[remarkGfm]}>
-            {markdown}
-          </Markdown>
-        </article>
-      </main>
+      <h2>ナタクラゲライセンス v{version}</h2>
+      <div className="flex flex-row justify-end">
+        <div className="flex flex-row">
+          <MdWatchLater className="my-auto" />
+          <time>{_date}</time>
+        </div>
+      </div>
+      <Markdown remarkPlugins={[remarkGfm]}>
+        {markdown}
+      </Markdown>
     </>
   )
 }
