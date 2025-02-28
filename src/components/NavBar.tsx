@@ -29,10 +29,9 @@ export default function NavBar({ className } : { className?: string }) {
     }
   ]
   return (
-    <div className={
-      " sticky top-0 w-full max-w-xl h-12 px-3"
-      + " flex flex-row flex-wrap space-x-5"
-      + " justify-around z-10"
+    <nav className={
+      "w-full max-w-xl h-12 px-3"
+      + " flex flex-row flex-wrap gap-5 justify-around"
       + " text-lg text-white mix-blend-difference"
       + " " + className
     }
@@ -48,6 +47,6 @@ export default function NavBar({ className } : { className?: string }) {
           </Link>
         ))
       }
-    </div>
+    </nav>
   )
 }
