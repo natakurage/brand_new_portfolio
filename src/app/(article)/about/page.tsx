@@ -190,13 +190,7 @@ export default function AboutPage() {
       }
       </div>
       <h2>千本槍みなも</h2>
-      <div
-        style={{
-          position: "relative",
-          width: "700px",
-          maxWidth: "95vw"
-        }}
-      >
+      <div className="relative w-full">
         <VRMCanvas
           vrmFilename="/ナタクラゲ3.0_edit.vrm"
           imgFilename="/canvas.png"
