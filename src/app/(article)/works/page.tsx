@@ -108,8 +108,8 @@ export default function WorksPage() {
     }
   ]
   return (
-    <>
-      <div>
+    <div className="not-prose space-y-5">
+      <div className="space-y-2">
         <h2 className="text-center text-3xl">Discography</h2>
         <p className="text-center text-sm">Click to play</p>
       </div>
@@ -137,7 +137,7 @@ export default function WorksPage() {
           ))
         }
       </div>
-      <div>
+      <div className="space-y-2">
         <h2 className="text-center text-3xl">Videos</h2>
         <p className="text-center text-sm">Click to play</p>
       </div>
@@ -229,6 +229,6 @@ export default function WorksPage() {
         className="no-underline"
       >&nbsp;</Link>
       <span className="text-transparent">←ここに何かある</span>
-    </>
+    </div>
   )
 }
