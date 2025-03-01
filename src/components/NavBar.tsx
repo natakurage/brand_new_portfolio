@@ -16,6 +16,10 @@ export default function NavBar({ className } : { className?: string }) {
       title: "Works"
     },
     {
+      href: "/gallery",
+      title: "Gallery"
+    },
+    {
       href: "/policy",
       title: "Policy"
     },
