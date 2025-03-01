@@ -32,8 +32,8 @@ export default function NavBar({ className } : { className?: string }) {
     <nav className={
       "w-full max-w-xl h-12 px-3"
       + " flex flex-row flex-wrap gap-5 justify-around"
-      + " text-lg text-white mix-blend-difference"
-      + " " + className
+      + " text-lg"
+      + " " + (className ?? "")
     }
     >
       {
