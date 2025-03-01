@@ -7,8 +7,14 @@ export const metadata: Metadata = {
   description: "ナタクラゲに関する画像"
 }
 
+interface GalleryItem {
+  src: string
+  title: string
+  content?: string
+}
+
 export default function Page() {
-  const logos = [
+  const logos: GalleryItem[] = [
     {
       src: "/NTK.png",
       title: "ナタクラゲ　クラゲ",
@@ -17,41 +23,34 @@ export default function Page() {
     {
       src: "/鉈海月.png",
       title: "ナタクラゲ　アイコン",
-      content: ""
     },
     {
       src: "/minamo_logo_vector.svg",
       title: "千本槍みなも　ロゴ（SVG）",
-      content: ""
     },
     {
       src: "/natakurage_logo_vector.svg",
       title: "ナタクラゲ　ロゴ（SVG）",
-      content: ""
     },
   ]
-  const posters = [
+  const posters: GalleryItem[] = [
     {
       src: "/poster2.png",
       title: "ポスター2",
-      content: ""
     },
     {
       src: "/banner2.png",
       title: "バナー2",
-      content: ""
     },
     {
       src: "/poster3.png",
       title: "ポスター3",
-      content: ""
     }
   ]
-  const others = [
+  const others: GalleryItem[] = [
     {
       src: "/canvas.png",
-      title: "千本槍みなも",
-      content: ""
+      title: "千本槍みなも"
     }
   ]
   return (
