@@ -58,16 +58,15 @@ export default function ContactPage() {
         )
       }
       </div>
-      <h2>Discord</h2>
-      <p>誰でも気軽に参加できるVTuberコミュニティ「OpenTLive」を運営しております。
+      <h2>Matrix</h2>
+      <p>誰でも気軽に参加できるコミュニティ「Reproducible Freedom」を運営しております。
         ぜひご参加ください！
-        VTuberコミュニティとは言いますが、一般人でも猫でも惑星でも歓迎しています。
       </p>
       <iframe
-        src="https://discord.com/widget?id=1217076838485201007&theme=dark"
+        src="https://matrix.to/#/#reproducivefreedom:matrix.org"
         width="350"
         height="500"
-        sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
+        sandbox="allow-same-origin allow-scripts allow-forms"
         className="rounded-[5px] w-full"
       />
       <h2>お問い合わせフォーム</h2>
