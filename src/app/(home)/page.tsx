@@ -5,8 +5,8 @@ import { ReactNode } from 'react'
 import { FaYoutube, FaGithub, FaBluesky } from "react-icons/fa6"
 import { FaXTwitter } from "react-icons/fa6"
 import { TbLetterN } from "react-icons/tb"
-import NatakurageLogo from "public/natakurage_logo_vector.svg"
-import MinamoLogo from "public/minamo_logo_vector.svg"
+import NatakurageLogo from "public/images/logos/natakurage_logo_vector.svg"
+import MinamoLogo from "public/images/logos/minamo_logo_vector.svg"
 import NavBar from '@/components/NavBar'
 
 function SocialIcon({ href, children } : { href: string, children: ReactNode }) {
@@ -36,7 +36,7 @@ export default function Home() {
         className="h-screen relative"
       >
         <Image
-          src="/poster3.png"
+          src="/images/posters/poster3_new.png"
           alt="Natakurage Key Visual"
           fill
           priority

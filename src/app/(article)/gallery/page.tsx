@@ -16,41 +16,58 @@ interface GalleryItem {
 export default function Page() {
   const logos: GalleryItem[] = [
     {
-      src: "/NTK.png",
+      src: "/images/logos/NTK.png",
       title: "ナタクラゲ　クラゲ",
       content: "クラゲ"
     },
     {
-      src: "/鉈海月.png",
+      src: "/images/logos/鉈海月.png",
       title: "ナタクラゲ　アイコン",
     },
     {
-      src: "/minamo_logo_vector.svg",
+      src: "/images/logos/minamo_logo_vector.svg",
       title: "千本槍みなも　ロゴ（SVG）",
     },
     {
-      src: "/natakurage_logo_vector.svg",
+      src: "/images/logos/natakurage_logo_vector.svg",
       title: "ナタクラゲ　ロゴ（SVG）",
     },
   ]
   const posters: GalleryItem[] = [
     {
-      src: "/poster2.png",
+      src: "/images/posters/poster2.png",
+      title: "ポスター2（旧衣装）",
+    },
+    {
+      src: "/images/posters/banner2.png",
+      title: "バナー2（旧衣装）",
+    },
+    {
+      src: "/images/posters/poster2_3.png",
       title: "ポスター2",
     },
     {
-      src: "/banner2.png",
+      src: "/images/posters/banner2_3.png",
       title: "バナー2",
     },
     {
-      src: "/poster3.png",
+      src: "/images/posters/poster3.png",
+      title: "ポスター3（旧衣装）",
+    },
+    {
+      src: "/images/posters/poster3_new.png",
       title: "ポスター3",
     }
   ]
   const others: GalleryItem[] = [
     {
-      src: "/canvas.png",
-      title: "千本槍みなも"
+      src: "/images/canvas.png",
+      title: "千本槍みなも（旧衣装）"
+    },
+    {
+      src: "/images/natakurage_newicon.png",
+      title: "千本槍みなも",
+      content: "🤘🤘"
     }
   ]
   return (
