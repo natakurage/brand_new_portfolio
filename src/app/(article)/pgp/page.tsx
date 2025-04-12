@@ -3,6 +3,7 @@ import { Key, readKey, Subkey, enums } from "openpgp"
 import fs from "fs"
 import path from "path"
 import Link from "next/link"
+import StringCanvas from '@/components/StringCanvas'
 
 export const metadata: Metadata = {
   title: "PGP公開鍵 | ナタクラゲ / 千本槍みなも",
@@ -84,12 +85,15 @@ export default async function PGPPage() {
   return (
     <>
       <h1>PGP公開鍵</h1>
-      <p>
-        ユーザーID: {(await publickey.getPrimaryUser()).user.userID?.userID}
-      </p>
+      <h2>ユーザーID</h2>
+      <StringCanvas
+        text={(await publickey.getPrimaryUser()).user.userID?.userID!}
+        className="w-full h-10"
+      />
+      <noscript>ユーザーIDを見るにはJavaScriptを有効にしてください。</noscript>
       <div className="collapse collapse-arrow">
         <input type="checkbox" />
-        <div className="collapse-title">PGP公開鍵</div>
+        <div className="collapse-title">Show Armored</div>
         <div className="collapse-content">
           <pre>{publickey.armor()}</pre>
         </div>
