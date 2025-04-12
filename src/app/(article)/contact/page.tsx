@@ -58,6 +58,8 @@ export default function ContactPage() {
         )
       }
       </div>
+      <h2>PGP公開鍵</h2>
+      <Link href="/pgp">公開鍵はこちら</Link>
       <h2>Matrix</h2>
       <p>誰でも気軽に参加できるコミュニティ「Reproducible Freedom」を運営しております。
         ぜひご参加ください！
