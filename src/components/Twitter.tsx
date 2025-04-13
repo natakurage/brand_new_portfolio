@@ -1,36 +1,36 @@
-"use client"
+"use client";
 
-import { useState } from "react"
+import { useState } from "react";
 
 type TabName = "live" | "user" | "media" | "list"
 
 export function TwitterSearch() {
-  const [word, setWord] = useState("")
-  const [tab, setTab] = useState<TabName | undefined>("live")
-  const [since, setSince] = useState("")
-  const [until, setUntil] = useState("")
+  const [word, setWord] = useState("");
+  const [tab, setTab] = useState<TabName | undefined>("live");
+  const [since, setSince] = useState("");
+  const [until, setUntil] = useState("");
 
   const go = (word: string, tab: TabName | undefined) => {
-    if (word === "") return
+    if (word === "") return;
     // create url with query
-    const url = new URL("https://x.com/search")
-    const query = word
-    word += since ? ` since:${since}` : ""
-    word += until ? ` until:${until}` : ""
-    url.searchParams.set("q", query)
+    const url = new URL("https://x.com/search");
+    const query = word;
+    word += since ? ` since:${since}` : "";
+    word += until ? ` until:${until}` : "";
+    url.searchParams.set("q", query);
     if (tab) {
-      url.searchParams.set("f", tab)
+      url.searchParams.set("f", tab);
     }
     // push to url with new tab 
-    window.open(url.toString(), "_blank", "noopener,noreferrer")
-  }
+    window.open(url.toString(), "_blank", "noopener,noreferrer");
+  };
 
   return (
     <form
       className="max-w-xl mx-auto space-y-3"
       onSubmit={(e) => {
-        e.preventDefault()
-        go(word, tab)
+        e.preventDefault();
+        go(word, tab);
       }}
     >
       <label className="form-control">
@@ -98,9 +98,9 @@ export function TwitterSearch() {
         <button
           type="button"
           onClick={() => {
-            setWord("")
-            setSince("")
-            setUntil("")
+            setWord("");
+            setSince("");
+            setUntil("");
           }}
           className="btn btn-error"
         >
@@ -108,6 +108,6 @@ export function TwitterSearch() {
         </button>
       </div>
     </form>
-  )
+  );
 }
 

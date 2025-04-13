@@ -1,10 +1,10 @@
-import { TwitterSearch } from '@/components/Twitter'
-import { Metadata } from 'next'
+import { TwitterSearch } from '@/components/Twitter';
+import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: "Twitter検索 | ナタクラゲ / 千本槍みなも",
   description: "Twitter検索するページ"
-}
+};
 
 export default function TwitterSearchPage() {
   return (
@@ -15,5 +15,5 @@ export default function TwitterSearchPage() {
       </p>
       <TwitterSearch />
     </>
-  )
+  );
 }

@@ -1,11 +1,10 @@
-import License from '@/components/License'
-import Link from 'next/link'
-import { Metadata } from 'next'
+import Link from 'next/link';
+import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: "ポリシーと規約 | ナタクラゲ / 千本槍みなも",
   description: "ナタクラゲの作品の利用や注意事項など"
-}
+};
 
 export default function PolicyPage() {
   return (
@@ -38,5 +37,5 @@ export default function PolicyPage() {
         <Link href="/policy/archives">過去のライセンスを見る（アーカイブ）</Link>
       </div>
     </>
-  )
+  );
 }

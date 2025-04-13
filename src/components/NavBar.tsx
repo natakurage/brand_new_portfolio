@@ -31,7 +31,7 @@ export default function NavBar({ className } : { className?: string }) {
       href: "https://blog.natakurage.cc",
       title: "Blog"
     }
-  ]
+  ];
   return (
     <nav className={
       "w-full max-w-xl h-12 px-3"
@@ -52,5 +52,5 @@ export default function NavBar({ className } : { className?: string }) {
         ))
       }
     </nav>
-  )
+  );
 }

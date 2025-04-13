@@ -1,13 +1,13 @@
-import { Metadata } from 'next'
-import Image from 'next/image'
-import Link from 'next/link'
-import { ReactNode } from 'react'
-import { FaYoutube, FaGithub, FaBluesky } from "react-icons/fa6"
-import { FaXTwitter } from "react-icons/fa6"
-import { TbLetterN } from "react-icons/tb"
-import NatakurageLogo from "public/images/logos/natakurage_logo_vector.svg"
-import MinamoLogo from "public/images/logos/minamo_logo_vector.svg"
-import NavBar from '@/components/NavBar'
+import { Metadata } from 'next';
+import Image from 'next/image';
+import Link from 'next/link';
+import { ReactNode } from 'react';
+import { FaYoutube, FaGithub, FaBluesky } from "react-icons/fa6";
+import { FaXTwitter } from "react-icons/fa6";
+import { TbLetterN } from "react-icons/tb";
+import NatakurageLogo from "public/images/logos/natakurage_logo_vector.svg";
+import MinamoLogo from "public/images/logos/minamo_logo_vector.svg";
+import NavBar from '@/components/NavBar';
 
 function SocialIcon({ href, children } : { href: string, children: ReactNode }) {
   return (
@@ -20,13 +20,13 @@ function SocialIcon({ href, children } : { href: string, children: ReactNode }) 
         { children }
       </Link>
     </div>
-  )
+  );
 }
 
 export const metadata: Metadata = {
   title: "ナタクラゲ / 千本槍みなも",
   description: "ナタクラゲ / 千本槍みなもの公式ホームページ。"
-}
+};
 
 export default function Home() {
   
@@ -90,5 +90,5 @@ export default function Home() {
         </div>
       </main>
     </>
-  )
+  );
 }

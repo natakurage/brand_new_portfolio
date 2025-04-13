@@ -1,37 +1,37 @@
-"use client"
+"use client";
 
-import { BaseSyntheticEvent, useState } from 'react'
+import { BaseSyntheticEvent, useState } from 'react';
 
 export default function MessageForm() {
-  const [name, setName] = useState<string>("")
-  const [email, setEmail] = useState<string>("")
-  const [title, setTitle] = useState<string>("")
-  const [content, setContent] = useState<string>("")
+  const [name, setName] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
+  const [title, setTitle] = useState<string>("");
+  const [content, setContent] = useState<string>("");
 
-  const [modalText, setModalText] = useState<string>("default")
-  const [modalClass, setModalClass] = useState<string>("alert-info")
-  const [modalShowing, setModalShowing] = useState<boolean>(false)
+  const [modalText, setModalText] = useState<string>("default");
+  const [modalClass, setModalClass] = useState<string>("alert-info");
+  const [modalShowing, setModalShowing] = useState<boolean>(false);
 
   const showModal = (text: string, duration: number, type: string) => {
-    setModalText(text)
-    setModalClass(type)
-    setModalShowing(true)
+    setModalText(text);
+    setModalClass(type);
+    setModalShowing(true);
     setTimeout(() => {
-      setModalShowing(false)
-    }, duration)
-  }
+      setModalShowing(false);
+    }, duration);
+  };
 
   const resetForm = () => {
-    setName("")
-    setEmail("")
-    setTitle("")
-    setContent("")
-  }
+    setName("");
+    setEmail("");
+    setTitle("");
+    setContent("");
+  };
 
   const onSubmit = async (event: BaseSyntheticEvent) => {
-    event.preventDefault()
+    event.preventDefault();
     try {
-      const response = await fetch("https://docs.google.com/forms/d/e/1FAIpQLSe2kcQ3DWJSoYURIS9ARTUhymadXiJoNimGJQ7jGyCyGu76gQ/formResponse", {
+      await fetch("https://docs.google.com/forms/d/e/1FAIpQLSe2kcQ3DWJSoYURIS9ARTUhymadXiJoNimGJQ7jGyCyGu76gQ/formResponse", {
         method: 'POST',
         mode: 'no-cors',
         headers: {
@@ -43,13 +43,13 @@ export default function MessageForm() {
           "entry.823789016": title,
           "entry.1870725190": content
         })
-      })
-    } catch (e) {
-      showModal("送信に失敗しました。", 5000, "alert-error")
+      });
+    } catch {
+      showModal("送信に失敗しました。", 5000, "alert-error");
     }
-    showModal("送信しました。", 5000, "alert-success")
-    resetForm()
-  }
+    showModal("送信しました。", 5000, "alert-success");
+    resetForm();
+  };
 
   return (
     <>
@@ -123,5 +123,5 @@ export default function MessageForm() {
         </div>
       }
     </>
-  )
+  );
 }

@@ -1,9 +1,9 @@
-import { Metadata } from 'next'
+import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: "Secret Zone | ナタクラゲ / 千本槍みなも",
   description: "Secret Zone"
-}
+};
 
 export default function SecretPage() {
   return (
@@ -21,5 +21,5 @@ export default function SecretPage() {
       <a href="https://drive.google.com/drive/folders/1YpBdkZkq45lZd2tgWBOWiBE6J7YAdtgV?usp=drive_link">
       link</a>
     </>
-  )
+  );
 }

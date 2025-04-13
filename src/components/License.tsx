@@ -1,22 +1,22 @@
-import fs from "fs"
-import matter from "gray-matter"
-import { notFound } from "next/navigation"
-import path from "path"
-import { MdWatchLater } from "react-icons/md"
-import Markdown from "react-markdown"
-import remarkGfm from "remark-gfm"
+import fs from "fs";
+import matter from "gray-matter";
+import { notFound } from "next/navigation";
+import path from "path";
+import { MdWatchLater } from "react-icons/md";
+import Markdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 export default function License({ version }: { version: string }) {
-  const filePath = path.join(process.cwd(), "markdowns", "licenses", `${version}.md`)
-  let markdown = ""
-  let _date = ""
+  const filePath = path.join(process.cwd(), "markdowns", "licenses", `${version}.md`);
+  let markdown = "";
+  let _date = "";
   try {
-    const { data: { date }, content } = matter(fs.readFileSync(filePath, "utf-8"))
-    markdown = content
-    _date = date
+    const { data: { date }, content } = matter(fs.readFileSync(filePath, "utf-8"));
+    markdown = content;
+    _date = date;
   } catch (error) {
-    console.log(error)
-    notFound()
+    console.log(error);
+    notFound();
   }
   return (
     <>
@@ -31,5 +31,5 @@ export default function License({ version }: { version: string }) {
         {markdown}
       </Markdown>
     </>
-  )
+  );
 }

@@ -1,72 +1,72 @@
-"use client"
+"use client";
 
-import { useState, useEffect, useRef, memo, useCallback } from "react"
-import { Canvas, useFrame, Vector3 } from "@react-three/fiber"
-import { OrbitControls } from "@react-three/drei"
-import { GLTFLoader, GLTF } from "three/examples/jsm/loaders/GLTFLoader"
-import { VRMLoaderPlugin } from "@pixiv/three-vrm"
+import { useState, useEffect, useRef, useCallback } from "react";
+import { Canvas, useFrame, Vector3 } from "@react-three/fiber";
+import { OrbitControls } from "@react-three/drei";
+import { GLTFLoader, GLTF } from "three/examples/jsm/loaders/GLTFLoader";
+import { VRMLoaderPlugin } from "@pixiv/three-vrm";
 
-import useWindowSize from "hooks/useWindowSize"
-import Image from "next/image"
+import useWindowSize from "hooks/useWindowSize";
+import Image from "next/image";
 
 const Model = (
   { filename, rotates = false, onLoad, setProgress }
   : { filename: string, rotates?: boolean, onLoad?: () => void, setProgress?: (progress: number) => void }
 ) => {
-  const [gltf, setGltf] = useState<GLTF>()
+  const [gltf, setGltf] = useState<GLTF>();
 
-  useFrame(() => {if (rotates) {gltf?.scene.rotateY(0.05)}})
+  useFrame(() => {if (rotates) {gltf?.scene.rotateY(0.05);}});
 
   useEffect(() => {
     if (!gltf) {
-      const loader = new GLTFLoader()
+      const loader = new GLTFLoader();
       loader.register((parser) => {
-        return new VRMLoaderPlugin(parser)
-      })
+        return new VRMLoaderPlugin(parser);
+      });
 
       loader.load(
         filename,
         (tmpGltf) => {
-          setGltf(tmpGltf)
-          console.log("loaded")
-          onLoad?.()
+          setGltf(tmpGltf);
+          console.log("loaded");
+          onLoad?.();
         },
         // called as loading progresses
         (xhr) => {
-          setProgress?.((xhr.loaded / xhr.total) * 100)
-          console.log((xhr.loaded / xhr.total) * 100 + "% loaded")
+          setProgress?.((xhr.loaded / xhr.total) * 100);
+          console.log((xhr.loaded / xhr.total) * 100 + "% loaded");
         },
         // called when loading has errors
         (error) => {
-          console.log("An error happened")
-          console.log(error)
+          console.log("An error happened");
+          console.log(error);
         }
-      )
+      );
     }
-  }, [filename, gltf, onLoad, setProgress])
+  }, [filename, gltf, onLoad, setProgress]);
 
-  return gltf ? <primitive object={gltf.scene} /> : null
-}
+  return gltf ? <primitive object={gltf.scene} /> : null;
+};
 
 const GltfSingleCanvas = (
   { vrmFilename, imgFilename, camPos, hasOrbit = false }
   : { vrmFilename: string, imgFilename: string, camPos: Vector3, hasOrbit?: boolean }
 ) => {
-  const gltfCanvasParentRef = useRef<HTMLDivElement>(null)
-  const [canvasHeight, setCanvasHeight] = useState<number>(0)
-  const [clicked, setClicked] = useState<boolean>(false)
-  const [progress, setProgress] = useState<number>(0)
-  const [loaded, setLoaded] = useState<boolean>(false)
-  const windowSize = useWindowSize()
+  const gltfCanvasParentRef = useRef<HTMLDivElement>(null);
+  const [canvasHeight, setCanvasHeight] = useState<number>(0);
+  const [clicked, setClicked] = useState<boolean>(false);
+  const [progress, setProgress] = useState<number>(0);
+  const [loaded, setLoaded] = useState<boolean>(false);
+  const windowSize = useWindowSize();
 
   useEffect(() => {
     if (gltfCanvasParentRef.current?.offsetWidth) {
-      setCanvasHeight(gltfCanvasParentRef.current.offsetWidth)
+      setCanvasHeight(gltfCanvasParentRef.current.offsetWidth);
     }
-  }, [windowSize])
+  }, [windowSize]);
 
-  const makeLoadedTrue = useCallback(() => setLoaded(true), [setLoaded])
-  const updateProgress = useCallback((n: number) => setProgress(n), [setProgress])
+  const makeLoadedTrue = useCallback(() => setLoaded(true), [setLoaded]);
+  const updateProgress = useCallback((n: number) => setProgress(n), [setProgress]);
 
   return (
     <div
@@ -127,8 +127,8 @@ const GltfSingleCanvas = (
         )
       }
     </div>
-  )
-}
+  );
+};
 
 export default function VRMCanvas(
   { vrmFilename, imgFilename } : { vrmFilename: string, imgFilename: string }
@@ -140,5 +140,5 @@ export default function VRMCanvas(
       camPos={[-0.2, 1, -6]}
       hasOrbit={true}
     />
-  )
+  );
 }

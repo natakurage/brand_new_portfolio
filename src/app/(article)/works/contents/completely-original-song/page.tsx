@@ -1,13 +1,13 @@
-import { Metadata } from 'next'
-import Link from 'next/link'
+import { Metadata } from 'next';
+import Link from 'next/link';
 import { HiMusicNote } from "react-icons/hi";
-import { FaBluesky, FaGithub, FaXTwitter } from 'react-icons/fa6'
+import { FaBluesky, FaGithub, FaXTwitter } from 'react-icons/fa6';
 import COSMain from '@/components/COSMain';
 
 export const metadata: Metadata = {
   title: "完全にオリジナルな音楽が聴けるサイト！！！！！！ | ナタクラゲ / 千本槍みなも",
   description: "完全にオリジナルな音楽"
-}
+};
 
 export default function CompletelyOriginalSongPage() {
   return (
@@ -56,5 +56,5 @@ export default function CompletelyOriginalSongPage() {
         </li>
       </ul>
     </>
-  )
+  );
 }

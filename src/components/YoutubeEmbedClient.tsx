@@ -1,6 +1,6 @@
-"use client"
+"use client";
 
-import { ReactNode, useState } from 'react'
+import { ReactNode, useState } from 'react';
 
 export default function YouTubeEmbedToggler(
   { player, thumbnail }
@@ -16,5 +16,5 @@ export default function YouTubeEmbedToggler(
             </div>
       }
     </>
-  )
+  );
 }

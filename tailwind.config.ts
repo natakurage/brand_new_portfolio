@@ -1,4 +1,8 @@
-/** @type {import('tailwindcss').Config} */
+import type { Config } from 'tailwindcss';
+import daisyui from 'daisyui';
+import themes from "daisyui/src/theming/themes";
+import typography from '@tailwindcss/typography';
+
 module.exports = {
   content: [
     './pages/**/*.{ts,tsx}',
@@ -9,19 +13,16 @@ module.exports = {
   theme: {
     extend: {},
   },
-  plugins: [
-    require('daisyui'),
-    require('@tailwindcss/typography'),
-  ],
+  plugins: [daisyui, typography],
   daisyui: {
     themes: [
       {
         dark: {
-          ...require("daisyui/src/theming/themes")["dark"],
+          ...themes["dark"],
           "base-content": "rgb(229 229 229)"
         }
       }
     ]
   }
-}
+} as Config;
 

@@ -1,60 +1,60 @@
-"use client"
+"use client";
 
-import { useRef, useState } from "react"
+import { useRef, useState } from "react";
 
 type sound = "sine" | "square" | "sawtooth" | "triangle"
-const maxInterval = 2000
-const maxFreq = 500
+const maxInterval = 2000;
+const maxFreq = 500;
 
 export default function COSMain() {
-  const [isPlaying, setIsPlaying] = useState(false)
-  const [sound, setSound] = useState<sound>("sine")
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [sound, setSound] = useState<sound>("sine");
   
-  const ctx = useRef<AudioContext>()
-  const osc = useRef<OscillatorNode>()
-  const timerId = useRef<NodeJS.Timeout>()
+  const ctx = useRef<AudioContext>();
+  const osc = useRef<OscillatorNode>();
+  const timerId = useRef<NodeJS.Timeout>();
 
   if (typeof window !== "undefined" && !ctx.current) {
-    ctx.current = new AudioContext()
+    ctx.current = new AudioContext();
   }
 
   const play = () => {
     if (!isPlaying && ctx.current != null) {
       osc.current = ctx.current.createOscillator();
-      osc.current.connect(ctx.current.destination)
-      osc.current.type = sound
-      changeFreq(maxFreq)
+      osc.current.connect(ctx.current.destination);
+      osc.current.type = sound;
+      changeFreq(maxFreq);
       osc.current.start(0);
-      RepeatChangeFreq()
-      setIsPlaying(true)
+      RepeatChangeFreq();
+      setIsPlaying(true);
     } else {
-      osc.current?.stop()
-      clearTimeout(timerId.current)
-      setIsPlaying(false)
+      osc.current?.stop();
+      clearTimeout(timerId.current);
+      setIsPlaying(false);
     }
-  }
+  };
 
   const handleSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const sound = e.target.value as sound
+    const sound = e.target.value as sound;
     if (osc.current) {
-      osc.current.type = sound
+      osc.current.type = sound;
     }
-    setSound(sound)
-  }
+    setSound(sound);
+  };
 
   const changeFreq = (range: number) => {
     if (osc.current) {
-      osc.current.frequency.value = Math.random() * range
+      osc.current.frequency.value = Math.random() * range;
     }
-  }
+  };
 
   const RepeatChangeFreq = () => {
     const time = Math.random() * maxInterval;
     timerId.current = setTimeout(() => {
       changeFreq(maxFreq);
       RepeatChangeFreq();
-    }, time)
-  }
+    }, time);
+  };
 
   return (
     <div className="max-w-lg mx-auto text-center">
@@ -83,5 +83,5 @@ export default function COSMain() {
       </select>
       </label>
     </div>
-  )
+  );
 }

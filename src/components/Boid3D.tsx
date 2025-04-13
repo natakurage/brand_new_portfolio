@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import { useState, useEffect, useRef } from "react"
-import { Canvas, useFrame } from "@react-three/fiber"
-import { Sphere } from "@react-three/drei"
-import { Vector3 } from "three";
+import { useState, useEffect, useRef } from "react";
+import { Canvas, useFrame } from "@react-three/fiber";
+import { Sphere } from "@react-three/drei";
+import { Mesh, Vector3 } from "three";
 
 import { usePathname } from "next/navigation";
 
@@ -28,17 +28,17 @@ class Boid {
   }
 
   get dir () {
-    return this.vel.clone().normalize()
+    return this.vel.clone().normalize();
   }
 
   change_accel (boids: Boid[], sep: number, ali: number, coh: number, maxVel: number, width: number, depth: number, height: number) {
     this.vel.add(
       this.calc_accel(boids, sep, ali, coh).multiplyScalar(this.power)
       .add(this.calc_wall(width, depth, height).multiplyScalar(wallCoef))
-    )
+    );
     if (this.vel.length() > maxVel) {
-      this.vel.normalize()
-      this.vel.multiplyScalar(maxVel)
+      this.vel.normalize();
+      this.vel.multiplyScalar(maxVel);
     }
   }
 
@@ -56,7 +56,7 @@ class Boid {
     const nearest = nears.reduce((prev, curr) => {
       if (distance(prev) < distance(curr)) return prev;
       else return curr;
-    }, nears[0])
+    }, nears[0]);
     const separation_dir = (this.pos.clone().sub(nearest.pos)).normalize();
     const alignment_dir = (nearest.vel.clone().sub(this.vel)).normalize();
     const average_pos = boids.map((boid) => boid.pos).reduce((prev, curr) => {
@@ -103,12 +103,12 @@ class Boid {
 // const maxVel = 10
 // const wallCoef = 0.01
 
-const power = 0.0001
-const range = 2
-const maxVel = 0.1
-const wallCoef = 0.0001
+const power = 0.0001;
+const range = 2;
+const maxVel = 0.1;
+const wallCoef = 0.0001;
 
-const numBoids = 12
+const numBoids = 12;
 // const power = 0.01
 // const range = 1
 // const maxVel = 0.2
@@ -133,12 +133,12 @@ interface BoidProps {
 }
 
 const SingleBoid = ({boid, width, depth, height}: BoidProps) => {
-  const sphereRef = useRef<THREE.Mesh>(null)
+  const sphereRef = useRef<Mesh>(null);
 
   useEffect(() => {
-    const realPos: Vector3 = boid.pos.clone().sub(new Vector3(width/2, depth/2, height/2))
-    sphereRef.current?.position.set(realPos.x, realPos.y, realPos.z)
-  }, [boid.pos, boid.pos.x, boid.pos.y, boid.pos.z, width, depth, height])
+    const realPos: Vector3 = boid.pos.clone().sub(new Vector3(width/2, depth/2, height/2));
+    sphereRef.current?.position.set(realPos.x, realPos.y, realPos.z);
+  }, [boid.pos, boid.pos.x, boid.pos.y, boid.pos.z, width, depth, height]);
 
   return (
     <Sphere
@@ -159,42 +159,42 @@ const SingleBoid = ({boid, width, depth, height}: BoidProps) => {
         <meshStandardMaterial color="#FF50DF" emissive="#FF50DF" emissiveIntensity={5} />
       </Sphere>
     </Sphere>
-  )
-}
+  );
+};
 const Boids = ({sep, ali, coh, freeze = false, width, depth, height}: BoidsProps) => {
-  const [boids, setBoids] = useState<Boid[]>([])
-  const [created, setCreated] = useState<boolean>(false)
+  const [boids, setBoids] = useState<Boid[]>([]);
+  const [created, setCreated] = useState<boolean>(false);
 
   useFrame(() => {
     if (!freeze) {
-      const boidsTemp = [...boids]
-      boidsTemp.map((boid, index) => {
-        boid.change_accel(boidsTemp, sep, ali, coh, maxVel, width, depth, height)
-        boid.move()
-      })
-      setBoids(boidsTemp)
+      const boidsTemp = [...boids];
+      boidsTemp.map((boid) => {
+        boid.change_accel(boidsTemp, sep, ali, coh, maxVel, width, depth, height);
+        boid.move();
+      });
+      setBoids(boidsTemp);
     }
-  })
+  });
 
   useEffect(() => {
-    if (created) return
-    const boidsTemp: Boid[] = []
+    if (created) return;
+    const boidsTemp: Boid[] = [];
     for (let i = 0; i < numBoids; i++) {
       const pos = new Vector3(
         Math.random() * width,
         Math.random() * depth,
         Math.random() * height
-      )
+      );
       const vel = new Vector3(
         0.02 * (Math.random() - 0.5),
         0.02 * (Math.random() - 0.5),
         0.02 * (Math.random() - 0.5)
-      )
-      boidsTemp.push(new Boid(pos, vel, power, range))
+      );
+      boidsTemp.push(new Boid(pos, vel, power, range));
     }
-    setBoids(boidsTemp)
-    setCreated(true)
-  }, [created, width, depth, height, boids])
+    setBoids(boidsTemp);
+    setCreated(true);
+  }, [created, width, depth, height, boids]);
 
   return (
     <>
@@ -211,16 +211,16 @@ const Boids = ({sep, ali, coh, freeze = false, width, depth, height}: BoidsProps
         ))
       }
     </>
-  )
-}
+  );
+};
 
 export const SketchComponent = () => {
-  const gltfCanvasParentRef = useRef<HTMLDivElement>(null)
-  const [separation, setSeparation] = useState(1)
-  const [alignment, setAlignment] = useState(1)
-  const [cohesion, setCohesion] = useState(1)
-  const [freeze, setFreeze] = useState(false)
-  const pathname = usePathname()
+  const gltfCanvasParentRef = useRef<HTMLDivElement>(null);
+  const [separation, setSeparation] = useState(1);
+  const [alignment, setAlignment] = useState(1);
+  const [cohesion, setCohesion] = useState(1);
+  const [freeze, setFreeze] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     if (pathname == "/about") {
@@ -253,13 +253,13 @@ export const SketchComponent = () => {
       setAlignment(1);
       setCohesion(2);
     }
-  }, [pathname])
+  }, [pathname]);
 
   useEffect(() => {
     if (navigator.userAgent.match(/iPhone|Android.+Mobile/)) {
-      setFreeze(true)
+      setFreeze(true);
     }
-  }, [setFreeze])
+  }, [setFreeze]);
 
   return (
     <div

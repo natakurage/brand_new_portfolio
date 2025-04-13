@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import Image from 'next/image';
 
 export function YouTubePlayer({ vid }: { vid: string }) {
   return (
@@ -8,7 +8,7 @@ export function YouTubePlayer({ vid }: { vid: string }) {
       allowFullScreen
       className="w-full aspect-video"
     />
-  )
+  );
 }
 
 export function YouTubeThumbnail({ vid }: { vid: string }) {
@@ -19,5 +19,5 @@ export function YouTubeThumbnail({ vid }: { vid: string }) {
       width={1280}
       height={720}
     />
-  )
+  );
 }

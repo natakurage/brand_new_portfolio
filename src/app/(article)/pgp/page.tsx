@@ -1,17 +1,17 @@
-import { Metadata } from 'next'
-import { Key, readKey, Subkey, enums } from "openpgp"
-import fs from "fs"
-import path from "path"
-import Link from "next/link"
-import StringCanvas from '@/components/StringCanvas'
+import { Metadata } from 'next';
+import { Key, readKey, Subkey, enums } from "openpgp";
+import fs from "fs";
+import path from "path";
+import Link from "next/link";
+import StringCanvas from '@/components/StringCanvas';
 
 export const metadata: Metadata = {
   title: "PGP公開鍵 | ナタクラゲ / 千本槍みなも",
   description: "ナタクラゲのPGP公開鍵。"
-}
+};
 
 function split_n(s: string, n: number) {
-  return s.match(new RegExp('.{1,' + n + '}', 'g'))!
+  return s.match(new RegExp('.{1,' + n + '}', 'g'))!;
 }
 
 function getPurpose(flags: number) {
@@ -20,30 +20,30 @@ function getPurpose(flags: number) {
     ["signData", "署名 (Sign)"],
     ["encryptCommunication", "暗号 (Encrypt)"],
     ["authentication", "認証 (Authentication)"],
-  ])
+  ]);
   return Object.entries(enums.keyFlags)
-  .filter(([_key, value]) => flags & value as number)
+  .filter(([, value]) => flags & value as number)
   .map(([name]) => tranlations.get(name))
   .filter(Boolean)
-  .join(", ")
+  .join(", ");
 }
 
 async function KeyTable({ pgpkey, isSubKey = false } : { pgpkey: Key | Subkey, isSubKey?: boolean }) {
-  const id = pgpkey.getKeyID().toHex().toUpperCase()
-  const algo = pgpkey.getAlgorithmInfo().algorithm
-  const bits = pgpkey.getAlgorithmInfo().bits
-  const curve = pgpkey.getAlgorithmInfo().curve
-  let purpose = ""
+  const id = pgpkey.getKeyID().toHex().toUpperCase();
+  const algo = pgpkey.getAlgorithmInfo().algorithm;
+  const bits = pgpkey.getAlgorithmInfo().bits;
+  const curve = pgpkey.getAlgorithmInfo().curve;
+  let purpose = "";
   if (isSubKey) {
-    const signature = (pgpkey as Subkey).bindingSignatures[0]
-    purpose = getPurpose(signature.keyFlags![0])
+    const signature = (pgpkey as Subkey).bindingSignatures[0];
+    purpose = getPurpose(signature.keyFlags![0]);
   } else {
-    const signature = (await (pgpkey as Key).getPrimaryUser()).selfCertification
-    purpose = "ルート鍵・" + getPurpose(signature.keyFlags![0])
+    const signature = (await (pgpkey as Key).getPrimaryUser()).selfCertification;
+    purpose = "ルート鍵・" + getPurpose(signature.keyFlags![0]);
   }
-  const expiration_date = (await pgpkey.getExpirationTime())?.toLocaleString("ja-JP")
-  const fingerprintRaw = pgpkey.getFingerprint().toUpperCase()
-  const fingerprint = split_n(fingerprintRaw, 4).join(" ")
+  const expiration_date = (await pgpkey.getExpirationTime())?.toLocaleString("ja-JP");
+  const fingerprintRaw = pgpkey.getFingerprint().toUpperCase();
+  const fingerprint = split_n(fingerprintRaw, 4).join(" ");
   return (
     <>
       <h2>{purpose}</h2>
@@ -72,22 +72,22 @@ async function KeyTable({ pgpkey, isSubKey = false } : { pgpkey: Key | Subkey, i
         </tbody>
       </table>
     </>
-  )
+  );
 }
 
 export default async function PGPPage() {
-  const slug = "ehd5sbozqfy4s9cfpjsaz1qtqupwz1mk"
-  const keyPath = "/.well-known/openpgpkey/hu/" + slug
-  const res = fs.readFileSync(path.join(process.cwd(), "public", keyPath))
-  const binaryKey = new Uint8Array(res)
-  const publickey = await readKey({ binaryKey })
+  const slug = "ehd5sbozqfy4s9cfpjsaz1qtqupwz1mk";
+  const keyPath = "/.well-known/openpgpkey/hu/" + slug;
+  const res = fs.readFileSync(path.join(process.cwd(), "public", keyPath));
+  const binaryKey = new Uint8Array(res);
+  const publickey = await readKey({ binaryKey });
   
   return (
     <>
       <h1>PGP公開鍵</h1>
       <h2>ユーザーID</h2>
       <StringCanvas
-        text={(await publickey.getPrimaryUser()).user.userID?.userID!}
+        text={(await publickey.getPrimaryUser()).user.userID?.userID ?? ""}
         className="w-full h-10"
       />
       <noscript>ユーザーIDを見るにはJavaScriptを有効にしてください。</noscript>
@@ -106,9 +106,9 @@ export default async function PGPPage() {
             <>
               {await KeyTable({ pgpkey: key, isSubKey: true })}
             </>
-          )
+          );
         })
       }
     </>
-  )
+  );
 }

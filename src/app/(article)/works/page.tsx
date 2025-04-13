@@ -1,7 +1,7 @@
-import Link from 'next/link'
-import YouTubeEmbed from '@/components/YoutubeEmbed'
-import { Metadata } from 'next'
-import Image from 'next/image'
+import Link from 'next/link';
+import YouTubeEmbed from '@/components/YoutubeEmbed';
+import { Metadata } from 'next';
+import Image from 'next/image';
 
 function WorkCard({ title, content } : { title: string, content: string}) {
   return (
@@ -11,13 +11,13 @@ function WorkCard({ title, content } : { title: string, content: string}) {
         <p>{content}</p>
       </div>
     </div>
-  )
+  );
 }
 
 export const metadata: Metadata = {
   title: "作品 | ナタクラゲ / 千本槍みなも",
   description: "ナタクラゲがこれまでに作った作品。"
-}
+};
 
 export default function WorksPage() {
   const musicWorks = [
@@ -62,7 +62,7 @@ export default function WorksPage() {
         + "これがもとで、彼女はさらに追い詰められていく。",
         blogUrl: "https://blog.natakurage.cc/songs/legal-dumping"
       }
-  ]
+  ];
   const movieWorks = [
     {
       vid: "ThX-p6wxrC4",
@@ -74,7 +74,7 @@ export default function WorksPage() {
       title: "失踪していた友人が見つかりました",
       content: ""
     }
-  ]
+  ];
   const webWorks = [
     {
       title: "p5.js Ray Tracer",
@@ -98,7 +98,7 @@ export default function WorksPage() {
       href: "/works/contents/twitter-search",
       content: "Twitterの検索画面に飛ぶだけのサイト（トレンドを見なくて済むように）"
     }
-  ]
+  ];
   const otherWorks = [
     {
       title: "永遠のゆく先へ",
@@ -106,7 +106,7 @@ export default function WorksPage() {
       href: "https://note.com/minamo_ntk/m/mb1de2ad66365",
       content: "連載小説「永遠のゆく先へ」 悩める少女たちのSF冒険物語！"
     }
-  ]
+  ];
   return (
     <div className="not-prose space-y-5">
       <div className="space-y-2">
@@ -230,5 +230,5 @@ export default function WorksPage() {
       >&nbsp;</Link>
       <span className="text-transparent">←ここに何かある</span>
     </div>
-  )
+  );
 }

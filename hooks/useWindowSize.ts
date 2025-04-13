@@ -1,22 +1,22 @@
-import { useLayoutEffect, useEffect, useState } from "react"
+import { useLayoutEffect, useEffect, useState } from "react";
 
 const useIsomorphicEffect = () => {
-  return typeof window !== "undefined" ? useLayoutEffect : useEffect
-}
+  return typeof window !== "undefined" ? useLayoutEffect : useEffect;
+};
 
 const useWindowSize = (): number[] => {
-  const [size, setSize] = useState([0, 0])
+  const [size, setSize] = useState([0, 0]);
   useIsomorphicEffect()(() => {
     const updateSize = (): void => {
-      setSize([window.innerWidth, window.innerHeight])
-    }
+      setSize([window.innerWidth, window.innerHeight]);
+    };
 
-    window.addEventListener("resize", updateSize)
-    updateSize()
+    window.addEventListener("resize", updateSize);
+    updateSize();
 
-    return () => window.removeEventListener("resize", updateSize)
-  }, [])
-  return size
-}
+    return () => window.removeEventListener("resize", updateSize);
+  }, []);
+  return size;
+};
 
-export default useWindowSize
+export default useWindowSize;

@@ -1,11 +1,11 @@
-import Link from 'next/link'
-import { Metadata } from 'next'
-import GalleryCard from '@/components/GalleryCard'
+import Link from 'next/link';
+import { Metadata } from 'next';
+import GalleryCard from '@/components/GalleryCard';
 
 export const metadata: Metadata = {
   title: "ギャラリー | ナタクラゲ / 千本槍みなも",
   description: "ナタクラゲに関する画像"
-}
+};
 
 interface GalleryItem {
   src: string
@@ -32,7 +32,7 @@ export default function Page() {
       src: "/images/logos/natakurage_logo_vector.svg",
       title: "ナタクラゲ　ロゴ（SVG）",
     },
-  ]
+  ];
   const posters: GalleryItem[] = [
     {
       src: "/images/posters/poster2.png",
@@ -58,7 +58,7 @@ export default function Page() {
       src: "/images/posters/poster3_new.png",
       title: "ポスター3",
     }
-  ]
+  ];
   const others: GalleryItem[] = [
     {
       src: "/images/canvas.png",
@@ -69,7 +69,7 @@ export default function Page() {
       title: "千本槍みなも",
       content: "🤘🤘"
     }
-  ]
+  ];
   return (
     <div className="not-prose space-y-5">
       <h1 className="text-center text-4xl">Gallery</h1>
@@ -117,5 +117,5 @@ export default function Page() {
         <Link href="/policy" className="underline">こちら</Link>
       </p>
     </div>
-  )
+  );
 }

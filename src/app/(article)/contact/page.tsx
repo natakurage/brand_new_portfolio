@@ -1,14 +1,14 @@
-import { FaYoutube, FaGithub } from "react-icons/fa"
-import { FaXTwitter, FaBluesky } from "react-icons/fa6"
-import { TbLetterN } from "react-icons/tb"
-import MessageForm from "@/components/MessageForm"
-import { Metadata } from 'next'
-import Link from "next/link"
+import { FaYoutube, FaGithub } from "react-icons/fa";
+import { FaXTwitter, FaBluesky } from "react-icons/fa6";
+import { TbLetterN } from "react-icons/tb";
+import MessageForm from "@/components/MessageForm";
+import { Metadata } from 'next';
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "お問い合わせ | ナタクラゲ / 千本槍みなも",
   description: "ナタクラゲと連絡を取るためのページ。"
-}
+};
 
 export default function ContactPage() {
   const socials = [
@@ -37,7 +37,7 @@ export default function ContactPage() {
       icon: <FaGithub size="48" />,
       href: "https://github.com/natakurage"
     },
-  ]
+  ];
   return (
     <>
       <h1>お問い合わせ</h1>
@@ -82,5 +82,5 @@ export default function ContactPage() {
         のフォームをご利用いただくか、上記のアカウントへ直接連絡してください。送信できた場合、入力されたメールアドレスに確認メールが届きます。</p>
       <MessageForm />
     </>
-  )
+  );
 }

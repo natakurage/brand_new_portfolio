@@ -1,17 +1,17 @@
-import VRMCanvas from '@/components/VRMCanvas'
-import { Metadata } from 'next'
-import { MdWatchLater, MdOutlineScience } from "react-icons/md"
-import { LuHandMetal } from "react-icons/lu"
-import { FaJs, FaRegHandRock, FaPython } from 'react-icons/fa'
-import { GiGuitar, GiMusicalScore } from "react-icons/gi"
-import { TbBrandCpp, TbWorld } from "react-icons/tb"
-import { SiBlender, SiTypescript } from "react-icons/si"
-import Image from 'next/image'
+import VRMCanvas from '@/components/VRMCanvas';
+import { Metadata } from 'next';
+import { MdWatchLater, MdOutlineScience } from "react-icons/md";
+import { LuHandMetal } from "react-icons/lu";
+import { FaJs, FaRegHandRock, FaPython } from 'react-icons/fa';
+import { GiGuitar, GiMusicalScore } from "react-icons/gi";
+import { TbBrandCpp, TbWorld } from "react-icons/tb";
+import { SiBlender, SiTypescript } from "react-icons/si";
+import Image from 'next/image';
 
 export const metadata: Metadata = {
   title: "ナタクラゲ / 千本槍みなもについて | ナタクラゲ / 千本槍みなも",
   description: "ナタクラゲ、およびVTuber千本槍みなもについての説明",
-}
+};
 
 export default function AboutPage() {
   const keywords = [
@@ -70,7 +70,7 @@ export default function AboutPage() {
       icon: <SiBlender size={48} />,
       colorClass: "bg-orange-600",
     }
-  ]
+  ];
   const profileTable = [
     {
       key: "名前",
@@ -120,7 +120,7 @@ export default function AboutPage() {
       key: "座右の銘",
       value: "シアターGロッソで僕と握手！"
     }
-  ]
+  ];
   const timeLineEvents = [
     {
       time: "2019-2020",
@@ -152,7 +152,7 @@ export default function AboutPage() {
       title: "モデルリニューアル",
       content: "千本槍みなものモデルが新しくなる。"
     },
-  ]
+  ];
   return (
     <>
       <h1>ナタクラゲ / 千本槍みなもについて</h1>
@@ -291,10 +291,10 @@ export default function AboutPage() {
               i !== timeLineEvents.length - 1 && <hr />
             }
           </li>
-          )
+          );
         })
       }
       </ul>
     </>
-  )
+  );
 }

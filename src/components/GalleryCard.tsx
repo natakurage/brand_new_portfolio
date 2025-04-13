@@ -1,10 +1,10 @@
 "use client";
 
-import Image from "next/image"
+import Image from "next/image";
 import { FaDownload } from "react-icons/fa";
 
 export default function GalleryCard({ src, title, content } : { src: string, title: string, content?: string}) {
-  const download = () => window.open(src)
+  const download = () => window.open(src);
   return (
     <>
       <div className="card my-3">
@@ -54,5 +54,5 @@ export default function GalleryCard({ src, title, content } : { src: string, tit
         </form>
       </dialog>
     </>
-  )
+  );
 }
