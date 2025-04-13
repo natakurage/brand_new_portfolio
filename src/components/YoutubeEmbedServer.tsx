@@ -14,7 +14,7 @@ export function YouTubePlayer({ vid }: { vid: string }) {
 export function YouTubeThumbnail({ vid }: { vid: string }) {
   return (
     <Image
-      src={`http://img.youtube.com/vi/${vid}/maxresdefault.jpg`}
+      src={`https://img.youtube.com/vi/${vid}/maxresdefault.jpg`}
       alt="youtube video thumbnail"
       width={1280}
       height={720}
