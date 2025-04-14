@@ -97,6 +97,11 @@ export default function WorksPage() {
       title: "Twitter Search",
       href: "/works/contents/twitter-search",
       content: "Twitterの検索画面に飛ぶだけのサイト（トレンドを見なくて済むように）"
+    },
+    {
+      title: "MineSweeper",
+      href: "/works/contents/minesweeper",
+      content: "ただのマインスイーパー"
     }
   ];
   const otherWorks = [
