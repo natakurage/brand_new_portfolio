@@ -56,7 +56,7 @@ function Game(
     }
     const newOpened = [...opened];
     const to_visit = [index];
-    if (newIsMine[index]) {
+    if (!flagged[index] && newIsMine[index]) {
       alert("Game Over");
       setPlaying(false);
       return;
