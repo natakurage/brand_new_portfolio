@@ -7,6 +7,7 @@ import { GiGuitar, GiMusicalScore } from "react-icons/gi";
 import { TbBrandCpp, TbWorld } from "react-icons/tb";
 import { SiBlender, SiTypescript } from "react-icons/si";
 import Image from 'next/image';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: "ナタクラゲ / 千本槍みなもについて | ナタクラゲ / 千本槍みなも",
@@ -196,6 +197,25 @@ export default function AboutPage() {
           imgFilename="/images/canvas2_sq.png"
         />
       </div>
+      <p>
+        <Link href="/ナタクラゲ3.1_edit.vrm">
+          Download VRM
+        </Link>
+      </p>
+      <p className="not-prose">
+        ナタクラゲによる &quot;ナタクラゲ3.1_edit.vrm&quot; © 2025 は、CC BY-SA 4.0のライセンス下に提供されています。
+        <Link
+          href="https://creativecommons.org/licenses/by-sa/4.0/"
+        >
+          <Image
+            src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc.svg"
+            alt=""
+            width={88}
+            height={31}
+            className="inline"
+          />
+        </Link>
+      </p>
       <table className="text-base">
         <tbody>
         {
