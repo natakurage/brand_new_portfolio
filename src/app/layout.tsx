@@ -28,7 +28,7 @@ export default async function RootLayout({
         {children}
         <footer className="flex flex-row space-x-3 justify-center text-center">
           <Link href="/policy">
-            Copyright © 2024 Natakurage Some rights reserved.
+            Copyright © {new Date().getFullYear()} Natakurage Some rights reserved.
           </Link>
         </footer>
       </body>
