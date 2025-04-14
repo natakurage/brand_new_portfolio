@@ -4,8 +4,8 @@ import { useEffect, useRef } from "react";
 import useResizeObserver from "hooks/useResizeObserver";
 
 export default function StringCanvas(
-  { text, font, fillstyle, textalign, textbaseline, className }
-  : { text: string, font?: string, fillstyle?: string,
+  { text, scale, min_size, fontfamily, fillstyle, textalign, textbaseline, className }
+  : { text: string, scale: number, min_size?: number, fontfamily?: string, fillstyle?: string,
     textalign?: CanvasTextAlign, textbaseline?: CanvasTextBaseline, className?: string}
 ) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -17,8 +17,9 @@ export default function StringCanvas(
     canvas.height = size.height;
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
-    const fsize = canvas.width / text.length / 0.6;
-    ctx.font = font || `${fsize}px serif`;
+    let fsize = canvas.width / text.length * scale;
+    if (min_size && fsize < min_size) fsize = min_size;
+    ctx.font = `${fsize}px ${fontfamily || "serif"}`;
     ctx.fillStyle = fillstyle || "white";
     ctx.textAlign = textalign || "center";
     ctx.textBaseline = textbaseline || "middle";

@@ -85,9 +85,11 @@ export default async function PGPPage() {
   return (
     <>
       <h1>PGP公開鍵</h1>
-      <h2>ユーザーID</h2>
+      <h2>ユーザーID (Obfuscated for spam protection)</h2>
       <StringCanvas
         text={(await publickey.getPrimaryUser()).user.userID?.userID ?? ""}
+        scale={1.2}
+        min_size={10}
         className="w-full h-10"
       />
       <noscript>ユーザーIDを見るにはJavaScriptを有効にしてください。</noscript>
@@ -99,13 +101,15 @@ export default async function PGPPage() {
         </div>
       </div>
       <p><Link href={keyPath}>公開鍵のダウンロード（WKD）</Link></p>
-      {await KeyTable({ pgpkey: publickey })}
+      {/* @ts-expect-error Server Component */}
+      <KeyTable pgpkey={publickey} />
       {
-        publickey.getSubkeys().map(async (key) => {
+        publickey.getSubkeys().map((key) => {
           return (
-            <>
-              {await KeyTable({ pgpkey: key, isSubKey: true })}
-            </>
+            <div key={key.getKeyID().toHex()}>
+              {/* @ts-expect-error Server Component */}
+              <KeyTable pgpkey={key} isSubKey />
+            </div>
           );
         })
       }
