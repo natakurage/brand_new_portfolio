@@ -8,6 +8,7 @@ import { TbLetterN } from "react-icons/tb";
 import NatakurageLogo from "public/images/logos/natakurage_logo_vector.svg";
 import MinamoLogo from "public/images/logos/minamo_logo_vector.svg";
 import NavBar from '@/components/NavBar';
+import { TopImage } from '@/components/TopImage';
 
 function SocialIcon({ href, children } : { href: string, children: ReactNode }) {
   return (
@@ -32,16 +33,26 @@ export default function Home() {
   
   return (
     <>
-      <div
-        className="h-screen relative"
-      >
-        <Image
-          src="/images/posters/poster3_new.png"
+      <div className="h-screen relative">
+        <TopImage
+          hsrc="/images/posters/poster3_new.png"
+          vsrc="/images/posters/poster3_new_vert.png"
           alt="Natakurage Key Visual"
+          quality={100}
           fill
           priority
           className="object-cover z-[-1] object-[25%_50%] mask-gradient"
         />
+        <noscript>
+          <Image
+            src="/images/posters/poster3_new.png"
+            alt="Natakurage Key Visual"
+            quality={100}
+            fill
+            priority
+            className="object-cover z-[-1] object-[25%_50%] mask-gradient"
+          />
+        </noscript>
         <div className="flex flex-col w-full sm:w-1/2 ms-auto h-full">
           <div className="w-full h-1/2">
             <NatakurageLogo
