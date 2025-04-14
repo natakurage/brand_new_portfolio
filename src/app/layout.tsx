@@ -12,7 +12,7 @@ const notoSerif = Noto_Serif_JP({
 });
 
 export const metadata: Metadata = {
-  icons: "/favicon.ico"
+  icons: "/images/favicon.ico"
 };
 
 export default async function RootLayout({
