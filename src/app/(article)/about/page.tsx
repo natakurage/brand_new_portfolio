@@ -208,7 +208,7 @@ export default function AboutPage() {
           href="https://creativecommons.org/licenses/by-sa/4.0/"
         >
           <Image
-            src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-nc.svg"
+            src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-sa.svg"
             alt=""
             width={88}
             height={31}
