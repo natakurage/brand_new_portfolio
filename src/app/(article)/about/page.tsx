@@ -8,152 +8,74 @@ import { TbBrandCpp, TbWorld } from "react-icons/tb";
 import { SiBlender, SiTypescript } from "react-icons/si";
 import Image from 'next/image';
 import Link from 'next/link';
+import about from '@/data/about.json';
 
 export const metadata: Metadata = {
   title: "ナタクラゲ / 千本槍みなもについて | ナタクラゲ / 千本槍みなも",
   description: "ナタクラゲ、およびVTuber千本槍みなもについての説明",
 };
 
+const keywords = [
+  {
+    text: "ネットサーフィン",
+    icon: TbWorld,
+    colorClass: "bg-sky-700"
+  },
+  {
+    text: "ヘヴィメタル",
+    icon: LuHandMetal,
+    colorClass: "bg-purple-800"
+  },
+  {
+    text: "ロック",
+    icon: FaRegHandRock,
+    colorClass: "bg-orange-800"
+  },
+  {
+    text: "ギター",
+    icon: GiGuitar,
+    colorClass: "bg-red-700"
+  },
+  {
+    text: "曲作り",
+    icon: GiMusicalScore,
+    colorClass: "bg-pink-700"
+  },
+  {
+    text: "自然科学",
+    icon: MdOutlineScience,
+    colorClass: "bg-lime-600"
+  },
+  {
+    text: "Python",
+    icon: FaPython,
+    colorClass: "bg-blue-700"
+  },
+  {
+    text: "JavaScript",
+    iconColorClass: "text-neutral-800",
+    icon: FaJs,
+    colorClass: "bg-yellow-400",
+  },
+  {
+    text: "TypeScript",
+    icon: SiTypescript,
+    colorClass: "bg-blue-700",
+  },
+  {
+    text: "C++",
+    icon: TbBrandCpp,
+    colorClass: "bg-indigo-800"
+  },
+  {
+    text: "Blender",
+    icon: SiBlender,
+    colorClass: "bg-orange-600",
+  }
+];
+
 export default function AboutPage() {
-  const keywords = [
-    {
-      text: "ネットサーフィン",
-      icon: <TbWorld size={48} />,
-      colorClass: "bg-sky-700"
-    },
-    {
-      text: "ヘヴィメタル",
-      icon: <LuHandMetal size={48} />,
-      colorClass: "bg-purple-800"
-    },
-    {
-      text: "ロック",
-      icon: <FaRegHandRock size={48} />,
-      colorClass: "bg-orange-800"
-    },
-    {
-      text: "ギター",
-      icon: <GiGuitar size={48} />,
-      colorClass: "bg-red-700"
-    },
-    {
-      text: "曲作り",
-      icon: <GiMusicalScore size={48} />,
-      colorClass: "bg-pink-700"
-    },
-    {
-      text: "自然科学",
-      icon: <MdOutlineScience size={48} />,
-      colorClass: "bg-lime-600"
-    },
-    {
-      text: "Python",
-      icon: <FaPython size={48} />,
-      colorClass: "bg-blue-700"
-    },
-    {
-      text: "JavaScript",
-      icon: <FaJs size={48} className="text-neutral-800" />,
-      colorClass: "bg-yellow-400",
-    },
-    {
-      text: "TypeScript",
-      icon: <SiTypescript size={48} />,
-      colorClass: "bg-blue-700",
-    },
-    {
-      text: "C++",
-      icon: <TbBrandCpp size={48} />,
-      colorClass: "bg-indigo-800"
-    },
-    {
-      text: "Blender",
-      icon: <SiBlender size={48} />,
-      colorClass: "bg-orange-600",
-    }
-  ];
-  const profileTable = [
-    {
-      key: "名前",
-      value: "千本槍みなも"
-    },
-    {
-      key: "年齢",
-      value: "	1729歳"
-    },
-    {
-      key: "性別",
-      value: "アルカリ性"
-    },
-    {
-      key: "身長",
-      value: "3776 m"
-    },
-    {
-      key: "体重",
-      value: "3000 g"
-    },
-    {
-      key: "スリーサイズ",
-      value: "W1200/H0.1/D9000"
-    },
-    {
-      key: "趣味",
-      value: "カツカレー"
-    },
-    {
-      key: "純資産",
-      value: "92アサリ"
-    },
-    {
-      key: "嫌いなもの",
-      value: "資本主義"
-    },
-    {
-      key: "持病",
-      value: "逆流性食道炎"
-    },
-    {
-      key: "操作方法",
-      value: "WASD"
-    },
-    {
-      key: "座右の銘",
-      value: "シアターGロッソで僕と握手！"
-    }
-  ];
-  const timeLineEvents = [
-    {
-      time: "2019-2020",
-      title: "始動",
-      content: "楽曲「おじいさんの時計」でデビュー。「ウゾガムゾル」の名義が確立し、次々と楽曲を投稿"
-    },
-    {
-      time: "2021",
-      title: "脛孝行が参加",
-      content: "動画クリエイター・脛孝行がウゾガムゾルに参加。主に動画制作を担当するが、楽曲も制作する"
-    },
-    {
-      time: "2022年前半",
-      title: "脛孝行の単独チャンネル開設",
-      content: "脛孝行が単独チャンネルを開設し、そこそこの視聴者を獲得。一方でウゾガムゾルは事実上の休止状態に"
-    },
-    {
-      time: "2022年後半",
-      title: "ウゾガムゾルの解散",
-      content: "脛孝行の申し入れにより、楽曲「沈んでゆく」を最後にウゾガムゾルが解散する。以降は自主レーベルの名称扱いに"
-    },
-    {
-      time: "2023年",
-      title: "「ナタクラゲ」独立",
-      content: "ウゾガムゾルの創設者が独立し、「ナタクラゲ」としてチャンネル開設。同時に「千本槍みなも」のVTuberデビュー。"
-    },
-    {
-      time: "2024年",
-      title: "モデルリニューアル",
-      content: "千本槍みなものモデルが新しくなる。"
-    },
-  ];
+  const { profileTable, timeLineEvents } = about;
   return (
     <>
       <h1>ナタクラゲ / 千本槍みなもについて</h1>
@@ -179,13 +101,13 @@ export default function AboutPage() {
         className="not-prose flex flex-row flex-wrap gap-3 justify-center"
       >
       {
-        keywords.map(e => 
+        keywords.map(({ text, icon: Icon, colorClass, iconColorClass: className }) => 
           <div
-            key={e.text}
-            className={`tooltip p-3 rounded-md ${e.colorClass} hover:translate-y-[-0.1rem] transition-[transform]`}
-            data-tip={e.text}
+            key={text}
+            className={`tooltip p-3 rounded-md ${colorClass} hover:translate-y-[-0.1rem] transition-[transform]`}
+            data-tip={text}
           >
-            {e.icon}
+            <Icon size={48} color={className} />
           </div>
         )
       }
@@ -219,10 +141,10 @@ export default function AboutPage() {
       <table className="text-base">
         <tbody>
         {
-          profileTable.map(e =>
-            <tr key={e.key}>
-              <td>{e.key}</td>
-              <td>{e.value}</td>
+          profileTable.map(({ key, value }) =>
+            <tr key={key}>
+              <td>{key}</td>
+              <td>{value}</td>
             </tr>
           )
         }
@@ -294,8 +216,8 @@ export default function AboutPage() {
       <h2>歴史</h2>
       <ul className="not-prose timeline timeline-vertical">
       {
-        timeLineEvents.map((e, i) => {
-          return (<li key={e.title}>
+        timeLineEvents.map(({ time, title, content }, i) => {
+          return (<li key={title}>
             {
               i !== 0 && <hr />
             }
@@ -303,9 +225,9 @@ export default function AboutPage() {
               <MdWatchLater />
             </div>
             <div className={i % 2 === 0 ? "timeline-start" : "timeline-end"}>
-              <time className="font-mono italic">{e.time}</time>
-              <div className="text-lg font-black">{e.title}</div>
-              {e.content}
+              <time className="font-mono italic">{time}</time>
+              <div className="text-lg font-black">{title}</div>
+              {content}
             </div>
             {
               i !== timeLineEvents.length - 1 && <hr />

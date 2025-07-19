@@ -1,0 +1,118 @@
+[
+  {
+    "title": "Discography",
+    "tag": "h2"
+  },
+  {
+    "title": "Albums",
+    "titleTag": "h3",
+    "works": [
+      {
+        "title": "ナタクラゲ",
+        "content": "ある日、実験施設から飛び出した少女が人々を襲いまわる事件が起きた。何があったのか。少女は何に虐げられ、何を虐げてきたのか。その人生に迫る、コンセプトアルバム。 ボーカロイド、ヘヴィメタル",
+        "href": "https://blog.natakurage.cc/albums/natakurage"
+      }
+    ]
+  },
+  {
+    "title": "Songs",
+    "titleTag": "h3",
+    "subtitle": "Click to play",
+    "works": [
+      {
+        "vid": "69s14zGHevU",
+        "title": "ナタクラゲ",
+        "content": "森の中に、不思議な格好をしたかわいらしい少女がいた。近寄ってみると、突然鉈を持って襲いかかってきた。彼女は街や海に繰り出し、人々を次々に殺して回る。まるで、何かの鬱憤を晴らすかのように。",
+        "href": "https://blog.natakurage.cc/songs/natakurage"
+      },
+      {
+        "vid": "ZvNJcR_AuX8",
+        "title": "シロップ",
+        "content": "乾いた心は、粘り気を帯びて、そのまま干からびていく。",
+        "href": "https://blog.natakurage.cc/songs/syrup"
+      },
+      {
+        "vid": "zF7bAz8IelU",
+        "title": "懲役80年",
+        "content": "少女は、物心ついた頃から実験施設に監禁されていた。実験や雑居房での苦しみの日々――。",
+        "href": "https://blog.natakurage.cc/songs/80-years-in-prison"
+      },
+      {
+        "vid": "KyrHOWM8wEI",
+        "title": "絶頂、その果て",
+        "content": "実験施設から偶然にも脱出した主人公は、心優しい農夫の家族に拾われる。そこで出会った義兄弟たちと、夏休みのある日に海に行く。クラゲに刺されたことすらも楽しかったような、かけがえのない、充実した一日。人生で一番幸せな日。一方で、その先には何もないのではないかという不安。その不安は、後に現実のものとなる。",
+        "href": "https://blog.natakurage.cc/songs/climax-the-end"
+      },
+      {
+        "vid": "KQgwsJLhch8",
+        "title": "合法投棄",
+        "content": "少女は学校にも通い始める。だが同時に、義兄弟たちが別の友達を作りはじめ、距離が広がっていくことになる。外に友達を作れなかった彼女はある日、孤独に耐え切れなくなり、一緒に遊べないことについて喧嘩し、孤児院にあった鉈で怪我をさせてしまう。これがもとで、彼女はさらに追い詰められていく。",
+        "href": "https://blog.natakurage.cc/songs/legal-dumping"
+      },
+      {
+        "vid": "t-NT84w02ZE",
+        "title": "ラット・イン・ザ・バット",
+        "content": "仕事を辞め、心を病んだ彼女は、家に入ってきたネズミを捕まえてかわいがっているうちに、抱えきれないほど増やしてしまう。それを処分する中で、彼女はそれを狭い容器の中で繁殖させて、手で潰したり共食いさせることに熱中するようになる。時折、自己嫌悪に陥るも、生を実感する快感に勝てずに続けてしまう。皮肉にも彼女が過去に実験動物にされていたように、彼女もまたネズミをいたぶってしまう。しかしある日、すべて逃げ出してしまったのだった。",
+        "href": "https://blog.natakurage.cc/songs/rat-in-the-vat"
+      }
+    ]
+  },
+  {
+    "title": "Videos",
+    "subtitle": "Click to play",
+    "works": [
+      {
+        "vid": "ThX-p6wxrC4",
+        "title": "まもなく、4番線に、\"死\"がまいります。",
+        "content": ""
+      },
+      {
+        "vid": "J1bqglXcLAQ",
+        "title": "失踪していた友人が見つかりました",
+        "content": ""
+      }
+    ]
+  },
+  {
+    "title": "Web",
+    "works": [
+      {
+        "title": "p5.js Ray Tracer",
+        "img": "/images/works/p5-example.png",
+        "href": "https://p5-raytracer.natakurage.cc",
+        "content": "p5.js + TypeScriptで作ったパストレーサーです。"
+      },
+      {
+        "title": "ナタクラゲのドブ川水族館",
+        "img": "/images/works/blog.png",
+        "href": "https://blog.natakurage.cc",
+        "content": "Next.js + TailwindCSS + Vercel + Contentfulで作ったブログです。"
+      },
+      {
+        "title": "完全にオリジナルな曲",
+        "href": "/works/contents/completely-original-song",
+        "content": "完全にオリジナルな曲を作れるサイト。"
+      },
+      {
+        "title": "Twitter Search",
+        "href": "/works/contents/twitter-search",
+        "content": "Twitterの検索画面に飛ぶだけのサイト（トレンドを見なくて済むように）"
+      },
+      {
+        "title": "MineSweeper",
+        "href": "/works/contents/minesweeper",
+        "content": "ただのマインスイーパー"
+      }
+    ]
+  },
+  {
+    "title": "Others",
+    "works": [
+      {
+        "title": "永遠のゆく先へ",
+        "href": "https://note.com/minamo_ntk/m/mb1de2ad66365",
+        "content": "連載小説「永遠のゆく先へ」 悩める少女たちのSF冒険物語！"
+      }
+    ]
+  }
+]

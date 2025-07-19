@@ -2,13 +2,11 @@ import { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ReactNode } from 'react';
-import { FaYoutube, FaGithub, FaBluesky } from "react-icons/fa6";
-import { FaXTwitter } from "react-icons/fa6";
-import { TbLetterN } from "react-icons/tb";
 import NatakurageLogo from "public/images/logos/natakurage_logo_vector.svg";
 import MinamoLogo from "public/images/logos/minamo_logo_vector.svg";
 import NavBar from '@/components/NavBar';
 import { TopImage } from '@/components/TopImage';
+import { socials } from '@/data/socials';
 
 function SocialIcon({ href, children } : { href: string, children: ReactNode }) {
   return (
@@ -83,21 +81,13 @@ export default function Home() {
         <NavBar className="mx-auto" />
 
         <div className="flex flex-row justify-center space-x-3">
-          <SocialIcon href="https://www.youtube.com/@natakurage/featured">
-            <FaYoutube size="32" />
-          </SocialIcon>
-          <SocialIcon href="https://bsky.app/profile/natakurage.cc">
-            <FaBluesky size="32" />
-          </SocialIcon>
-          <SocialIcon href="https://note.com/minamo_ntk">
-            <TbLetterN size="32" />
-          </SocialIcon>
-          <SocialIcon href="https://github.com/natakurage">
-            <FaGithub size="32" />
-          </SocialIcon>
-          <SocialIcon href="https://twitter.com/v_natakurage">
-            <FaXTwitter size="32" />
-          </SocialIcon>
+          {
+            socials.map(({ href, icon: Icon }) => (
+              <SocialIcon key={href} href={href}>
+                <Icon size={32} />
+              </SocialIcon>
+            ))
+          }
         </div>
       </main>
     </>
