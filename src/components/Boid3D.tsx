@@ -289,7 +289,7 @@ export const SketchComponent = () => {
       <div
         className="fixed w-lvw h-lvh
           top-0 bottom-0 left-0 right-0
-          bg-gray-500/5 backdrop-blur-md"
+          bg-gray-950/70 backdrop-blur-md"
       />
     </div>
   );
