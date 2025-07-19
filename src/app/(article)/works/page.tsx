@@ -20,7 +20,16 @@ export const metadata: Metadata = {
 };
 
 export default function WorksPage() {
-  const musicWorks = [
+  const albumWorks = [
+    {
+      title: "ナタクラゲ",
+      content: "ある日、実験施設から飛び出した少女が人々を襲いまわる事件が起きた。"
+      + "何があったのか。少女は何に虐げられ、何を虐げてきたのか。"
+      + "その人生に迫る、コンセプトアルバム。 ボーカロイド、ヘヴィメタル",
+      blogUrl: "https://blog.natakurage.cc/albums/natakurage",
+    }
+  ];
+  const songWorks = [
       {
         vid: "69s14zGHevU",
         title: "ナタクラゲ",
@@ -61,6 +70,18 @@ export default function WorksPage() {
         + "一緒に遊べないことについて喧嘩し、孤児院にあった鉈で怪我をさせてしまう。"
         + "これがもとで、彼女はさらに追い詰められていく。",
         blogUrl: "https://blog.natakurage.cc/songs/legal-dumping"
+      },
+      {
+        vid: "t-NT84w02ZE",
+        title: "ラット・イン・ザ・バット",
+        content: "仕事を辞め、心を病んだ彼女は、"
+        + "家に入ってきたネズミを捕まえてかわいがっているうちに、抱えきれないほど増やしてしまう。"
+        + "それを処分する中で、彼女はそれを狭い容器の中で繁殖させて、"
+        + "手で潰したり共食いさせることに熱中するようになる。"
+        + "時折、自己嫌悪に陥るも、生を実感する快感に勝てずに続けてしまう。"
+        + "皮肉にも彼女が過去に実験動物にされていたように、彼女もまたネズミをいたぶってしまう。"
+        + "しかしある日、すべて逃げ出してしまったのだった。",
+        blogUrl: "https://blog.natakurage.cc/songs/rat-in-the-vat"
       }
   ];
   const movieWorks = [
@@ -118,9 +139,34 @@ export default function WorksPage() {
         <h2 className="text-center text-3xl">Discography</h2>
         <p className="text-center text-sm">Click to play</p>
       </div>
+      <h3 className="text-center text-2xl">Albums</h3>
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
         {
-          musicWorks.map((work) => (
+          albumWorks.map((work) => (
+            <div
+              key={work.title}
+              className="flex flex-col space-y-5"
+            >
+              <div className="relative">
+                <WorkCard
+                  title={work.title}
+                  content={work.content}
+                />
+                <Link
+                  href={work.blogUrl}
+                  target={work.blogUrl.startsWith("/") ? undefined : "_blank"}
+                  rel={work.blogUrl.startsWith("/") ? undefined : "noopener noreferrer"}
+                  className="absolute top-0 left-0 block w-full h-full"
+                />
+              </div>
+            </div>
+          ))
+        }
+      </div>
+      <h3 className="text-center text-2xl">Songs</h3>
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
+        {
+          songWorks.map((work) => (
             <div
               key={work.vid}
               className="flex flex-col space-y-5"
