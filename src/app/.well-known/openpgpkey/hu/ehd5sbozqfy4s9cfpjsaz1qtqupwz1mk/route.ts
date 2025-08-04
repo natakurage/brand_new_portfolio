@@ -1,3 +1,5 @@
+import misc from "../../../../../data/misc.json";
+
 export function GET() {
-  return fetch("https://storage.natakurage.cc/gpg/pub.key");
+  return fetch(misc.pgpKeyUrl);
 };

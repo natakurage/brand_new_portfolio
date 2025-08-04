@@ -1,9 +1,8 @@
 import { Metadata } from 'next';
 import { Key, readKey, Subkey, enums } from "openpgp";
-import fs from "fs";
-import path from "path";
 import Link from "next/link";
 import StringCanvas from '@/components/StringCanvas';
+import misc from "@/data/misc.json";
 
 export const metadata: Metadata = {
   title: "PGP公開鍵 | ナタクラゲ / 千本槍みなも",
@@ -76,11 +75,15 @@ async function KeyTable({ pgpkey, isSubKey = false } : { pgpkey: Key | Subkey, i
 }
 
 export default async function PGPPage() {
+  const res = await fetch(misc.pgpKeyUrl, {
+    cache: "force-cache",
+    next: { revalidate: 86400 }, // 1 day
+  });
+  const binaryKey = new Uint8Array(await res.arrayBuffer());
+  const publickey = await readKey({ binaryKey });
+
   const slug = "ehd5sbozqfy4s9cfpjsaz1qtqupwz1mk";
   const keyPath = "/.well-known/openpgpkey/hu/" + slug;
-  const res = fs.readFileSync(path.join(process.cwd(), "public", keyPath));
-  const binaryKey = new Uint8Array(res);
-  const publickey = await readKey({ binaryKey });
   
   return (
     <>
