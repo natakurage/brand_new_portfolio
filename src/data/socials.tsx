@@ -1,4 +1,4 @@
-import { FaYoutube, FaGithub } from 'react-icons/fa';
+import { FaYoutube, FaGithub, FaKey } from 'react-icons/fa';
 import { FaXTwitter, FaBluesky } from 'react-icons/fa6';
 import { TbLetterN } from 'react-icons/tb';
 
@@ -30,4 +30,9 @@ export const socials = [
       icon: FaGithub,
       href: "https://github.com/natakurage"
     },
+    {
+      text: "Keyoxide",
+      icon: FaKey,
+      href: "https://keyoxide.org/natakurage%40natakurage.cc"
+    }
   ];
