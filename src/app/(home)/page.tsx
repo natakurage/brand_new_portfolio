@@ -81,7 +81,7 @@ export default function Home() {
             <span style={{display: "inline-block"}}>ナタクラゲ /</span>&nbsp;
             <span style={{display: "inline-block"}}>千本槍みなも</span>
           </h1>
-          <p>VOCALOID Composer, Writer, Programmer, 3D Artist / Virtual YouTuber</p>
+          <p>VOCALOID Composer, Writer, Programmer, 3D Artist / VTuber</p>
         </div>
 
         <NavBar className="mx-auto" />
