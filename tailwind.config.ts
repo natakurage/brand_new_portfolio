@@ -11,7 +11,17 @@ module.exports = {
     './src/**/*.{ts,tsx}',
 	],
   theme: {
-    extend: {},
+    extend: {
+      keyframes: {
+        "back-blur-in": {
+          "0%": { backdropFilter: "blur(0)" },
+          "100%": { backdropFilter: "blur(2px)" }
+        }
+      },
+      animation: {
+        "back-blur-in": "back-blur-in 2s ease-out 1s forwards"
+      },
+    },
   },
   plugins: [daisyui, typography],
   daisyui: {

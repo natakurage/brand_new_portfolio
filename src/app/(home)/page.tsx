@@ -7,6 +7,7 @@ import MinamoLogo from "public/images/logos/minamo_logo_vector.svg";
 import NavBar from '@/components/NavBar';
 import { TopImage } from '@/components/TopImage';
 import { socials } from '@/data/socials';
+import { CursorCircleMask } from '@/components/CursorCircleMask';
 
 function SocialIcon({ href, children } : { href: string, children: ReactNode }) {
   return (
@@ -39,7 +40,7 @@ export default function Home() {
           quality={100}
           fill
           priority
-          className="object-cover z-[-1] object-[25%_50%] mask-gradient"
+          className="object-cover z-[-2] object-[25%_50%] mask-gradient"
         />
         <noscript>
           <Image
@@ -48,9 +49,14 @@ export default function Home() {
             quality={100}
             fill
             priority
-            className="object-cover z-[-1] object-[25%_50%] mask-gradient"
+            className="object-cover z-[-2] object-[25%_50%] mask-gradient"
           />
         </noscript>
+        <CursorCircleMask
+          radius={100}
+          attenuation={50}
+          className="w-full h-full z-[-1] animate-back-blur-in"
+        />
         <div className="flex flex-col w-full sm:w-1/2 ms-auto h-full">
           <div className="w-full h-1/2">
             <NatakurageLogo
