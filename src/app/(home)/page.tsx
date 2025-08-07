@@ -61,9 +61,9 @@ export default function Home() {
           <div className="w-full h-1/2">
             <NatakurageLogo
               className="w-full h-full"
-              fill="pink"
-              stroke="pink"
-              filter="drop-shadow(0 0 12px black)"
+              fill="orangered"
+              stroke="orangered"
+              filter="drop-shadow(0 0 12px maroon)"
               />
           </div>
           <div className="w-full h-1/2">
