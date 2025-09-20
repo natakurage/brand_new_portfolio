@@ -10,6 +10,16 @@ export default function PolicyPage() {
   return (
     <>
       <h1>ポリシーと規約</h1>
+      <h2>紹介について</h2>
+      <p>
+        私のことを紹介する場合、できればSNSのリンクではなく、ドメイン名である
+        <a href="https://natakurage.cc">natakurage.cc</a>
+        を紹介してください。
+        SNSは企業の都合でリンクが変更されたり、削除されたりする可能性がありますが、
+        ドメインは私が自ら管理しており、そのリスクが低いためです。
+        ただし、技術的に難しければこの限りではありません。
+        また強制ではなく、あくまで推奨事項となります。
+      </p>
       <h2>ナタクラゲの作品について</h2>
       <p className="text-3xl text-center">Free as in speech.</p>
       <p>
