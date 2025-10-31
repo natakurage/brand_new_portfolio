@@ -1,3 +1,4 @@
+import Socials from '@/components/Socials';
 import { TwitterSearch } from '@/components/Twitter';
 import { Metadata } from 'next';
 
@@ -14,6 +15,7 @@ export default function TwitterSearchPage() {
         注意: このページは検索ページのリンクを生成して飛ぶだけの機能です。
       </p>
       <TwitterSearch />
+      <Socials size={32} noColor className="mt-5" />
     </>
   );
 }

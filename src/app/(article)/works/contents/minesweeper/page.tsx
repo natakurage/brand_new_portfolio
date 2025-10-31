@@ -1,4 +1,5 @@
 import { MineSweeper } from '@/components/MineSweeper';
+import Socials from '@/components/Socials';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -14,6 +15,7 @@ export default function MineSweeperPage() {
         ただのマインスイーパー
       </p>
       <MineSweeper />
+      <Socials size={32} noColor className="mt-5" />
     </>
   );
 }

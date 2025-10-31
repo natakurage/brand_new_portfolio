@@ -1,7 +1,7 @@
 import MessageForm from "@/components/MessageForm";
+import Socials from "@/components/Socials";
 import { Metadata } from 'next';
 import Link from "next/link";
-import { socials } from "@/data/socials";
 
 export const metadata: Metadata = {
   title: "お問い合わせ | ナタクラゲ / 千本槍みなも",
@@ -13,22 +13,7 @@ export default function ContactPage() {
     <>
       <h1>お問い合わせ</h1>
       <h2>各種アカウント</h2>
-      <div
-        className="not-prose flex flex-row flex-wrap gap-3 justify-center"
-      >
-      {
-        socials.map(({ href, text, icon: Icon, color }) => 
-          <Link
-            key={href}
-            href={href}
-            className={`tooltip p-3 rounded-md hover:translate-y-[-0.1rem] transition-[transform]`}
-            data-tip={text}
-          >
-            <Icon size={48} color={color} />
-          </Link>
-        )
-      }
-      </div>
+      <Socials size={48} />
       <h2>PGP公開鍵</h2>
       <Link href="/pgp">公開鍵はこちら</Link>
       <h2>Matrix</h2>

@@ -1,27 +1,11 @@
 import { Metadata } from 'next';
 import Image from 'next/image';
-import Link from 'next/link';
-import { ReactNode } from 'react';
 import NatakurageLogo from "public/images/logos/natakurage_logo_vector.svg";
 import MinamoLogo from "public/images/logos/minamo_logo_vector.svg";
 import NavBar from '@/components/NavBar';
 import { TopImage } from '@/components/TopImage';
-import { socials } from '@/data/socials';
 import { CursorCircleMask } from '@/components/CursorCircleMask';
-
-function SocialIcon({ href, children } : { href: string, children: ReactNode }) {
-  return (
-    <div>
-      <Link
-        href={href}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        { children }
-      </Link>
-    </div>
-  );
-}
+import Socials from '@/components/Socials';
 
 export const metadata: Metadata = {
   title: "ナタクラゲ / 千本槍みなも",
@@ -81,19 +65,13 @@ export default function Home() {
             <span style={{display: "inline-block"}}>ナタクラゲ /</span>&nbsp;
             <span style={{display: "inline-block"}}>千本槍みなも</span>
           </h1>
-          <p>VOCALOID Composer, Writer, Programmer, 3D Artist / VTuber</p>
+          <p>Musician, Writer, Programmer, 3D Artist / VTuber</p>
         </div>
 
         <NavBar className="mx-auto" />
 
-        <div className="flex flex-row justify-center space-x-3">
-          {
-            socials.map(({ href, icon: Icon }) => (
-              <SocialIcon key={href} href={href}>
-                <Icon size={32} />
-              </SocialIcon>
-            ))
-          }
+        <div className="flex flex-row justify-center">
+          <Socials size={32} noColor />
         </div>
       </main>
     </>
