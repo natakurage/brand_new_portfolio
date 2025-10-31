@@ -21,7 +21,7 @@ export default function PolicyPage() {
         また強制ではなく、あくまで推奨事項となります。
       </p>
       <h2>ナタクラゲの作品について</h2>
-      <p className="text-3xl text-center">Free as in speech.</p>
+      <p className="text-3xl text-center">Free as in Freedom.</p>
       <p>
         ※ナタクラゲは法律の専門家ではないため、最終的な判断はライセンスの条文と法的解釈に基づいて行ってください。
       </p>
