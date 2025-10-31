@@ -154,25 +154,27 @@ enum Difficulity {
 
 export function MineSweeper() {
   const [playing, setPlaying] = useState(false);
-  const [numMines, setNumMines] = useState(10);
+  const [mineDensity, setMineDensity] = useState(0.2);
   const [width, setWidth] = useState(10);
   const [height, setHeight] = useState(10);
 
   const autoSet = (d: Difficulity) => {
     if (d === Difficulity.Easy) {
-      setNumMines(10);
+      setMineDensity(0.1);
       setWidth(10);
       setHeight(10);
     } else if (d === Difficulity.Medium) {
-      setNumMines(40);
+      setMineDensity(0.2);
       setWidth(16);
       setHeight(16);
     } else if (d === Difficulity.Hard) {
-      setNumMines(99);
+      setMineDensity(0.25);
       setWidth(20);
       setHeight(20);
     }
   };
+
+  const numMines = Math.floor(width * height * mineDensity);
 
   return (
     <div className="not-prose">
@@ -205,15 +207,15 @@ export function MineSweeper() {
             onChange={(e) => setHeight(parseInt(e.target.value))}
           />
           
-          <label className="fieldset-label">Number of mines: {numMines}</label>
+          <label className="fieldset-label">Number of mines: {numMines} ({Math.floor(mineDensity * 100)}%)</label>
           <input
             type="range"
             className="range"
-            placeholder="10"
-            value={numMines}
-            min={1}
-            max={width * height}
-            onChange={(e) => setNumMines(parseInt(e.target.value))}
+            placeholder="20"
+            value={mineDensity * 100}
+            min={0}
+            max={100}
+            onChange={(e) => setMineDensity(parseFloat(e.target.value) / 100)}
           />
           <div className="flex flex-row">
             <div className="join">
