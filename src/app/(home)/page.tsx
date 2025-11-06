@@ -19,17 +19,17 @@ export default function Home() {
     <>
       <div className="h-screen relative">
         <TopImage
-          hsrc={getStoragePath("/images/posters/poster3_new.png")}
-          vsrc={getStoragePath("/images/posters/poster3_new_vert.png")}
+          hsrc={getStoragePath("/images/posters/poster4.png")}
+          vsrc={getStoragePath("/images/posters/poster4_vert.png")}
           alt="Natakurage Key Visual"
           quality={100}
           fill
           priority
-          className="object-cover z-[-2] object-[25%_50%] mask-gradient"
+          className="object-cover z-[-2] object-[50%_50%] mask-gradient"
         />
         <noscript>
           <Image
-            src="/images/posters/poster3_new.png"
+            src="/images/posters/poster4.png"
             alt="Natakurage Key Visual"
             quality={100}
             fill
