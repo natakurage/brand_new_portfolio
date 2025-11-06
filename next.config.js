@@ -3,8 +3,12 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
     remotePatterns: [
-      { protocol: 'https', hostname: 'img.youtube.com' }
+      { protocol: 'https', hostname: 'img.youtube.com' },
+      { protocol: 'https', hostname: 'storage.natakurage.cc' }
     ]
+  },
+  env: {
+    NEXT_PUBLIC_STORAGE_BASE_PATH: 'https://storage.natakurage.cc/'
   },
   transpilePackages: ['three'],
   webpack: (config) => {

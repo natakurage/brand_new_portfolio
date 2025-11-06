@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { Metadata } from 'next';
 import GalleryCard from '@/components/GalleryCard';
 import galleryData from '@/data/gallery.json';
+import { getStoragePath } from '@/utils/imagePath';
 
 export const metadata: Metadata = {
   title: "ギャラリー | ナタクラゲ / 千本槍みなも",
@@ -33,7 +34,7 @@ export default function Page() {
                 items.map((image) => (
                   <GalleryCard
                     key={image.src}
-                    src={image.src}
+                    src={getStoragePath(image.src)}
                     title={image.title}
                     content={image.content}
                   />

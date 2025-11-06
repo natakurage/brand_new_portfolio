@@ -9,6 +9,7 @@ import { SiBlender, SiTypescript } from "react-icons/si";
 import Image from 'next/image';
 import Link from 'next/link';
 import about from '@/data/about.json';
+import { getStoragePath } from '@/utils/imagePath';
 
 export const metadata: Metadata = {
   title: "ナタクラゲ / 千本槍みなもについて | ナタクラゲ / 千本槍みなも",
@@ -84,7 +85,7 @@ export default function AboutPage() {
       <div className="text-sm">ボカロP / 小説家 / プログラマー / 3DCGアーティスト / 「千本槍みなも」運営 / Reproducible Freedom主宰</div>
       <div className="h-64 relative">
         <Image
-          src="/images/logos/鉈海月.png"
+          src={getStoragePath("/images/logos/鉈海月.png")}
           alt="Natakurage Icon"
           fill
           priority
@@ -115,12 +116,12 @@ export default function AboutPage() {
       <h2>千本槍みなも</h2>
       <div className="relative w-full">
         <VRMCanvas
-          vrmFilename="/ナタクラゲ3.1_edit.vrm"
-          imgFilename="/images/canvas2_sq.png"
+          vrmFilename={getStoragePath("/3D/vrm/ナタクラゲ3.1_edit.vrm")}
+          imgFilename={getStoragePath("/images/canvas2_sq.png")}
         />
       </div>
       <p>
-        <Link href="/ナタクラゲ3.1_edit.vrm">
+        <Link href={getStoragePath("/3D/vrm/ナタクラゲ3.1_edit.vrm")}>
           Download VRM
         </Link>
       </p>

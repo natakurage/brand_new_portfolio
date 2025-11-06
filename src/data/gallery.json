@@ -47,6 +47,14 @@
       {
         "src": "/images/posters/poster3_new.png",
         "title": "ポスター3"
+      },
+      {
+        "src": "/images/posters/poster4.png",
+        "title": "ポスター4"
+      },
+      {
+        "src": "/images/posters/poster4_vert.png",
+        "title": "ポスター4（縦）"
       }
     ]
   },

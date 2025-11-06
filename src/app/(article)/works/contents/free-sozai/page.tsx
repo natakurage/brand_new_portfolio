@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import Socials from '@/components/Socials';
+import { getStoragePath } from '@/utils/imagePath';
 
 export const metadata: Metadata = {
   title: "フリー素材 | ナタクラゲ / 千本槍みなも",
@@ -77,10 +78,10 @@ export default function Page() {
       <h2>素材</h2>
       <div className="relative h-96 aspect-square mx-auto mb-12">
         <Link
-          href="/images/shit.png"
+          href={getStoragePath("/images/shit.png")}
         >
           <Image
-            src="/images/shit.png"
+            src={getStoragePath("/images/shit.png")}
             alt="shit"
             fill
           />

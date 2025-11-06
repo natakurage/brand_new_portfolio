@@ -6,6 +6,7 @@ import NavBar from '@/components/NavBar';
 import { TopImage } from '@/components/TopImage';
 import { CursorCircleMask } from '@/components/CursorCircleMask';
 import Socials from '@/components/Socials';
+import { getStoragePath } from '@/utils/imagePath';
 
 export const metadata: Metadata = {
   title: "ナタクラゲ / 千本槍みなも",
@@ -13,13 +14,13 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
-  
+
   return (
     <>
       <div className="h-screen relative">
         <TopImage
-          hsrc="/images/posters/poster3_new.png"
-          vsrc="/images/posters/poster3_new_vert.png"
+          hsrc={getStoragePath("/images/posters/poster3_new.png")}
+          vsrc={getStoragePath("/images/posters/poster3_new_vert.png")}
           alt="Natakurage Key Visual"
           quality={100}
           fill

@@ -3,6 +3,7 @@ import YouTubeEmbed from '@/components/YoutubeEmbed';
 import { Metadata } from 'next';
 import Image from 'next/image';
 import worksData from '@/data/works.json';
+import { getStoragePath } from '@/utils/imagePath';
 
 export const metadata: Metadata = {
   title: "作品 | ナタクラゲ / 千本槍みなも",
@@ -45,7 +46,7 @@ function WorkCard({ title, img, content, vid, href }: WorkCardProps) {
           className="w-full aspect-video relative"
         >
           <Image
-            src={img}
+            src={getStoragePath(img)}
             alt={title}
             fill
             priority
