@@ -29,12 +29,12 @@ export default function Home() {
         />
         <noscript>
           <Image
-            src="/images/posters/poster4.png"
+            src={getStoragePath("/images/posters/poster4_h_new.png")}
             alt="Natakurage Key Visual"
             quality={100}
             fill
             priority
-            className="object-cover z-[-2] object-[25%_50%] mask-gradient"
+            className="object-cover z-[-2] object-[50%_50%] mask-gradient"
           />
         </noscript>
         <CursorCircleMask
@@ -66,7 +66,7 @@ export default function Home() {
             <span style={{display: "inline-block"}}>ナタクラゲ /</span>&nbsp;
             <span style={{display: "inline-block"}}>千本槍みなも</span>
           </h1>
-          <p>Musician, Writer, Programmer, 3D Artist / VTuber</p>
+          <p>&quot;Virtual&quot; Metal Project / Writer, Programmer, 3D Artist / VTuber</p>
         </div>
 
         <NavBar className="mx-auto" />
