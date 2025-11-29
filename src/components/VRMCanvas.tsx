@@ -111,7 +111,7 @@ const GltfSingleCanvas = (
       { !loaded && (
           <div
             onClick={() => setClicked(true)}
-            className="absolute top-0 left-0 z-10 w-full h-full flex justify-center items-center bg-[#50FFDF11]"
+            className="absolute top-0 left-0 z-10 w-full h-full flex justify-center items-center"
           >
             <Image
               src={imgFilename}

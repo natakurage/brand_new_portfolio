@@ -7,7 +7,7 @@
 }
 
 ::selection {
-  @apply bg-[#50ffdfc8] text-slate-900;
+  @apply bg-[#ed5126] text-slate-900;
 }
 
 @layer components {

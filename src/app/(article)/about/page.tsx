@@ -117,17 +117,17 @@ export default function AboutPage() {
       <h2>千本槍みなも</h2>
       <div className="relative w-full">
         <VRMCanvas
-          vrmFilename={getStoragePath("/3D/vrm/ナタクラゲ3.1_edit.vrm")}
-          imgFilename={getStoragePath("/images/canvas2_sq.png")}
+          vrmFilename={getStoragePath("/3D/vrm/ナタクラゲ4.vrm")}
+          imgFilename={getStoragePath("/images/new_avatar.png")}
         />
       </div>
       <p>
-        <Link href={getStoragePath("/3D/vrm/ナタクラゲ3.1_edit.vrm")}>
+        <Link href={getStoragePath("/3D/vrm/ナタクラゲ4.vrm")}>
           Download VRM
         </Link>
       </p>
       <p className="not-prose">
-        ナタクラゲによる &quot;ナタクラゲ3.1_edit.vrm&quot; © 2025 は、CC BY-SA 4.0のライセンス下に提供されています。
+        ナタクラゲによる &quot;ナタクラゲ4.vrm&quot; © 2025 は、CC BY-SA 4.0のライセンス下に提供されています。
         <Link
           href="https://creativecommons.org/licenses/by-sa/4.0/"
         >

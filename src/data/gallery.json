@@ -25,20 +25,24 @@
     "title": "Posters and Banners",
     "items": [
       {
-        "src": "/images/posters/poster2.png",
-        "title": "ポスター2（旧衣装）"
+        "src": "/images/posters/poster5.png",
+        "title": "ポスター5"
       },
       {
-        "src": "/images/posters/banner2.png",
-        "title": "バナー2（旧衣装）"
+        "src": "/images/posters/poster4_h_new.png",
+        "title": "ポスター4"
       },
       {
-        "src": "/images/posters/poster2_3.png",
-        "title": "ポスター2"
+        "src": "/images/posters/poster4_v_new.png",
+        "title": "ポスター4（縦）"
       },
       {
-        "src": "/images/posters/banner2_3.png",
-        "title": "バナー2"
+        "src": "/images/posters/poster4.png",
+        "title": "ポスター4"
+      },
+      {
+        "src": "/images/posters/poster4_vert.png",
+        "title": "ポスター4（縦）"
       },
       {
         "src": "/images/posters/poster3.png",
@@ -49,12 +53,20 @@
         "title": "ポスター3"
       },
       {
-        "src": "/images/posters/poster4.png",
-        "title": "ポスター4"
+        "src": "/images/posters/poster2_3.png",
+        "title": "ポスター2"
       },
       {
-        "src": "/images/posters/poster4_vert.png",
-        "title": "ポスター4（縦）"
+        "src": "/images/posters/banner2_3.png",
+        "title": "バナー2"
+      },
+      {
+        "src": "/images/posters/poster2.png",
+        "title": "ポスター2（旧衣装）"
+      },
+      {
+        "src": "/images/posters/banner2.png",
+        "title": "バナー2（旧衣装）"
       }
     ]
   },
@@ -62,13 +74,17 @@
     "title": "Others",
     "items": [
       {
-        "src": "/images/canvas.png",
-        "title": "千本槍みなも（旧衣装）"
+        "src": "/images/new_avatar.png",
+        "title": "千本槍みなも バージョン4"
       },
       {
         "src": "/images/natakurage_newicon.png",
-        "title": "千本槍みなも",
+        "title": "千本槍みなも バージョン3",
         "content": "🤘🤘"
+      },
+      {
+        "src": "/images/canvas.png",
+        "title": "千本槍みなも バージョン2"
       }
     ]
   }

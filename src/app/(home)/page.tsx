@@ -19,8 +19,8 @@ export default function Home() {
     <>
       <div className="h-screen relative">
         <TopImage
-          hsrc={getStoragePath("/images/posters/poster4.png")}
-          vsrc={getStoragePath("/images/posters/poster4_vert.png")}
+          hsrc={getStoragePath("/images/posters/poster4_h_new.png")}
+          vsrc={getStoragePath("/images/posters/poster4_v_new.png")}
           alt="Natakurage Key Visual"
           quality={100}
           fill
@@ -46,8 +46,8 @@ export default function Home() {
           <div className="w-full h-1/2">
             <NatakurageLogo
               className="w-full h-full"
-              fill="orangered"
-              stroke="orangered"
+              fill="#ED5126"
+              stroke="#ED5126"
               filter="drop-shadow(0 0 12px maroon)"
               />
           </div>

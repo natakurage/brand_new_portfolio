@@ -147,7 +147,7 @@ const SingleBoid = ({boid, width, depth, height}: BoidProps) => {
       scale={[0.5,0.5,0.5]}
     >
       <meshStandardMaterial
-        color="#50FFDF"
+        color="#382E38"
         roughness={0.4}
         transparent
         opacity={0.5}
@@ -156,7 +156,7 @@ const SingleBoid = ({boid, width, depth, height}: BoidProps) => {
         scale={[0.3,0.3,0.3]}
         position={boid.vel.clone().multiplyScalar(0.3 / maxVel)}
       >
-        <meshStandardMaterial color="#FF50DF" emissive="#FF50DF" emissiveIntensity={5} />
+        <meshStandardMaterial color="#ED5126" emissive="#ED5126" emissiveIntensity={1} />
       </Sphere>
     </Sphere>
   );
@@ -275,7 +275,7 @@ export const SketchComponent = () => {
         flat
       >
         <directionalLight position={[0, 1, 0]} intensity={10} color={"#FFFFFF"} />
-        <color attach="background" args={["#000917"]} />
+        <color attach="background" args={["#020C15"]} />
         <Boids
           sep={separation}
           ali={alignment}
@@ -289,7 +289,7 @@ export const SketchComponent = () => {
       <div
         className="fixed w-lvw h-lvh
           top-0 bottom-0 left-0 right-0
-          bg-gray-950/70 backdrop-blur-md"
+          bg-gray-950/20 backdrop-blur-md"
       />
     </div>
   );
