@@ -14,7 +14,7 @@ export default function SecretPage() {
       </div>
       <div className="
         fixed top-0 left-0 w-screen h-screen z-[-1]
-        bg-[url('/images/logos/NTK.png')] bg-[length:20px_20px]">
+        bg-[url('/images/logos/NTK.svg')] bg-[length:20px_20px]">
       </div>
       <h1>Secret Zone</h1>
       <p>↓</p>

@@ -10,6 +10,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import about from '@/data/about.json';
 import { getStoragePath } from '@/utils/imagePath';
+import NTK from "public/images/logos/NTK.svg";
 
 export const metadata: Metadata = {
   title: "ナタクラゲ / 千本槍みなもについて | ナタクラゲ / 千本槍みなも",
@@ -84,12 +85,9 @@ export default function AboutPage() {
       <h2>ナタクラゲ</h2>
       <div className="text-sm">ボカロP / 小説家 / プログラマー / 3DCGアーティスト / 「千本槍みなも」運営 / Reproducible Freedom主宰</div>
       <div className="h-64 relative">
-        <Image
-          src={getStoragePath("/images/logos/鉈海月.png")}
-          alt="Natakurage Icon"
-          fill
-          priority
-          className="w-1/2 m-auto object-contain"
+        <NTK
+          className="w-full h-full"
+          filter="drop-shadow(0 0 12px maroon)"
         />
       </div>
       <p>

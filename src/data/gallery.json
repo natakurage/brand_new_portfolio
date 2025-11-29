@@ -3,13 +3,9 @@
     "title": "Logos and Icons",
     "items":[
       {
-        "src": "/images/logos/NTK.png",
+        "src": "/images/logos/NTK.svg",
         "title": "ナタクラゲ　クラゲ",
         "content": "クラゲ"
-      },
-      {
-        "src": "/images/logos/鉈海月.png",
-        "title": "ナタクラゲ　アイコン"
       },
       {
         "src": "/images/logos/minamo_logo_vector.svg",
