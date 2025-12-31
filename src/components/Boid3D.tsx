@@ -264,7 +264,7 @@ export const SketchComponent = () => {
   return (
     <div
       ref={gltfCanvasParentRef}
-      className="w-lvw h-lvh fixed z-[-1000]"
+      className="w-lvw h-lvh fixed z-[-1000] bg-gradient-to-b via-30% from-cyan-700 via-[#1A3752] to-[#020C15]"
     >
       <Canvas
         frameloop="always"
@@ -275,7 +275,6 @@ export const SketchComponent = () => {
         flat
       >
         <directionalLight position={[0, 1, 0]} intensity={10} color={"#FFFFFF"} />
-        <color attach="background" args={["#020C15"]} />
         <Boids
           sep={separation}
           ali={alignment}
@@ -289,7 +288,7 @@ export const SketchComponent = () => {
       <div
         className="fixed w-lvw h-lvh
           top-0 bottom-0 left-0 right-0
-          bg-gray-950/20 backdrop-blur-md"
+          bg-gray-950/40 backdrop-blur-md"
       />
     </div>
   );
