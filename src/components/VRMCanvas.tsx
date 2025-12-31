@@ -84,7 +84,7 @@ const GltfSingleCanvas = (
             }}
             flat
           >
-            <directionalLight position={[0, -1, 0]} intensity={2} color={"#FFFFFF"} />
+            <directionalLight position={[0, 1, -0.5]} intensity={3} color={"#FFFFFF"} />
             <Model
               filename={vrmFilename}
               onLoad={makeLoadedTrue}

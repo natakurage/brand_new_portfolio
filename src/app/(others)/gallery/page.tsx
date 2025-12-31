@@ -29,7 +29,7 @@ export default function Page() {
         gallerySections.map(({ title, items }) => (
           <section key={title}>
             <h2 className="text-2xl">{ title }</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
+            <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-3 gap-5">
               {
                 items.map((image) => (
                   <GalleryCard

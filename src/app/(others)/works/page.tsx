@@ -73,16 +73,23 @@ function WorkCard({ title, img, content, vid, href }: WorkCardProps) {
 }
 
 function WorkCardSection({ title, titleTag = "h2", subtitle, works }: WorkCardSectionProps) {
-  return (
-    <section>
-      <div className="space-y-2">
-      {titleTag === "h2" ? (
+  const titleElement = (
+      titleTag === "h2" ? (
         <h2 className="text-center text-3xl">{title}</h2>
       ) : (
         <h3 className="text-center text-2xl">{title}</h3>
-      )}
-      {subtitle && <p className="text-center text-sm">{subtitle}</p>}
-      </div>
+      )
+  );
+  const subtitleElement = subtitle && <p className="text-center text-sm">{subtitle}</p>;
+  const titleAndSubtitle = subtitleElement ? (
+    <div className="space-y-1">
+      {titleElement}
+      {subtitleElement}
+    </div>
+  ) : titleElement;
+  return (
+    <section className="space-y-2">
+      {titleAndSubtitle}
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
         {works.map((work) => <WorkCard key={work.title} {...work} />)}
       </div>
@@ -94,7 +101,7 @@ function WorkCardSection({ title, titleTag = "h2", subtitle, works }: WorkCardSe
 export default function WorksPage() {
   const works = worksData as (WorkCardHeading | WorkCardSectionProps)[];
   return (
-    <div className="not-prose space-y-5">
+    <div className="space-y-5">
       {
         works.map((section) => (
           isWorkCardHeading(section) ? (
