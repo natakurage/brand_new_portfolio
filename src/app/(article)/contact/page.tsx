@@ -13,7 +13,7 @@ export default function ContactPage() {
     <>
       <h1>お問い合わせ</h1>
       <h2>各種アカウント</h2>
-      <Socials size={48} />
+      <Socials size={48} className="not-prose" />
       <h2>PGP公開鍵</h2>
       <Link href="/pgp">公開鍵はこちら</Link>
       <h2>Matrix</h2>

@@ -26,7 +26,7 @@ export default async function RootLayout({
         <Boid3D />
         <SecretMessage />
         {children}
-        <footer className="flex flex-row space-x-3 justify-center text-center">
+        <footer className="flex flex-row space-x-3 mt-3 justify-center text-center">
           <Link href="/policy">
             Copyright © {new Date().getFullYear()} Natakurage All rights &quot;reversed&quot;.
           </Link>

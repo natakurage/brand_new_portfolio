@@ -15,10 +15,15 @@ module.exports = {
         "back-blur-in": {
           "0%": { backdropFilter: "blur(0)" },
           "100%": { backdropFilter: "blur(2px)" }
+        },
+        "blur-out": {
+          "0%": { filter: "blur(20px)" },
+          "100%": { filter: "blur(0)" }
         }
       },
       animation: {
-        "back-blur-in": "back-blur-in 2s ease-out 1s forwards"
+        "back-blur-in": "back-blur-in 2s ease-out 1s forwards",
+        "blur-out": "blur-out 2s ease-out forwards"
       },
     },
   },
