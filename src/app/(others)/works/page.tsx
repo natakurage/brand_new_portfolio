@@ -75,9 +75,9 @@ function WorkCard({ title, img, content, vid, href }: WorkCardProps) {
 function WorkCardSection({ title, titleTag = "h2", subtitle, works }: WorkCardSectionProps) {
   const titleElement = (
       titleTag === "h2" ? (
-        <h2 className="text-center text-3xl">{title}</h2>
+        <h2 className="text-center text-3xl font-bold">{title}</h2>
       ) : (
-        <h3 className="text-center text-2xl">{title}</h3>
+        <h3 className="text-center text-2xl font-bold">{title}</h3>
       )
   );
   const subtitleElement = subtitle && <p className="text-center text-sm">{subtitle}</p>;
@@ -105,7 +105,7 @@ export default function WorksPage() {
       {
         works.map((section) => (
           isWorkCardHeading(section) ? (
-            <h2 key={section.title} className="text-center text-3xl">{section.title}</h2>
+            <h2 key={section.title} className="text-center text-3xl font-bold">{section.title}</h2>
           ) :
           <WorkCardSection key={section.title} {...section}/>
         ))

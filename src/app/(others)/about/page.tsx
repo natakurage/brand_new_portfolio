@@ -80,7 +80,7 @@ export default function AboutPage() {
   const { profileTable, timeLineEvents } = about;
   return (
     <>
-      <div className="text-6xl text-end rotate-6 z-10 relative">
+      <div className="text-6xl text-end rotate-6 z-10 relative font-bold">
         <span className="inline-block">痛みを</span>
         <span className="inline-block">越えろ。</span>
       </div>
@@ -92,7 +92,7 @@ export default function AboutPage() {
           />
         </div>
         <div className="text-center space-y-1">
-          <h2 className="text-3xl">ナタクラゲ</h2>
+          <h2 className="text-3xl font-bold">ナタクラゲ</h2>
           <div className="text-sm">作曲 / ギター / 小説 / プログラマー / 3DCGアーティスト / 「千本槍みなも」運営 / Reproducible Freedom主宰</div>
         </div>
       </div>
@@ -118,7 +118,7 @@ export default function AboutPage() {
         )
       }
       </div>
-      <div className="text-4xl sm:text-6xl -rotate-6 z-10 relative">
+      <div className="text-4xl sm:text-6xl -rotate-6 z-10 relative font-bold text-start my-5">
         <span className="inline-block">地獄でお会い</span>
         <span className="inline-block">しましょう。</span>
       </div>
@@ -133,7 +133,7 @@ export default function AboutPage() {
           />
         </div>
         <div className="flex-1 space-y-2">
-          <h2 className="text-3xl text-center">千本槍みなも</h2>
+          <h2 className="text-3xl text-center font-bold">千本槍みなも</h2>
           <table className="table table-sm">
             <tbody>
             {

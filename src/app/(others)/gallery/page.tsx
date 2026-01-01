@@ -24,11 +24,11 @@ export default function Page() {
   const gallerySections: GallerySection[] = galleryData;
   return (
     <div className="not-prose space-y-5">
-      <h1 className="text-center text-4xl">Gallery</h1>
+      <h1 className="text-center text-4xl font-bold">Gallery</h1>
       {
         gallerySections.map(({ title, items }) => (
           <section key={title}>
-            <h2 className="text-2xl">{ title }</h2>
+            <h2 className="text-2xl font-bold">{ title }</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-3 gap-5">
               {
                 items.map((image) => (
