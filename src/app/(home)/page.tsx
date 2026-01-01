@@ -59,7 +59,7 @@ export default function Home() {
             </div>
           </div>
           <main className="mx-auto container space-y-10 px-3 animate-slide-in-bottom animate-blur-out">
-            <div className="flex flex-col md:flex-row space-y-5 justify-center items-center">
+            <div className="flex flex-col md:flex-row gap-y-24 justify-center items-center">
               <div className="text-2xl flex flex-col text-center md:shrink-0">
                 <span className="inline-block"><span className="font-bold text-8xl">極限</span>による</span>
                 <span className="inline-block"><span className="font-bold text-8xl">解放</span>。</span>
