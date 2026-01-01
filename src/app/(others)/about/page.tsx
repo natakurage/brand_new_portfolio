@@ -85,7 +85,7 @@ export default function AboutPage() {
         <span className="inline-block">越えろ。</span>
       </div>
       <div className="flex flex-col sm:flex-row-reverse items-center">
-        <div className="max-w-64 sm:w-1/3 p-2 shrink-0">
+        <div className="max-w-64 sm:w-1/3 p-2 shrink-0 motion-safe:animate-float">
           <NTK
             className="w-full h-full"
             filter="drop-shadow(0 0 24px maroon)"
@@ -123,7 +123,7 @@ export default function AboutPage() {
         <span className="inline-block">しましょう。</span>
       </div>
       <div className="flex flex-col sm:flex-row items-center">
-        <div className="relative max-w-96 sm:w-2/3 p-2 shrink-0 w-full h-96 sm:h-auto sm:self-stretch">
+        <div className="relative max-w-96 sm:w-2/3 p-2 shrink-0 w-full h-96 sm:h-auto sm:self-stretch motion-safe:animate-jump-pulse">
           <Image
             src={getStoragePath("/images/natakurage_choke.png")}
             alt="千本槍みなも"

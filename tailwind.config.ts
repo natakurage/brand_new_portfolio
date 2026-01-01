@@ -19,11 +19,32 @@ module.exports = {
         "blur-out": {
           "0%": { filter: "blur(20px)" },
           "100%": { filter: "blur(0)" }
+        },
+        "float": {
+          "0%, 100%": {
+            transform: "translateY(0)",
+          },
+          "50%": {
+            transform: "translateY(-5px)",
+          }
+        },
+        "jump-pulse": {
+          "0%, 90%, 100%": {
+            transform: "scale(1)",
+          },
+          "93%": {
+            transform: "scale(1.05, 0.95)",
+          },
+          "96%": {
+            transform: "scale(0.95, 1.05)",
+          }
         }
       },
       animation: {
         "back-blur-in": "back-blur-in 2s ease-out 1s forwards",
-        "blur-out": "blur-out 2s ease-out forwards"
+        "blur-out": "blur-out 2s ease-out forwards",
+        "float": "float 3s ease-in-out infinite",
+        "jump-pulse": "jump-pulse 3s ease-in-out infinite",
       },
     },
   },
