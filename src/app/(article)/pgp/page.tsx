@@ -104,13 +104,11 @@ export default async function PGPPage() {
         </div>
       </div>
       <p><Link href={keyPath}>公開鍵のダウンロード（WKD）</Link></p>
-      {/* @ts-expect-error Server Component */}
       <KeyTable pgpkey={publickey} />
       {
         publickey.getSubkeys().map((key) => {
           return (
             <div key={key.getKeyID().toHex()}>
-              {/* @ts-expect-error Server Component */}
               <KeyTable pgpkey={key} isSubKey />
             </div>
           );

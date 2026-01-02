@@ -5,12 +5,26 @@ const nextConfig = {
     remotePatterns: [
       { protocol: 'https', hostname: 'img.youtube.com' },
       { protocol: 'https', hostname: 'storage.natakurage.cc' }
-    ]
+    ],
+    qualities: [75, 100]
   },
   env: {
     NEXT_PUBLIC_STORAGE_BASE_PATH: 'https://storage.natakurage.cc/'
   },
   transpilePackages: ['three'],
+  turbopack: {
+    rules: {
+      "*.svg": {
+        loaders: [
+          {
+            loader: "@svgr/webpack",
+            options: { icon: true }
+          }
+        ],
+        as: "*.js"
+      }
+    }
+  },
   webpack: (config) => {
     const fileLoaderRule = config.module.rules.find((rule) =>
       rule.test?.test?.('.svg'),

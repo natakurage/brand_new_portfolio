@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type sound = "sine" | "square" | "sawtooth" | "triangle"
 const maxInterval = 2000;
@@ -10,13 +10,15 @@ export default function COSMain() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [sound, setSound] = useState<sound>("sine");
   
-  const ctx = useRef<AudioContext>();
-  const osc = useRef<OscillatorNode>();
-  const timerId = useRef<NodeJS.Timeout>();
+  const ctx = useRef<AudioContext>(undefined);
+  const osc = useRef<OscillatorNode>(undefined);
+  const timerId = useRef<NodeJS.Timeout>(undefined);
 
-  if (typeof window !== "undefined" && !ctx.current) {
-    ctx.current = new AudioContext();
-  }
+  useEffect(() => {
+    if (!ctx.current) {
+      ctx.current = new AudioContext();
+    }
+  }, []);
 
   const play = () => {
     if (!isPlaying && ctx.current != null) {
@@ -48,13 +50,21 @@ export default function COSMain() {
     }
   };
 
+  const getRandomTime = () => {
+    return Math.random() * maxInterval;
+  };
+
   const RepeatChangeFreq = () => {
-    const time = Math.random() * maxInterval;
+    const time = getRandomTime();
     timerId.current = setTimeout(() => {
       changeFreq(maxFreq);
       RepeatChangeFreq();
     }, time);
   };
+
+  useEffect(() => {
+    return () => clearTimeout(timerId.current);
+  }, []);
 
   return (
     <div className="max-w-lg mx-auto text-center">

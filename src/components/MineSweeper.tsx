@@ -1,15 +1,19 @@
 "use client";
 
-import { useState, useEffect, useCallback, Dispatch, SetStateAction } from "react";
+import { useState, useCallback, Dispatch, SetStateAction } from "react";
 
 function Game(
-  { playing, setPlaying, numMines, width, height }
+  { setPlaying, numMines, width, height }
   :
-  { playing: boolean; setPlaying: Dispatch<SetStateAction<boolean>>; numMines: number; width: number; height: number }) {
+  { setPlaying: Dispatch<SetStateAction<boolean>>; numMines: number; width: number; height: number }) {
   const [firstClicked, setFirstClicked] = useState(false);
   const [isMine, setIsMine] = useState<boolean[]>([]);
-  const [flagged, setFlagged] = useState<boolean[]>([]);
-  const [opened, setOpened] = useState<boolean[]>([]);
+  const [flagged, setFlagged] = useState<boolean[]>(
+    new Array(width * height).fill(false)
+  );
+  const [opened, setOpened] = useState<boolean[]>(
+    new Array(width * height).fill(false)
+  );
 
   const idx = (i: number, j: number) => i * width + j;
   const sub = (index: number) => [Math.floor(index / width), index % width];
@@ -34,10 +38,6 @@ function Game(
     setOpened(new Array(width * height).fill(false));
     setFirstClicked(false);
   }, [height, width]);
-
-  const start = useCallback(() => {
-    reset();
-  }, [reset]);
 
   const flag = (index: number) => {
     const newFlagged = [...flagged];
@@ -94,12 +94,6 @@ function Game(
     return neighbors(index).filter((n) => isMine[n]).length;
   };
 
-  useEffect(() => {
-    if (playing) {
-      start();
-    }
-  }, [playing, start]);
-
   return (
     <>
       <div className="grid gap-1 w-full auto-rows-fr" style={{
@@ -137,7 +131,7 @@ function Game(
         </button>
         <button
           className="btn btn-secondary join-item"
-          onClick={() => setPlaying(!playing)}
+          onClick={() => setPlaying(false)}
         >
           Back to Menu
         </button>
@@ -180,7 +174,7 @@ export function MineSweeper() {
     <div className="not-prose">
     {
       playing ? (
-        <Game playing setPlaying={setPlaying} numMines={numMines} width={width} height={height} />
+        <Game setPlaying={setPlaying} numMines={numMines} width={width} height={height} />
       ) : (
         <fieldset className="fieldset mx-auto w-1/2 bg-base-200 border border-base-300 p-4 rounded-box">
           <legend className="fieldset-legend">Page details</legend>

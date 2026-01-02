@@ -162,22 +162,7 @@ const SingleBoid = ({boid, width, depth, height}: BoidProps) => {
   );
 };
 const Boids = ({sep, ali, coh, freeze = false, width, depth, height}: BoidsProps) => {
-  const [boids, setBoids] = useState<Boid[]>([]);
-  const [created, setCreated] = useState<boolean>(false);
-
-  useFrame(() => {
-    if (!freeze) {
-      const boidsTemp = [...boids];
-      boidsTemp.map((boid) => {
-        boid.change_accel(boidsTemp, sep, ali, coh, maxVel, width, depth, height);
-        boid.move();
-      });
-      setBoids(boidsTemp);
-    }
-  });
-
-  useEffect(() => {
-    if (created) return;
+  const [boids, setBoids] = useState<Boid[]>(() => {
     const boidsTemp: Boid[] = [];
     for (let i = 0; i < numBoids; i++) {
       const pos = new Vector3(
@@ -192,9 +177,19 @@ const Boids = ({sep, ali, coh, freeze = false, width, depth, height}: BoidsProps
       );
       boidsTemp.push(new Boid(pos, vel, power, range));
     }
-    setBoids(boidsTemp);
-    setCreated(true);
-  }, [created, width, depth, height, boids]);
+    return boidsTemp;
+  });
+
+  useFrame(() => {
+    if (!freeze) {
+      const boidsTemp = [...boids];
+      boidsTemp.map((boid) => {
+        boid.change_accel(boidsTemp, sep, ali, coh, maxVel, width, depth, height);
+        boid.move();
+      });
+      setBoids(boidsTemp);
+    }
+  });
 
   return (
     <>
@@ -216,50 +211,22 @@ const Boids = ({sep, ali, coh, freeze = false, width, depth, height}: BoidsProps
 
 export const SketchComponent = () => {
   const gltfCanvasParentRef = useRef<HTMLDivElement>(null);
-  const [separation, setSeparation] = useState(1);
-  const [alignment, setAlignment] = useState(1);
-  const [cohesion, setCohesion] = useState(1);
   const [freeze, setFreeze] = useState(false);
   const pathname = usePathname();
 
-  useEffect(() => {
-    if (pathname == "/about") {
-      setSeparation(0);
-      setAlignment(0);
-      setCohesion(0);
-    }
-    else if (pathname == "/works") {
-      setSeparation(3);
-      setAlignment(10);
-      setCohesion(2);
-    }
-    else if (pathname == "/policy") {
-      setSeparation(1);
-      setAlignment(0);
-      setCohesion(50);
-    }
-    else if (pathname == "/contact") {
-      setSeparation(1);
-      setAlignment(0);
-      setCohesion(0);
-    }
-    else if (pathname == "/secret") {
-      setSeparation(1);
-      setAlignment(5);
-      setCohesion(0);
-    }
-    else {
-      setSeparation(6);
-      setAlignment(1);
-      setCohesion(2);
-    }
-  }, [pathname]);
+  const paramsMap = new Map<string, [number, number, number]>([
+    ["about", [0, 0, 0]],
+    ["works", [3, 10, 2]],
+    ["policy", [1, 0, 50]],
+    ["contact", [1, 0, 0]],
+    ["secret", [1, 5, 0]],
+  ]);
 
-  useEffect(() => {
-    if (navigator.userAgent.match(/iPhone|Android.+Mobile/)) {
-      setFreeze(true);
-    }
-  }, [setFreeze]);
+  const [separation, alignment, cohesion] = paramsMap.get(pathname.slice(1)) || [6, 1, 2];
+
+  if (navigator.userAgent.match(/iPhone|Android.+Mobile/)) {
+    setFreeze(true);
+  }
 
   return (
     <div

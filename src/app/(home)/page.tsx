@@ -25,7 +25,7 @@ export default function Home() {
             alt="Natakurage Key Visual"
             quality={100}
             fill
-            priority
+            preload
             className="object-cover object-[50%_50%] mask-gradient"
           />
           <noscript>
@@ -34,7 +34,7 @@ export default function Home() {
               alt="Natakurage Key Visual"
               quality={100}
               fill
-              priority
+              preload
               className="object-cover object-[50%_50%] mask-gradient"
             />
           </noscript>
