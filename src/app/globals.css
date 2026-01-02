@@ -1,17 +1,60 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
-:root {
-  @apply font-serif;
-}
+@plugin "@tailwindcss/typography";
 
-::selection {
-  @apply bg-[#ed5126] text-slate-900;
+@plugin "daisyui";
+@plugin "daisyui/theme" {
+  name: "dark";
+  default: true;
+  prefersdark: true;
+  color-scheme: "dark";
+  --color-primary: #ED5126;
+  --color-secondary: #382E38;
+  --color-accent: #02DEE5;
+  --color-neutral: #1A3752;
+  --color-base-100: #0F1A29;
+};
+
+@layer utilities {
+  :root {
+    @apply font-serif;
+  }
+
+  ::selection {
+    @apply bg-[#ed5126] text-slate-900;
+  }
 }
 
 @layer components {
     .mask-gradient {
         mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 70%);
     }
+}
+
+@theme {
+  --animate-back-blur-in: back-blur-in 2s ease-out 1s forwards;
+  --animate-blur-out: blur-out 2s ease-out forwards;
+  --animate-float: float 3s ease-in-out infinite;
+  --animate-jump-pulse: jump-pulse 3s ease-in-out infinite;
+
+  @keyframes back-blur-in {
+    0% { backdrop-filter: blur(0); }
+    100% { backdrop-filter: blur(2px); }
+  }
+
+  @keyframes blur-out {
+    0% { filter: blur(20px); }
+    100% { filter: blur(0); }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+  }
+
+  @keyframes jump-pulse {
+    0%, 90%, 100% { transform: scale(1); }
+    93% { transform: scale(1.05, 0.95); }
+    96% { transform: scale(0.95, 1.05); }
+  }
 }

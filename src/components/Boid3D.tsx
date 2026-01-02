@@ -231,7 +231,7 @@ export const SketchComponent = () => {
   return (
     <div
       ref={gltfCanvasParentRef}
-      className="w-lvw h-lvh fixed z-[-1000] bg-gradient-to-b via-30% from-cyan-700 via-[#1A3752] to-[#020C15]"
+      className="w-lvw h-lvh fixed z-[-1000] bg-linear-to-b via-30% from-cyan-700 via-[#1A3752] to-[#020C15]"
     >
       <Canvas
         frameloop="always"
