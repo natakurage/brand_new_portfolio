@@ -67,7 +67,7 @@ export default function MessageForm() {
             value={name}
             onChange={(e) => setName(e.target.value)}
             required
-            className="input input-bordered"
+            className="input input-bordered w-full"
           />
         </label>
         <label className="form-control w-full">
@@ -80,7 +80,7 @@ export default function MessageForm() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
-            className="input input-bordered"
+            className="input input-bordered w-full"
           />
         </label>
         <label className="form-control w-full">
@@ -93,7 +93,7 @@ export default function MessageForm() {
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             required
-            className="input input-bordered"
+            className="input input-bordered w-full"
           />
         </label>
         <label className="form-control w-full">
@@ -106,7 +106,7 @@ export default function MessageForm() {
             onChange={(e) => setContent(e.target.value)}
             rows={11}
             required
-            className="textarea"
+            className="textarea w-full"
           />
         </label>
         <div>
