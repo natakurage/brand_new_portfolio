@@ -58,48 +58,41 @@ export default function MessageForm() {
         className="space-y-3"
         onSubmit={onSubmit}
       >
-        <label className="form-control w-full">
-          <div className="label">
-            <div className="label-text">お名前</div>
-          </div>
+        <fieldset className="fieldset w-full">
+          <label htmlFor="form-name" className="label">お名前</label>
           <input
+            id="form-name"
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
             required
-            className="input input-bordered w-full"
+            className="input w-full"
           />
-        </label>
-        <label className="form-control w-full">
-          <div className="label">
-            <div className="label-text">メールアドレス</div>
-          </div>
+        </fieldset>
+        <fieldset className="fieldset w-full">
+          <label htmlFor="form-email" className="label">メールアドレス</label>
           <input
             id="form-email"
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
-            className="input input-bordered w-full"
+            className="input w-full"
           />
-        </label>
-        <label className="form-control w-full">
-          <div className="label">
-            <div className="label-text">件名</div>
-          </div>
+        </fieldset>
+        <fieldset className="fieldset w-full">
+          <label htmlFor="form-title" className="label">件名</label>
           <input
             id="form-title"
             type="text"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             required
-            className="input input-bordered w-full"
+            className="input w-full"
           />
-        </label>
-        <label className="form-control w-full">
-          <div className="label">
-            <div className="label-text">内容</div>
-          </div>
+        </fieldset>
+        <fieldset className="fieldset w-full">
+          <label htmlFor="form-content" className="label">内容</label>
           <textarea
             id="form-content"
             value={content}
@@ -108,7 +101,7 @@ export default function MessageForm() {
             required
             className="textarea w-full"
           />
-        </label>
+        </fieldset>
         <div>
           <input type="submit" className="btn" />
         </div>

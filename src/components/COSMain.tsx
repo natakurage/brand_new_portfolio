@@ -71,27 +71,26 @@ export default function COSMain() {
       <button className="btn btn-primary" onClick={play}>
         完全にオリジナルな音楽を{ isPlaying ? "停止": "再生" }
       </button>
-      <label className="form-control w-full">
-      <div className="label">
-        <span className="label-text">音色を変更：</span>
-      </div>
-      <select
-        value={sound}
-        onChange={(e) => handleSelect(e)}
-        className="select select-bordered"
-      >
-        {
-          ["sine", "square", "sawtooth", "triangle"].map((sound) => (
-            <option
-              key={sound}
-              value={sound}
-            >
-              { sound }
-            </option>
-          ))
-        }
-      </select>
-      </label>
+      <fieldset className="fieldset">
+        <label htmlFor="form-sound" className="label">音色を変更：</label>
+        <select
+          id="form-sound"
+          value={sound}
+          onChange={(e) => handleSelect(e)}
+          className="select w-full"
+        >
+          {
+            ["sine", "square", "sawtooth", "triangle"].map((sound) => (
+              <option
+                key={sound}
+                value={sound}
+              >
+                { sound }
+              </option>
+            ))
+          }
+        </select>
+      </fieldset>
     </div>
   );
 }

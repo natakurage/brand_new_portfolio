@@ -33,24 +33,22 @@ export function TwitterSearch() {
         go(word, tab);
       }}
     >
-      <label className="form-control">
-        <div className="label">
-          <div className="label-text">検索ワード</div>
-        </div>
+      <fieldset className="fieldset">
+        <label htmlFor="form-word" className="label">検索ワード</label>
         <input
+          id="form-word"
           type="text"
           value={word}
           onChange={(e) => setWord(e.target.value)}
           required
-          className="input input-bordered"
+          className="input w-full"
         />
-      </label>
-      <label className="form-control">
-        <div className="label">
-          <div className="label-text">タブ</div>
-        </div>
+      </fieldset>
+      <fieldset className="fieldset">
+        <label htmlFor="form-tab" className="label">タブ</label>
         <select
-          className="select select-bordered"
+          id="form-tab"
+          className="select w-full"
           value={tab}
           onChange={(e) => setTab(e.target.value as TabName)}
         >
@@ -60,33 +58,31 @@ export function TwitterSearch() {
           <option value="media">メディア</option>
           <option value="list">リスト</option>
         </select>
-      </label>
+      </fieldset>
       <div className="collapse collapse-arrow">
-        <input type="checkbox" />
+        <input type="checkbox" id="form-advanced-search" />
         <div className="collapse-title text-xl">高度な検索</div>
         <div className="collapse-content px-0">
-          <label className="form-control">
-            <div className="label">
-              <div className="label-text">この日以降</div>
-            </div>
+          <fieldset className="fieldset">
+            <label htmlFor="form-since" className="label">この日以降</label>
             <input
+              id="form-since"
               type="date"
               value={since}
               onChange={(e) => setSince(e.target.value)}
-              className="input input-bordered"
+              className="input w-full"
             />
-          </label>
-          <label className="form-control">
-            <div className="label">
-              <div className="label-text">この日以前</div>
-            </div>
+          </fieldset>
+          <fieldset className="fieldset">
+            <label htmlFor="form-until" className="label">この日以前</label>
             <input
+              id="form-until"
               type="date"
               value={until}
               onChange={(e) => setUntil(e.target.value)}
-              className="input input-bordered"
+              className="input w-full"
             />
-          </label>
+          </fieldset>
         </div>
       </div>
       <div className="flex flex-row">
