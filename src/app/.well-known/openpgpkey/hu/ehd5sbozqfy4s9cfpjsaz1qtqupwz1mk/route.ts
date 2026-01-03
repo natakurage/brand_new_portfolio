@@ -1,5 +1,12 @@
 import misc from "../../../../../data/misc.json";
 
-export function GET() {
-  return fetch(misc.pgpKeyUrl);
+export async function GET() {
+  const res = await fetch(misc.pgpKeyUrl, 
+    {
+      cache: "force-cache",
+      next: { revalidate: 3600 }
+    }
+  );
+  const data = await res.json();
+  return Response.json(data);
 };

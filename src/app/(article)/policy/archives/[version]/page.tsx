@@ -1,5 +1,7 @@
 import License from '@/components/License';
 import Link from 'next/link';
+import fs from 'fs';
+import path from 'path';
 
 export async function generateMetadata(props: { params: Promise<{ version: string }>}) {
   const params = await props.params;
@@ -7,6 +9,20 @@ export async function generateMetadata(props: { params: Promise<{ version: strin
     title: `ナタクラゲライセンス v${params.version} | ナタクラゲ / 千本槍みなも`,
     description: "ナタクラゲライセンスのアーカイブページ"
   };
+}
+
+export async function generateStaticParams() {
+   const dirPath = path.join(process.cwd(), "markdowns", "licenses");
+    const mdFiles = [] as string[];
+    try {
+      const files = fs.readdirSync(dirPath);
+      mdFiles.push(...files.map(e => path.basename(e, path.extname(e))));
+    } catch (error) {
+      console.log(error);
+    }
+  return mdFiles.map((version: string) => {
+    return { version };
+  });
 }
 
 export default async function LicenseOfVersion(props: { params: Promise<{ version: string }>}) {
