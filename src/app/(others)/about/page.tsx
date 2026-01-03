@@ -85,7 +85,7 @@ export default function AboutPage() {
         <span className="inline-block">越えろ。</span>
       </div>
       <div className="flex flex-col sm:flex-row-reverse items-center">
-        <div className="max-w-64 sm:w-1/3 p-2 shrink-0 motion-safe:animate-float">
+        <div className="max-w-64 w-full sm:w-1/3 p-2 shrink-0 motion-safe:animate-float">
           <NTK
             className="w-full h-full"
             filter="drop-shadow(0 0 24px maroon)"
