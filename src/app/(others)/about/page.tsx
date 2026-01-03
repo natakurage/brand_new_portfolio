@@ -96,7 +96,7 @@ export default function AboutPage() {
           <div className="text-sm">作曲 / ギター / 小説 / プログラマー / 3DCGアーティスト / 「千本槍みなも」運営 / Reproducible Freedom主宰</div>
         </div>
       </div>
-      <p className="prose dark:!prose-invert mx-auto">
+      <p className="prose dark:prose-invert! mx-auto">
         2011年頃、某社のゲーム機を手にし、初めて自由にインターネットを使えるようになる。
         2018年に今につながるインターネット活動を開始。
         紆余曲折を経て、2023年に現在のYouTubeチャンネルを開設。
@@ -148,7 +148,7 @@ export default function AboutPage() {
           </table>
         </div>
       </div>
-      <div className="prose dark:!prose-invert mx-auto">
+      <div className="prose dark:prose-invert! mx-auto">
         <p>
           人類を抹殺するために海底2000mからやってきたクラゲ型の死神。
           その触手で人間を絡め取り、金切り声をあげながら薙刀を突き刺して命を奪う。
