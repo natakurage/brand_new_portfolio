@@ -211,7 +211,6 @@ const Boids = ({sep, ali, coh, freeze = false, width, depth, height}: BoidsProps
 
 export const SketchComponent = () => {
   const gltfCanvasParentRef = useRef<HTMLDivElement>(null);
-  const [freeze, setFreeze] = useState(false);
   const pathname = usePathname();
 
   const paramsMap = new Map<string, [number, number, number]>([
@@ -224,9 +223,7 @@ export const SketchComponent = () => {
 
   const [separation, alignment, cohesion] = paramsMap.get(pathname.slice(1)) || [6, 1, 2];
 
-  if (navigator.userAgent.match(/iPhone|Android.+Mobile/)) {
-    setFreeze(true);
-  }
+  const freeze = Boolean(navigator.userAgent.match(/iPhone|Android.+Mobile/));
 
   return (
     <div
