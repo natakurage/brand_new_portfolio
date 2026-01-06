@@ -7,13 +7,20 @@ export async function send_message({
   senderName,
   senderEmail,
   subject,
-  message
+  message,
+  formData
 }: {
   senderName: string,
   senderEmail: string,
   subject: string,
   message: string,
+  formData: FormData
 }) {
+  const validation = await verify_turnstile(formData);
+  if (!validation.success) {
+    return { success: false, message: "Turnstile validation failed." };
+  }
+
   const user = process.env.CONTACT_EMAIL_SMTP_USER;
   const pass = process.env.CONTACT_EMAIL_SMTP_PASS;
   const host = process.env.CONTACT_EMAIL_SMTP_HOST;

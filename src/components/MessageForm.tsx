@@ -33,16 +33,12 @@ export default function MessageForm() {
   const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
-    const validation = await verify_turnstile(formData);
-    if (!validation.success) {
-      showModal("Turnstile検証に失敗しました。", 5000, "alert-error");
-      return;
-    }
     const result = await send_message({
       senderName: name,
       senderEmail: email,
       subject: title,
-      message: content
+      message: content,
+      formData: formData
     });
     if (!result.success) {
       showModal(`送信に失敗しました。エラー: ${result.message}`, 5000, "alert-error");
