@@ -31,21 +31,22 @@ export default function MessageForm() {
   const onSubmit = async (event: BaseSyntheticEvent) => {
     event.preventDefault();
     try {
-      await fetch("https://docs.google.com/forms/d/e/1FAIpQLSe2kcQ3DWJSoYURIS9ARTUhymadXiJoNimGJQ7jGyCyGu76gQ/formResponse", {
+      const response = await fetch("/api/message", {
         method: 'POST',
-        mode: 'no-cors',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded'
-        },
-        body: new URLSearchParams({
-          "entry.98194133": name,
-          "emailAddress": email,
-          "entry.823789016": title,
-          "entry.1870725190": content
+        body: JSON.stringify({
+          "senderName": name,
+          "senderEmail": email,
+          "subject": title,
+          "message": content
         })
       });
+      if (!response.ok) {
+        showModal(`送信に失敗しました。ステータスコード: ${response.status}`, 5000, "alert-error");
+        return;
+      }
     } catch {
-      showModal("送信に失敗しました。", 5000, "alert-error");
+      showModal("通信に失敗しました。", 5000, "alert-error");
+      return;
     }
     showModal("送信しました。", 5000, "alert-success");
     resetForm();
