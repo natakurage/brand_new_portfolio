@@ -1,6 +1,7 @@
 "use client";
 
 import { BaseSyntheticEvent, useState } from 'react';
+import { send_message } from '@/app/lib/actions';
 
 export default function MessageForm() {
   const [name, setName] = useState<string>("");
@@ -30,22 +31,14 @@ export default function MessageForm() {
 
   const onSubmit = async (event: BaseSyntheticEvent) => {
     event.preventDefault();
-    try {
-      const response = await fetch("/api/message", {
-        method: 'POST',
-        body: JSON.stringify({
-          "senderName": name,
-          "senderEmail": email,
-          "subject": title,
-          "message": content
-        })
-      });
-      if (!response.ok) {
-        showModal(`送信に失敗しました。ステータスコード: ${response.status}`, 5000, "alert-error");
-        return;
-      }
-    } catch {
-      showModal("通信に失敗しました。", 5000, "alert-error");
+    const result = await send_message({
+      senderName: name,
+      senderEmail: email,
+      subject: title,
+      message: content
+    });
+    if (!result.success) {
+      showModal(`送信に失敗しました。エラー: ${result.message}`, 5000, "alert-error");
       return;
     }
     showModal("送信しました。", 5000, "alert-success");

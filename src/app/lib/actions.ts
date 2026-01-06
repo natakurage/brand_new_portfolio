@@ -1,7 +1,18 @@
+"use server";
+
 import { createTransport } from "nodemailer";
 
-export async function POST(request: Request) {
-  const { senderName, senderEmail, subject, message } = await request.json();
+export async function send_message({
+  senderName,
+  senderEmail,
+  subject,
+  message
+}: {
+  senderName: string,
+  senderEmail: string,
+  subject: string,
+  message: string,
+}) {
   const user = process.env.CONTACT_EMAIL_SMTP_USER;
   const pass = process.env.CONTACT_EMAIL_SMTP_PASS;
   const host = process.env.CONTACT_EMAIL_SMTP_HOST;
@@ -11,7 +22,7 @@ export async function POST(request: Request) {
   const toUser = process.env.CONTACT_EMAIL_TO_USER;
 
   if (!host || !port || !secure || !user || !pass || !fromUser || !toUser) {
-    return Response.json("SMTP configuration is missing.", { status: 500 });
+    return { success: false, message: "SMTP configuration is missing." };
   }
 
   const transporter = createTransport({
@@ -44,8 +55,8 @@ export async function POST(request: Request) {
       transporter.sendMail(toSenderEmailOptions),
     ]);
   } catch (error) {
-    return Response.json(`Failed to send message: ${error}`, { status: 500 });
+    return { success: false, message: `Failed to send message: ${error}` };
   }
 
-  return Response.json(`Message sent successfully.`, { status: 200 });
+  return { success: true, message: `Message sent successfully.` };
 }
