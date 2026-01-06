@@ -2,7 +2,15 @@
 
 import { useState } from 'react';
 import Script from 'next/script';
-import { send_message, verify_turnstile } from '@/app/lib/actions';
+import { send_message } from '@/app/lib/actions';
+
+declare global {
+  interface Window {
+    turnstile: {
+      reset: () => void;
+    };
+  }
+}
 
 export default function MessageForm() {
   const [name, setName] = useState<string>("");
@@ -28,6 +36,7 @@ export default function MessageForm() {
     setEmail("");
     setTitle("");
     setContent("");
+    window.turnstile.reset();
   };
 
   const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {

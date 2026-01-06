@@ -54,7 +54,7 @@ export async function send_message({
     from: fromUser,
     to: senderEmail,
     subject: "【自動返信】お問い合わせありがとうございます",
-    text: `${senderName} 様\n\nこの度はお問い合わせいただき、誠にありがとうございます。\n以下の内容でお問い合わせを受け付けました。\n\n件名: ${subject}\nメッセージ: ${message}\n\n内容を確認後、折り返しご連絡いたしますので、今しばらくお待ちください。\n\nよろしくお願いいたします。\n\n※本メールは自動送信されています。`,
+    text: `${senderName} 様\n\nこの度はお問い合わせいただき、誠にありがとうございます。\n以下の内容でお問い合わせを受け付けました。\n\n件名: ${subject}\nメッセージ: ${message}\n\n内容を確認後、折り返しご連絡いたしますので、今しばらくお待ちください。\n\nよろしくお願いいたします。\n\n※本メールは自動送信されています。\n\nナタクラゲ / 千本槍みなも (natakurage.cc)`,
   };
 
   try {
