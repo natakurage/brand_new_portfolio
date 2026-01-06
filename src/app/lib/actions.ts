@@ -1,5 +1,6 @@
 "use server";
 
+import { headers } from "next/headers";
 import { createTransport } from "nodemailer";
 
 export async function send_message({
@@ -59,4 +60,42 @@ export async function send_message({
   }
 
   return { success: true, message: `Message sent successfully.` };
+}
+
+async function validateTurnstile(token: string, remoteIp: string) {
+  const secret = process.env.CF_TURNSTILE_SECRET_KEY;
+  if (!secret) {
+    return false;
+  }
+  const formData = new URLSearchParams();
+  formData.append("secret", secret);
+  formData.append("response", token);
+  formData.append("remoteip", remoteIp);
+  try {
+    const response = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
+      method: "POST",
+      body: formData
+    });
+    const result = await response.json();
+    return result;
+  } catch {
+    console.error("Failed to verify Turnstile token.");
+    return false;
+  }
+}
+
+export async function verify_turnstile(formData: FormData) {
+  const reqHeaders = await headers();
+  const cfTurnstileToken = formData.get("cf-turnstile-response");
+  if (!cfTurnstileToken || typeof cfTurnstileToken !== "string") {
+    return { success: false, message: "No Turnstile token provided." };
+  }
+  const clientIp = reqHeaders.get("CF-Connecting-IP") || reqHeaders.get("x-forwarded-for") || "";
+  console.log("Verifying Turnstile token:", cfTurnstileToken, "from IP:", clientIp);
+  const validation = await validateTurnstile(cfTurnstileToken || "", clientIp);
+  if (validation && validation.success) {
+    return { success: true };
+  } else {
+    return { success: false, message: "Turnstile validation failed." };
+  }
 }

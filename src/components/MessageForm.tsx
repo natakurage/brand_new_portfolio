@@ -1,7 +1,8 @@
 "use client";
 
-import { BaseSyntheticEvent, useState } from 'react';
-import { send_message } from '@/app/lib/actions';
+import { useState } from 'react';
+import Script from 'next/script';
+import { send_message, verify_turnstile } from '@/app/lib/actions';
 
 export default function MessageForm() {
   const [name, setName] = useState<string>("");
@@ -29,8 +30,14 @@ export default function MessageForm() {
     setContent("");
   };
 
-  const onSubmit = async (event: BaseSyntheticEvent) => {
+  const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    const formData = new FormData(event.currentTarget);
+    const validation = await verify_turnstile(formData);
+    if (!validation.success) {
+      showModal("Turnstile検証に失敗しました。", 5000, "alert-error");
+      return;
+    }
     const result = await send_message({
       senderName: name,
       senderEmail: email,
@@ -52,6 +59,11 @@ export default function MessageForm() {
         className="space-y-3"
         onSubmit={onSubmit}
       >
+        <Script
+          src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+          async
+          defer
+        ></Script>
         <fieldset className="fieldset w-full">
           <label htmlFor="form-name" className="label">お名前</label>
           <input
@@ -96,6 +108,11 @@ export default function MessageForm() {
             className="textarea w-full"
           />
         </fieldset>
+        <div
+          suppressHydrationWarning
+          className="cf-turnstile"
+          data-sitekey={process.env.NEXT_PUBLIC_CF_TURNSTILE_SITE_KEY}
+        />
         <div>
           <input type="submit" className="btn" />
         </div>
