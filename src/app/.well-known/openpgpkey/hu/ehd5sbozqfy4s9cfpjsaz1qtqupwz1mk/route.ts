@@ -7,6 +7,10 @@ export async function GET() {
       next: { revalidate: 3600 }
     }
   );
-  const data = await res.json();
-  return Response.json(data);
+  const data = await res.arrayBuffer();
+  return new Response(data, {
+    headers: {
+      'Content-Type': 'application/pgp-keys',
+    },
+  });
 };
