@@ -20,8 +20,8 @@ export default function Home() {
       <div className="relative">
         <div className="h-screen absolute top-0 left-0 w-full z-[-1]">
           <TopImage
-            hsrc={getStoragePath("/images/posters/poster4_h_new.png")}
-            vsrc={getStoragePath("/images/posters/poster4_v_new.png")}
+            hsrc={getStoragePath("/images/posters/poster4_h_new_2.png")}
+            vsrc={getStoragePath("/images/posters/poster4_v_new_2.png")}
             alt="Natakurage Key Visual"
             quality={100}
             fill
@@ -30,7 +30,7 @@ export default function Home() {
           />
           <noscript>
             <Image
-              src={getStoragePath("/images/posters/poster4_h_new.png")}
+              src={getStoragePath("/images/posters/poster4_h_new_2.png")}
               alt="Natakurage Key Visual"
               quality={100}
               fill

@@ -125,7 +125,7 @@ export default function AboutPage() {
       <div className="flex flex-col sm:flex-row items-center">
         <div className="relative max-w-96 sm:w-2/3 p-2 shrink-0 w-full h-96 sm:h-auto sm:self-stretch motion-safe:animate-jump-pulse">
           <Image
-            src={getStoragePath("/images/natakurage_choke.png")}
+            src={getStoragePath("/images/natakurage_choke_2.png")}
             alt="千本槍みなも"
             fill
             priority
@@ -190,18 +190,18 @@ export default function AboutPage() {
       </div>
       <div className="relative w-full mask mask-squircle">
         <VRMCanvas
-          vrmFilename={getStoragePath("/3D/vrm/ナタクラゲ4.vrm")}
-          imgFilename={getStoragePath("/images/new_avatar.png")}
+          vrmFilename={getStoragePath("/3D/vrm/ナタクラゲ4.1.vrm")}
+          imgFilename={getStoragePath("/images/new_avatar_2.png")}
         />
       </div>
       <Link
-        href={getStoragePath("/3D/vrm/ナタクラゲ4.vrm")}
+        href={getStoragePath("/3D/vrm/ナタクラゲ4.1.vrm")}
         className="btn btn-primary my-5"
       >
         Download VRM
       </Link>
       <p>
-        ナタクラゲによる &quot;ナタクラゲ4.vrm&quot; © 2025 は、CC BY-SA 4.0のライセンス下に提供されています。
+        ナタクラゲによる &quot;ナタクラゲ4.1.vrm&quot; © 2025 は、CC BY-SA 4.0のライセンス下に提供されています。
         <Link
           href="https://creativecommons.org/licenses/by-sa/4.0/"
         >

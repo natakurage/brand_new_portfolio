@@ -21,15 +21,15 @@
     "title": "Posters and Banners",
     "items": [
       {
-        "src": "/images/posters/poster5.png",
+        "src": "/images/posters/poster5_2.png",
         "title": "ポスター5"
       },
       {
-        "src": "/images/posters/poster4_h_new.png",
+        "src": "/images/posters/poster4_h_new_2.png",
         "title": "ポスター4"
       },
       {
-        "src": "/images/posters/poster4_v_new.png",
+        "src": "/images/posters/poster4_v_new_2.png",
         "title": "ポスター4（縦）"
       },
       {
@@ -70,7 +70,7 @@
     "title": "Others",
     "items": [
       {
-        "src": "/images/new_avatar.png",
+        "src": "/images/new_avatar_2.png",
         "title": "千本槍みなも バージョン4"
       },
       {
