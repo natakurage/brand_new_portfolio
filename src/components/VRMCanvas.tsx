@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { Canvas, useFrame, Vector3 } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
-import { GLTFLoader, GLTF } from "three/examples/jsm/loaders/GLTFLoader";
+import { GLTFLoader, GLTF } from "three/addons/loaders/GLTFLoader.js";
 import { VRMLoaderPlugin } from "@pixiv/three-vrm";
 
 import useWindowSize from "hooks/useWindowSize";
