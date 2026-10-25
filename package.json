@@ -15,7 +15,7 @@
     "@tailwindcss/postcss": "^4.1.18",
     "gray-matter": "^4.0.3",
     "next": "16.1.1",
-    "nodemailer": "^7.0.12",
+    "nodemailer": "^10.1.4",
     "openpgp": "^6.1.0",
     "postcss": "^8.4.47",
     "react": "19.2.3",
